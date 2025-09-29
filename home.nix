@@ -14,7 +14,8 @@
 		"$appLauncher"		=	"wofi";
 		"$fileManager"		=	"dolphin";
 		"$processViewer"	=	"btop";
-		
+
+		# keyboard binds
 		bind = [
 		
 			# launch apps
@@ -27,11 +28,7 @@
 			# window actions
 			"$mainMod,	Q,	killactive"		
 			"$mainMod,	T,	toggleFloating"	
-			"$mainMOd,	F,	fullscreen"		
-
-			# move/resize windows with left/right click + drag
-			"$mainMod,	mouse:272, movewindow"		# move windows with left mouse button drag 
-			"$mainMod,	mouse:273, resizewindow"	# resize windows with right mouse button drag
+			"$mainMod,	F,	fullscreen"		
 
 			# move focus with mainMod + arrow keys
 			"$mainMod,	LEFT,	movefocus,	l"
@@ -64,6 +61,14 @@
 			"$mainMod SHIFT,	0,	movetoworkspace,	10"
 			 
 		];
+
+		# mouse binds
+		bindm = [
+			# move/resize windows with left/right click + drag
+			"$mainMod,	mouse:272, movewindow"		# move windows with left mouse button drag 
+			"$mainMod,	mouse:273, resizewindow"	# resize windows with right mouse button drag			
+		];
+		
 	};
 	
 	programs.git = {
