@@ -68,6 +68,8 @@
 	programs.fish.enable = true;
 
 	# System Packages	
-	environment.systemPackages = with pkgs; [];
+	environment.systemPackages = with pkgs; [
+		alsa-scarlett-gui
+	];
 	
 }

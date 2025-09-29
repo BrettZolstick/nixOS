@@ -111,6 +111,7 @@
 		man			# provides manuals for commands
 
 		# Additional Apps
-		alsa-scarlet-gui 	
+		#alsa-scarlet-gui 	
+		
 	];
 }
