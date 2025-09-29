@@ -64,27 +64,10 @@
 	services.pipewire.enable = true;
 
 	# Programs
-	programs.firefox.enable = true;
-	programs.hyprland.enable = true;
-	programs.waybar.enable = true;
-	programs.fish.enable = true;
 	programs.steam.enable = true;
+	programs.fish.enable = true;
 
 	# System Packages	
-	environment.systemPackages = with pkgs; [
-		# Base System
-		micro		# minimal text editor (nano if it was actually good lol)
-		kitty 		# terminal emulator
-		fish		# shell
-		git			# version control
-		cifs-utils	# for mounting windows network shares
-		tree		# command line tool to show directory trees
-		mpvpaper	# video wallpapers (images work too)
-		wofi		# app launcher
-
-		# Additional
-		fastfetch 	# iconic command line tool
-				
-	];
+	environment.systemPackages = with pkgs; [];
 	
 }

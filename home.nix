@@ -5,6 +5,66 @@
 	home.homeDirectory = "/home/ethan";
 	home.stateVersion = "25.05";
 
+	wayland.windowManager.hyprland.enable = true;
+	wayland.windowManager.hyprland.settings = {
+
+		"$mainMod"			=	"SUPER";
+		"$terminal"			=	"kitty";
+		"$browser"			=	"firefox";
+		"$appLauncher"		=	"wofi";
+		"$fileManager"		=	"dolphin";
+		"$processViewer"	=	"btop";
+		
+		bind = [
+		
+			# launch apps
+			"$mainMod,	RETURN,	exec,	$terminal"
+			"$mainMod,	SPACE, 	exec,	$appLauncher"
+			"$mainMod,	DEL,	exec,	$processViewer"
+			"$mainMod,	B, 		exec,	$browser"
+			"$mainMod,	E,		exec,	$fileManager"
+			
+			# window actions
+			"$mainMod,	Q,	killactive"		
+			"$mainMod,	T,	toggleFloating"	
+			"$mainMOd,	F,	fullscreen"		
+
+			# move/resize windows with left/right click + drag
+			"$mainMod,	mouse:272, movewindow"		# move windows with left mouse button drag 
+			"$mainMod,	mouse:273, resizewindow"	# resize windows with right mouse button drag
+
+			# move focus with mainMod + arrow keys
+			"$mainMod,	LEFT,	movefocus,	l"
+			"$mainMod,	RIGHT,	movefocus,	r"
+			"$mainMod,	UP,		movefocus,	u"
+			"$mainMod,	DOWN,	movefocus,	d"
+
+			# switch workspace with mainMod + [1-9]
+			"$mainMod,	1,	workspace,	1"
+			"$mainMod,	2,	workspace,	2"
+			"$mainMod,	3,	workspace,	3"
+			"$mainMod,	4,	workspace,	4"
+			"$mainMod,	5,	workspace,	5"
+			"$mainMod,	6,	workspace,	6"
+			"$mainMod,	7,	workspace,	7"
+			"$mainMod,	8,	workspace,	8"
+			"$mainMod,	9,	workspace,	9"
+			"$mainMod,	0,	workspace,	10"
+
+			# move active window to a workspace with mainMod + [0-9]
+			"$mainMod SHIFT,	1,	movetoworkspace,	1"
+			"$mainMod SHIFT,	2,	movetoworkspace,	2"
+			"$mainMod SHIFT,	3,	movetoworkspace,	3"
+			"$mainMod SHIFT,	4,	movetoworkspace,	4"
+			"$mainMod SHIFT,	5,	movetoworkspace,	5"
+			"$mainMod SHIFT,	6,	movetoworkspace,	6"
+			"$mainMod SHIFT,	7,	movetoworkspace,	7"
+			"$mainMod SHIFT,	8,	movetoworkspace,	8"
+			"$mainMod SHIFT,	9,	movetoworkspace,	9"
+			"$mainMod SHIFT,	0,	movetoworkspace,	10"
+			 
+		];
+	};
 	
 	programs.git = {
 		enable = true;
@@ -12,7 +72,21 @@
 		userEmail = "crazyeman83@gmail.com";
 	};
 
+	programs.firefox.enable = true;
+	programs.waybar.enable = true;
+	
 	home.packages = with pkgs; [
-		bat 	# replacement for cat (shows file contents)	
+		# Base System
+		micro 		# minimal text editor (better nano)
+		kitty		# terminal emulator
+		mpvpaper	# can set wallpaper to a video 
+		wofi		# app launcher
+
+		# Command line utilities
+		bat 		# replacement for cat (shows file contents)
+		tree		# like ls but shows entire tree
+		cifs-utils	# for mounting windows network shares
+		man			# provides manuals for commands
+ 	
 	];
 }
