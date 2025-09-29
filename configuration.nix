@@ -2,7 +2,7 @@
 
 {
 	# Imports
-	imports = [ ./hardware-configuration.nix ];
+	imports = [ /etc/nixos/hardware-configuration.nix ];
 
 	# Initial install version
 	system.stateVersion = "25.05";
