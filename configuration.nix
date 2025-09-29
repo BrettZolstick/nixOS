@@ -66,6 +66,7 @@
 	# Programs
 	programs.steam.enable = true;
 	programs.fish.enable = true;
+	programs.hyprland.enable = true;
 
 	# System Packages	
 	environment.systemPackages = with pkgs; [

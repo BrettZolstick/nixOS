@@ -87,7 +87,7 @@
 		];
 		
 	};
-	
+		
 	programs.git = {
 		enable = true;
 		userName = "Ethan";
@@ -111,7 +111,6 @@
 		man			# provides manuals for commands
 
 		# Additional Apps
-		#alsa-scarlet-gui 	
 		
 	];
 }
