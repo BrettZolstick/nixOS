@@ -109,6 +109,8 @@
 		tree		# like ls but shows entire tree
 		cifs-utils	# for mounting windows network shares
 		man			# provides manuals for commands
- 	
+
+		# Additional Apps
+		alsa-scarlet-gui 	
 	];
 }
