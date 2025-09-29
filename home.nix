@@ -68,6 +68,23 @@
 			"$mainMod,	mouse:272, movewindow"		# move windows with left mouse button drag 
 			"$mainMod,	mouse:273, resizewindow"	# resize windows with right mouse button drag			
 		];
+
+
+
+		# monitors and workspaces
+		monitor = [
+			"DP-1,		2560x1440@239.97,	1920x0,	1"
+			"DP-2,		1920x1080@60.00,	6400x0,	1"
+			"DP-3,		1920x1080@60.00,	0x0,	1"
+			"HDMI-A-1,	1920x1080@60.00,	4480x0,	1"
+		];
+
+		workspace = [
+			"1,	monitor:DP-1,		default:true"
+			"2,	monitor:DP-3,		default:true"
+			"3,	monitor:HDMI-A-1,	default:true"
+			"4,	monitor:DP-2,		default:true"
+		];
 		
 	};
 	
