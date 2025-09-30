@@ -25,7 +25,7 @@
 		nixosConfigurations = {
 
 			default = nixpkgs.lib.nixosSystem {
-				system = "x86_64-linux"
+				system = "x86_64-linux";
 				modules = [
 					./hosts/default.nix
 					
@@ -37,7 +37,7 @@
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
 						home-manager.backupFileExtension = "backup";
-						home-manager.users.ethan = import ./home.nix
+						home-manager.users.ethan = import ./home.nix;
 						
 					}
 					
