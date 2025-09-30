@@ -36,16 +36,16 @@
 	#
 	# - To make host specific revisions to these options, use lib.mkforce.
 	#
-	# 		time.timezone = lib.mkForce "America/Boise";
+	# 		time.timezone = lib.mkForce {
+	#			layout = "us";
+	#			variant = "";
+	#		};
 	# 
 	# =========================================================================================================
 
-
-
-
 	# =========================================================================================================
 	#
-	# - All packages in nixOS/nixOSConfiguration/baseSystemConfiguration and nixOS/home were made modular 
+	# - All packages in nixOS/nixOSConfiguration/baseSystemConfiguration and nixOS/homeManager were made modular 
 	#	and toggleable by using lib.mkEnableOption 
 	# 
 	# - All modules are enabled by default
