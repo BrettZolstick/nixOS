@@ -3,12 +3,6 @@
 			# import a list of all .nix files recursively under this directory		   		  	v-------------V
 	imports = lib.filter (n: lib.strings.hasSuffix ".nix" n) (lib.filesystem.listFilesRecursive ./homeManager);
 
-
-
-	home.username = "ethan";
-	home.homeDirectory = "/home/ethan";
-	home.stateVersion = "25.05";
-
 	wayland.windowManager.hyprland.enable = true;
 	wayland.windowManager.hyprland.settings = {
 
@@ -100,21 +94,5 @@
 
 	programs.firefox.enable = true;
 	programs.waybar.enable = true;
-	
-# 	home.packages = with pkgs; [
-# 		# Base System
-# 		micro 		# minimal text editor (better nano)
-# 		kitty		# terminal emulator
-# 		mpvpaper	# can set wallpaper to a video 
-# 		wofi		# app launcher
-# 
-# 		# Command line utilities
-# 		#bat 		# replacement for cat (shows file contents)
-# 		tree		# like ls but shows entire tree
-# 		cifs-utils	# for mounting windows network shares
-#		man			# provides manuals for commands
-#
-#		# Additional Apps
-#		
-#	];
+
 }

@@ -28,19 +28,22 @@
 				system = "x86_64-linux";
 				modules = [
 					./hosts/default.nix
-					
+					./users/ethan.nix					
 					stylix.nixosModules.stylix
-					
 					home-manager.nixosModules.home-manager
-					
-					{
-						home-manager.useGlobalPkgs = true;
-						home-manager.useUserPackages = true;
-						home-manager.backupFileExtension = "backup";
-						home-manager.users.ethan = import ./home.nix;
-						
-					}
-					
+# 					{
+# 
+# 					
+# 						home-manager.useGlobalPkgs = true;
+# 						home-manager.useUserPackages = true;
+# 						home-manager.backupFileExtension = "backup";
+# 						home-manager.users.ethan = { ... }: {
+# 							imports = [ ./home.nix ];
+# 							home.username = "ethan";
+# 							home.homeDirectory = "/home/ethan";
+# 							home.stateVersion = "25.05";
+# 						};
+# 					}
 				];
 			};
 

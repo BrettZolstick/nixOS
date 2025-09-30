@@ -21,6 +21,18 @@
 	;
 
 
+	# Host specific options
+	networking.hostName = "ethanDesktop";
+
+	#users.users.ethan = {
+	#	isNormalUser = true;
+	#	description = "Ethan";
+	#	extraGroups = [ "networkmanager" "wheel" ];
+	#	packages = with pkgs; [];
+	#	shell = pkgs.fish;
+	#};
+	
+	
 
 
 	# =========================================================================================================

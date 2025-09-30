@@ -2,7 +2,7 @@
 
 {
 	# Imports
-	imports = [ /etc/nixos/hardware-configuration.nix ];
+	#imports = [ /etc/nixos/hardware-configuration.nix ];
 
 	# Initial install version
 	system.stateVersion = "25.05";
@@ -15,7 +15,7 @@
 	boot.kernelPackages = pkgs.linuxPackages_latest;
 
 	# Networking
-	networking.hostName = "ethanDesktop";
+	#networking.hostName = "ethanDesktop";
 	networking.networkmanager.enable = true;
 
 	# Time zone
@@ -51,12 +51,12 @@
 	nix.settings.experimental-features = [ "flakes" "nix-command" ];
 
 	# Users
-	users.users.ethan = {
-		isNormalUser = true;
-		description = "Ethan";
-		extraGroups = [ "networkmanager" "wheel" ];
-		packages = with pkgs; [];
-		shell = pkgs.fish;
-	};
+	# users.users.ethan = {
+	# 	isNormalUser = true;
+	# 	description = "Ethan";
+	# 	extraGroups = [ "networkmanager" "wheel" ];
+	# 	packages = with pkgs; [];
+	# 	shell = pkgs.fish;
+	# };
 	
 }
