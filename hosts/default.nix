@@ -23,15 +23,9 @@
 
 	# Host specific options
 	networking.hostName = "ethanDesktop";
+	networking.networkmanager.enable = true;
 
-	#users.users.ethan = {
-	#	isNormalUser = true;
-	#	description = "Ethan";
-	#	extraGroups = [ "networkmanager" "wheel" ];
-	#	packages = with pkgs; [];
-	#	shell = pkgs.fish;
-	#};
-	
+	time.timeZone = "America/New_York";
 	
 
 
