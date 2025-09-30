@@ -15,7 +15,7 @@
 		useUserPackages = true;
 		backupFileExtension = "backup";
 		users.ethan = { ... }: {
-		
+				
 					# import a list of all .nix files recursively under this directory		   		  	v-------------V
 			imports = lib.filter (n: lib.strings.hasSuffix ".nix" n) (lib.filesystem.listFilesRecursive ../homeManager);
 

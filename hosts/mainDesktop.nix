@@ -1,31 +1,20 @@
-{ config, pkgs, lib, ...}:
-
-{
-
+{ config, pkgs, lib, ...}: {
 
 	imports = [ 
 		# Imports hardware-configuration.nix from the default location
 		# this allows for the configuration to be built straight from github on any NixOS with flakes enabled.
 		/etc/nixos/hardware-configuration.nix # needs the --impure switch when running nixos-rebuild
 
+	 	# include a list of all .nix files recursively under this directory					  v---------------------v			
+	]	++	lib.filter (n: lib.strings.hasSuffix ".nix" n) (lib.filesystem.listFilesRecursive ../nixOSConfiguration/.);
 
-		# instead of manually importing modules like this
-		
-		#./../nixOSConfiguration/systemOptions.nix
-		#./../nixOSConfiguration/baseSystemPackages/programs/fish.nix
-		#./../nixOSConfiguration/baseSystemPackages/services/ly.nix
-
-	 	# append a list of all .nix files under this directory to include them in imports	  v--------------------v			
-	]	++	lib.filter (n: lib.strings.hasSuffix ".nix" n) (lib.filesystem.listFilesRecursive ../nixOSConfiguration/.)
-	;
 
 
 	# Host specific options
 	networking.hostName = "ethanDesktop";
 	networking.networkmanager.enable = true;
-
 	time.timeZone = "America/New_York";
-	
+
 
 
 	# =========================================================================================================
@@ -42,10 +31,12 @@
 	# 
 	# =========================================================================================================
 
+
+
 	# =========================================================================================================
 	#
 	# - All packages in nixOS/nixOSConfiguration/baseSystemConfiguration and nixOS/homeManager were made modular 
-	#	and toggleable by using lib.mkEnableOption 
+	#	and toggleable by using lib.mkOption 
 	# 
 	# - All modules are enabled by default
 	#

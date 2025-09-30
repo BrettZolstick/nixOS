@@ -1,6 +1,5 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... }: {
 
-{
 	# Initial install version
 	system.stateVersion = "25.05";
 
