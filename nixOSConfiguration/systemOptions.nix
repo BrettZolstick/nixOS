@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
 	# Imports
@@ -43,7 +43,7 @@
 
 	# Fonts
 	fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
-	
+
 	# Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
 
@@ -58,19 +58,5 @@
 		packages = with pkgs; [];
 		shell = pkgs.fish;
 	};
-
-	# Services
-	services.displayManager.ly.enable = true;
-	services.pipewire.enable = true;
-
-	# Programs
-	programs.steam.enable = true;
-	programs.fish.enable = true;
-	programs.hyprland.enable = true;
-
-	# System Packages	
-	environment.systemPackages = with pkgs; [
-		alsa-scarlett-gui
-	];
 	
 }
