@@ -1,6 +1,15 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
-{
+{					
+				  # import a list of all .nix files recursively under this directory				   v-------------V
+	#imports = [	] ++ lib.filter (n: lib.strings.hasSuffix ".nix" n) (lib.filesystem.listFilesRecursive ./homeManager/.);
+
+
+			# import a list of all .nix files recursively under this directory		   		  	v-------------V
+	imports = lib.filter (n: lib.strings.hasSuffix ".nix" n) (lib.filesystem.listFilesRecursive ./homeManager);
+
+
+
 	home.username = "ethan";
 	home.homeDirectory = "/home/ethan";
 	home.stateVersion = "25.05";
@@ -105,7 +114,7 @@
 		wofi		# app launcher
 
 		# Command line utilities
-		bat 		# replacement for cat (shows file contents)
+		#bat 		# replacement for cat (shows file contents)
 		tree		# like ls but shows entire tree
 		cifs-utils	# for mounting windows network shares
 		man			# provides manuals for commands
