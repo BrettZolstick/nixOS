@@ -29,10 +29,7 @@
 		layout = "us";
 		variant = "";
 	};	
-
-	# Fonts
-	fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
-
+	
 	# Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
 
