@@ -4,8 +4,7 @@
 	
 	options = {
 		fish.enable = lib.mkOption {
-			type = types.bool;
-			default = true;
+			default = true;	
 		};
 	};
 

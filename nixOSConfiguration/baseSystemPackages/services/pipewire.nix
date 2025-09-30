@@ -4,7 +4,6 @@
 
 	options = {
 		pipewire.enable = lib.mkOption {
-			type = types.bool;
 			default = true;
 		};
 	};

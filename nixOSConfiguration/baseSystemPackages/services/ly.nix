@@ -4,7 +4,6 @@
 
 	options = {
 		ly.enable = lib.mkOption {
-			type = types.bool;
 			default = true;
 		};
 	};

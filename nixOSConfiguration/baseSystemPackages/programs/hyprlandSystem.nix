@@ -7,7 +7,6 @@
 
 	options = {
 		hyprlandSystem.enable = lib.mkOption {
-			type = types.bool;
 			default = true;
 		};
 	};

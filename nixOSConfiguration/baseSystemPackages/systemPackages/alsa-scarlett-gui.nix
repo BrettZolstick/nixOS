@@ -4,7 +4,6 @@
 
 	options = {
 		alsa-scarlett-gui.enable = lib.mkOption {
-			type = types.bool;
 			default = true;
 		};
 	};
@@ -13,7 +12,7 @@
 
 		# Actual content of the module goes here:
 	
-		environment.systemPackages = [
+		environment.systemPackages = with pkgs; [
 			alsa-scarlett-gui
 		];
 
