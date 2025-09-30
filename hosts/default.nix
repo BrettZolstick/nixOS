@@ -52,6 +52,8 @@
 	#
 	# =========================================================================================================
 
-		
+
+	# I want to be able to do this, but it says the option does not exist, because its under home manager i assume
+	#bat.enable = true;		
 
 }
