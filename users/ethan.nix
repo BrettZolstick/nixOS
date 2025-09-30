@@ -17,7 +17,7 @@
 		useGlobalPkgs = true;
 		useUserPackages = true;
 		backupFileExtension = "backup";
-		users.ethan = {lib, pkgs, config, ... }: {
+		users.ethan = {lib, config, ... }: with pkgs; {
 					# import a list of all .nix files recursively under this directory		   		  	v-------------V
 			imports = lib.filter (n: lib.strings.hasSuffix ".nix" n) (lib.filesystem.listFilesRecursive ../homeManager);
 			#imports = [ ../home.nix ];
