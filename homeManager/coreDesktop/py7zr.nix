@@ -10,7 +10,7 @@
 	config = lib.mkIf config.py7zr.enable {
 		# Actual content of the module goes here:
 
-		home.packages = with pkgs; [ py7zr ]
+		home.packages = with pkgs; [ py7zr ];
 				
 	};	
 }
