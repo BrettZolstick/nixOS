@@ -17,7 +17,6 @@
 
 	 	# append a list of all .nix files under this directory to include them in imports	  v--------------------v			
 	]	++	lib.filter (n: lib.strings.hasSuffix ".nix" n) (lib.filesystem.listFilesRecursive ../nixOSConfiguration/.)
-	#	++	lib.filter (n: lib.strings.hasSuffix ".nix" n) (lib.filesystem.listFilesRecursive ../homeManager/.)
 	;
 
 

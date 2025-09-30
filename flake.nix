@@ -24,10 +24,10 @@
 	outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: {
 		nixosConfigurations = {
 
-			default = nixpkgs.lib.nixosSystem {
+			mainDesktop = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				modules = [
-					./hosts/default.nix
+					./hosts/mainDesktop.nix
 					./users/ethan.nix					
 					stylix.nixosModules.stylix
 					home-manager.nixosModules.home-manager
