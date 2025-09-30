@@ -44,21 +44,21 @@
 	# 
 	# - All modules are enabled by default
 	#
-	# - To disable a specific module on a host, use the follwing. 
+	# - To disable a system level module on a host, use the follwing:
 	#
 	# 		steam.enable 				= false;
 	#		ly.enable 					= false;
 	# 		alsa-scarlett-gui.enable	= false;
 	#
+	# - To disable a user level module on a host, specify the user and disable it inside like this:
+	#	
+	#		home-manager.users.ethan = {
+	#			bat.enable 	= false;
+	#			tree.enable = false;
+	#		};	
+	#
 	# =========================================================================================================
 
 
-	# this works
-	# alsa-scarlett-gui.enable	= false;
-	#
-	# but this doesn't
-	# bat.enable = false;		
-	#
-	# I want to be able to do this, but it says the option does not exist, because its under home manager i assume
 
 }
