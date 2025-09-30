@@ -2,13 +2,15 @@
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
-		bat.enable = lib.mkOption {
+		template.enable = lib.mkOption {
 			default = true;	
 		};
 	};
 	
-	config = lib.mkIf config.bat.enable {
+	config = lib.mkIf config.template.enable {
 		# Actual content of the module goes here:
-		home.packages = with pkgs; [ bat ];		
+
+		home.packages = with pkgs; [ py7zr ]
+				
 	};	
 }
