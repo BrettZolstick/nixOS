@@ -101,20 +101,20 @@
 	programs.firefox.enable = true;
 	programs.waybar.enable = true;
 	
-	home.packages = with pkgs; [
-		# Base System
-		micro 		# minimal text editor (better nano)
-		kitty		# terminal emulator
-		mpvpaper	# can set wallpaper to a video 
-		wofi		# app launcher
-
-		# Command line utilities
-		#bat 		# replacement for cat (shows file contents)
-		tree		# like ls but shows entire tree
-		cifs-utils	# for mounting windows network shares
-		man			# provides manuals for commands
-
-		# Additional Apps
-		
-	];
+# 	home.packages = with pkgs; [
+# 		# Base System
+# 		micro 		# minimal text editor (better nano)
+# 		kitty		# terminal emulator
+# 		mpvpaper	# can set wallpaper to a video 
+# 		wofi		# app launcher
+# 
+# 		# Command line utilities
+# 		#bat 		# replacement for cat (shows file contents)
+# 		tree		# like ls but shows entire tree
+# 		cifs-utils	# for mounting windows network shares
+#		man			# provides manuals for commands
+#
+#		# Additional Apps
+#		
+#	];
 }
