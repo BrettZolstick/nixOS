@@ -16,6 +16,7 @@
 	time.timeZone = "America/New_York";
 
 
+	stylix.enable = true;
 	stylix.image = ~/wallpapers/haelos-buriedInTheSand.jpg;
 
 	# =========================================================================================================
