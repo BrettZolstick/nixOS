@@ -10,22 +10,19 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
-		# provide base16 colorschemes and can generate new ones based on your wallpaper
-		stylix = {
-			url = "github:nix-community/stylix";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		# makes color palletes that can be used in your nix config
+		nix-colors.url = "github:misterio77/nix-colors";
 		
 	};
 	
-	outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: {
+	outputs = { self, nixpkgs, home-manager, ... }@inputs: {
 		nixosConfigurations = {
 			mainDesktop = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
+				specialArgs = { inherit nix-colors };
 				modules = [
 					./hosts/mainDesktop.nix
 					./users/ethan.nix					
-					stylix.nixosModules.stylix
 					home-manager.nixosModules.home-manager
 				];
 			};
