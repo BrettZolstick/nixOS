@@ -17,7 +17,7 @@
 
 
 	stylix.enable = true;
-	stylix.image = ~/wallpapers/haelos-buriedInTheSand.jpg;
+	stylix.image = /home/ethan/wallpapers/haelos-buriedInTheSand.jpg;
 
 	# =========================================================================================================
 	# 
