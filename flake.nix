@@ -23,6 +23,7 @@
 					./hosts/mainDesktop.nix
 					./users/ethan.nix					
 					home-manager.nixosModules.home-manager
+					nix-colors.homeManagerModules.default
 				];
 			};
 			# Additional hosts go here	
