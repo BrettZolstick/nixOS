@@ -15,11 +15,10 @@
 		
 	};
 	
-	outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+	outputs = { self, nixpkgs, home-manager, nix-colors, ... }@inputs: {
 		nixosConfigurations = {
 			mainDesktop = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
-				specialArgs = { inherit nix-colors };
 				modules = [
 					./hosts/mainDesktop.nix
 					./users/ethan.nix					
