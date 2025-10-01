@@ -16,6 +16,7 @@
 	time.timeZone = "America/New_York";
 
 
+	sylix.image = ~/wallpapers/haelos-buriedInTheSand.jpg
 
 	# =========================================================================================================
 	# 
