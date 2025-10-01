@@ -17,7 +17,9 @@
 
 
 	stylix.enable = true;
-	stylix.image = /home/ethan/wallpapers/haelos-buriedInTheSand.jpg;
+	#stylix.image = /home/ethan/wallpapers/haelos-buriedInTheSand.jpg;
+	stylix.image = /home/ethan/wallpapers/culprate-gaucho.jpg;
+	
 
 	# =========================================================================================================
 	# 
