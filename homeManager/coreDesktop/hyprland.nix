@@ -101,6 +101,13 @@
 				"3,	monitor:HDMI-A-1,	default:true"
 				"4,	monitor:DP-2,		default:true"
 			];
+
+
+			decoration = {
+				active_opacity 		= 0.9;
+				inactive_opacity 	= 0.9;
+				fullscreen_opacity 	= 0.9;
+			};
 			
 		};
 				
