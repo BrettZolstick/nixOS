@@ -2,13 +2,13 @@
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
-		pwvcontrol.enable = lib.mkOption {
+		pwvucontrol.enable = lib.mkOption {
 			default = true;	
 		};
 	};
 	
-	config = lib.mkIf config.pwvcontrol.enable {
+	config = lib.mkIf config.pwvucontrol.enable {
 		# Actual content of the module goes here:
-		home.packages = with pkgs; [ pwvcontrol ];		
+		home.packages = with pkgs; [ pwvucontrol ];		
 	};	
 }
