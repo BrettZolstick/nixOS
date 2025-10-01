@@ -16,7 +16,7 @@
 	time.timeZone = "America/New_York";
 	security.sudo = {
 		enable = true;
-		execWheelNeedsPassword = false;
+		wheelNeedsPassword = false;
 	};
 
 
