@@ -9,6 +9,6 @@
 	
 	config = lib.mkIf config.hyprcursor.enable {
 		# Actual content of the module goes here:
-		pointerCursor.hyprcursor.enable = true;
+		#pointerCursor.hyprcursor.enable = true;
 	};	
 }

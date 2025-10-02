@@ -27,8 +27,13 @@
 
 			home.username = "ethan";
 			home.homeDirectory = "/home/ethan";
-			home.stateVersion = "25.05";
-			
+			home.stateVersion = "25.05";	
+			home.pointerCursor = {
+			    name = "Nordzy-cursors";
+			    package = pkgs.nordzy-cursor-theme;
+			    size = 22;
+		  	};
+		
 		};
 	};
 		

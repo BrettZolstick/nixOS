@@ -7,9 +7,9 @@
 	stylix.image = ./wallpapers/culprate-gaucho.jpg;
 
 	# Cursors
-	stylix.cursor.package = pkgs.nordzy-cursor-theme;
-	stylix.cursor.name = "Nordzy-hyprcursors";
-
+	#stylix.cursor.package = pkgs.nordzy-cursor-theme;
+	#stylix.cursor.name = "Nordzy-cursors";
+			  	
 	# Fonts	
 	stylix.fonts = {
 		serif = {

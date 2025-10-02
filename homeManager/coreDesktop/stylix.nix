@@ -2,13 +2,13 @@
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
-		hyprpaper.enable = lib.mkOption {
+		template.enable = lib.mkOption {
 			default = true;	
 		};
 	};
 	
-	config = lib.mkIf config.hyprpaper.enable {
+	config = lib.mkIf config.template.enable {
 		# Actual content of the module goes here:
-		services.hyprpaper.enable = true;
+		programs.stylix.enable = true;
 	};	
 }
