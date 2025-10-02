@@ -9,6 +9,6 @@
 	
 	config = lib.mkIf config.fastfetch.enable {
 		# Actual content of the module goes here:
-		home.packages = with pkgs; [ fastfetch ];		
+		programs.fastfetch.enable = true;		
 	};	
 }

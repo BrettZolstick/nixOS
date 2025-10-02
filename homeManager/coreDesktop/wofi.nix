@@ -9,8 +9,7 @@
 	
 	config = lib.mkIf config.wofi.enable {
 		# Actual content of the module goes here:
-
-	       	home.packages = with pkgs; [ wofi ];
+	       	programs.wofi.enable = true;
 		
 	};	
 }

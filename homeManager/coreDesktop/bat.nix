@@ -9,6 +9,6 @@
 	
 	config = lib.mkIf config.bat.enable {
 		# Actual content of the module goes here:
-		home.packages = with pkgs; [ bat ];		
+		programs.bat.enable = true;	
 	};	
 }
