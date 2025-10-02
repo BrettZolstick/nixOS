@@ -9,7 +9,11 @@
 	
 	config = lib.mkIf config.hyprland.enable {
 		# Actual content of the module goes here:
-		wayland.windowManager.hyprland.enable = true;
+		wayland.windowManager.hyprland = {
+			enable = true;
+			systemd.enable = true;
+		};
+				
 
 	};	
 }
