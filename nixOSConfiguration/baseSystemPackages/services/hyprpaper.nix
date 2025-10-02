@@ -9,6 +9,6 @@
 	
 	config = lib.mkIf config.hyprpaper.enable {
 		# Actual content of the module goes here:
-		home.packages = with pkgs; [ hyprpaper ];		
+		services.hyprpaper.enable = true;
 	};	
 }
