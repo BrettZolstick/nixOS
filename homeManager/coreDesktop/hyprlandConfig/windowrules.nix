@@ -25,9 +25,6 @@
 			"roundingpower 1, class:wofi"
 			"bordersize 4, class:wofi"
 
-			# Steam
-			#"stayfocused,title:^(Steam)$"
-
 			# Open discord and todoist in workspace 2
 			"workspace 2, class: discord"
 			"workspace 2, class: Todoist"

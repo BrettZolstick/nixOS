@@ -10,7 +10,10 @@
 	config = lib.mkIf config.micro.enable {
 		# Actual content of the module goes here:
 
-       	home.packages = with pkgs; [ micro ];
+       	programs.micro.enable = true;
+       	programs.micro.settings = {
+       		
+       	};
 		
 	};	
 }
