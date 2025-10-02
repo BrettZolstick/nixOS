@@ -8,7 +8,7 @@
 
 	# Cursors
 	stylix.cursor.package = pkgs.nordzy-cursor-theme;
-	#stylix.cursor.name = "";
+	stylix.cursor.name = "Nordzy-hyprcursors";
 
 	# Fonts	
 	stylix.fonts = {
