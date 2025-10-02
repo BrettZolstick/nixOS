@@ -35,12 +35,12 @@
 			# blur
 			blur = {
 				enabled				 		=	true;	#	enable kawase window background blur
-				size				 		=	8;		#	blur size (distance)
-				passes				 		=	1;		#	the amount of passes to perform
+				size				 		=	1;		#	blur size (distance)
+				passes				 		=	2;		#	the amount of passes to perform
 				ignore_opacity		 		=	true;	#	make the blur layer ignore the opacity of the window
 				new_optimizations	 		=	true;	#	whether to enable further optimizations to the blur. Recommended to leave on, as it will massively improve performance.
 				xray				 		=	false;	#	if enabled, floating windows will ignore tiled windows in their blur. Only available if new_optimizations is true. Will reduce overhead on floating blur significantly.
-				noise				 		=	0.0117;	#	how much noise to apply. [0.0 - 1.0]
+				noise				 		=	0.1;		#0.0117;	#	how much noise to apply. [0.0 - 1.0]
 				contrast			 		=	0.8916;	#	contrast modulation for blur. [0.0 - 2.0]
 				brightness			 		=	0.8172;	#	brightness modulation for blur. [0.0 - 2.0]
 				vibrancy			 		=	0.1696;	#	Increase saturation of blurred colors. [0.0 - 1.0]
