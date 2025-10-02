@@ -46,7 +46,7 @@
 				vibrancy			 		=	0.1696;	#	Increase saturation of blurred colors. [0.0 - 1.0]
 				vibrancy_darkness	 		=	0;		#	How strong the effect of vibrancy is on dark areas . [0.0 - 1.0]
 				special						=	false;	#	whether to blur behind the special workspace (note: expensive)
-				popups_ignorealpha 			=	false;	#	whether to blur popups (e.g. right-click menus)
+				popups 			 			=	false;	#	whether to blur popups (e.g. right-click menus)
 				popups_ignorealpha 			=	0.2;	#	works like ignorealpha in layer rules. If pixel opacity is below set value, will not blur. [0.0 - 1.0]
 				input_methods		 		=	false;	#	whether to blur input methods (e.g. fcitx5)
 				input_methods_ignorealpha 	=	0.2;	#	works like ignorealpha in layer rules. If pixel opacity is below set value, will not blur. [0.0 - 1.0]
