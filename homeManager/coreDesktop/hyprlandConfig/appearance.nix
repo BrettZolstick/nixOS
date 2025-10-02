@@ -1,4 +1,4 @@
-57361;2u{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }: {
 	wayland.windowManager.hyprland.settings = {
 		general = {
 			# borders
