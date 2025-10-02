@@ -16,9 +16,8 @@
 				border_overlap	= false;	# if true, windows snap such that only one border’s worth of space is between them
 				respect_gaps	= false;	# if true, snapping will respect gaps between windows(set in general:gaps_in)
 			};
-
-			ecosystem.no_update_news = true; # disable hyprland support message
-			
 		};	
+
+		ecosystem.no_update_news = true; # disable hyprland support message
 	};
 }
