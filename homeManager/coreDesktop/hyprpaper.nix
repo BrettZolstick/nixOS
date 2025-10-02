@@ -9,7 +9,7 @@
 	
 	config = lib.mkIf config.hyprpaper.enable {
 		# Actual content of the module goes here:
-		servies.hyprpaper.enable = true;
+		services.hyprpaper.enable = true;
 
 		# this is to fix the hyprpaper service not starting because it tries to start before wayland
 		systemd.user.services.hyprpaper = {
