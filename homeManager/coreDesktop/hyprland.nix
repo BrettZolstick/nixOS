@@ -117,7 +117,7 @@
 				fullscreen_opacity 	= 1.0;
 			};
 			
-		};
+
 
 
 
@@ -127,18 +127,19 @@
 		# 
 		# --------------------------------------------------------------------------------------------------------------------------
 
-		animations = {
+			animations = {
 
-			enabled = true;
+				enabled = true;
 
-			bezier = [
-				"quick, 0.15, 0, 0.1, 1"
-			];
+				bezier = [
+					"quick, 0.15, 0, 0.1, 1"
+				];
 
-			animation = [
-				"global, 1, 2.5, quick"
-			];
-				
+				animation = [
+					"global, 1, 2.5, quick"
+				];
+					
+			};
 		};
 	};	
 }
