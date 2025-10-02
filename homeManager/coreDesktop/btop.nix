@@ -9,6 +9,8 @@
 	
 	config = lib.mkIf config.btop.enable {
 		# Actual content of the module goes here:
-		home.packages = with pkgs; [ btop ];		
+		
+		programs.btop.enable = true;		
+		
 	};	
 }
