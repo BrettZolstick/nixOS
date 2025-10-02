@@ -1,10 +1,10 @@
 {config, pkgs, home-manager, lib, ... }: {
 
 	imports = [
+		
+		../themes/gaucho.nix
 
-
-      # include a list of all .nix files recursively under this directory				  	  v---------v			
-	] ++	lib.filter (n: lib.strings.hasSuffix ".nix" n) (lib.filesystem.listFilesRecursive ../themes/.);
+	];
 
 	users.users.ethan = {
 		isNormalUser = true;
@@ -31,8 +31,5 @@
 			
 		};
 	};
-
-	desktopThemes.themeName = "gaucho";
-
-	
+		
 }

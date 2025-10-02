@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, stylix, ... }: {
 
 	# Initial install version
 	system.stateVersion = "25.05";
@@ -35,5 +35,7 @@
 
 	# Experimental Features
 	nix.settings.experimental-features = [ "flakes" "nix-command" ];
-	
+
+	# Enable stylix
+	stylix.enable = true; # this must always be enabled, as its colors are refrenced throughout the entire config.
 }
