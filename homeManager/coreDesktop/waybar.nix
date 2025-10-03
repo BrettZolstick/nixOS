@@ -1,4 +1,19 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }: 
+
+let 
+	hardwareMonitor = pkgs.writeShellScriptBin "hardware-monitor" '' 
+		#!/bin/bash
+		
+		cpu=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf "%.0f", usage}')
+		ram=$(free -h | awk '/Mem:/ {print $3}')
+		gpu=$(cat /sys/class/drm/card1/device/gpu_busy_percent)
+
+		
+		
+		echo "󰍛 ''${cpu}% |   ''${ram}B | 󰢮  ''${gpu}% ''${null}"
+	'';
+in
+{
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
@@ -9,6 +24,8 @@
 	
 	config = lib.mkIf config.waybar.enable {
 		# Actual content of the module goes here:
+		home.packages = [ hardwareMonitor ];
+		
 		programs.waybar = {
 			enable = true;
 			systemd.enable = true;
@@ -25,7 +42,7 @@
 					on-click = "activate";
 				};
 				"custom/hardwareMonitor" = {
-					exec = "bash ./scripts/hardwareMonitor.sh";
+					exec = "${hardwareMonitor}/bin/hardware-monitor";
 					interval = 1;
 					return-type = "text";
 					format = "{}";
@@ -44,12 +61,6 @@
 				"pulseaudio" = {
 					format = "  {volume}%";
 					on-click = "pavucontrol";
-				};
-				"custom/updates" = {
-					exec = "~/.config/waybar/scripts/check-updates.sh";
-					interval =  600;
-					return-type = "json";
-					tooltip = true;
 				};
 			}];	
 		};
