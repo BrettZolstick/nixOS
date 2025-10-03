@@ -12,27 +12,46 @@
 		programs.waybar = {
 			enable = true;
 			systemd.enable = true;
-			# settings = [{
-			# 	layer = "top";
-			# 	position = "top";
-			# 	modules-left = [ "hyprland/workspaces" "hyprland/window" ];
-			# 	#modules-center = [ "custom/hardwareMonitor" ];
-			# 	modules-right = [ "tray" "custom/updates" "custom/clipboard" "network" "pulseaudio" "clock" ];
-			# 	#"hyprland/workspaces" = {
-			# 	#	all-outputs = true;
-			# 	#	disable-scroll = true;
-			# 	#	format = "{}";
-			# 	#	on-click = "activate";
-			# 	#};
-			# 	#"custom/hardwareMonitor" = {
-			# 	#	exec = "bash ./scripts/hardwareMonitor.sh";
-			# 	#	interval = 1;
-			# 	#	return-type = "text";
-			# 	#	format = "{}";
-			# 	#	on-click = "kitty -e btop";
-			# 	#	tooltip = false;
-			# 	#};
-			# }];	
+			settings = [{
+				layer = "top";
+				position = "top";
+				modules-left = [ "hyprland/workspaces" "hyprland/window" ];
+				modules-center = [ "custom/hardwareMonitor" ];
+				modules-right = [ "tray" "custom/updates" "custom/clipboard" "network" "pulseaudio" "clock" ];
+				"hyprland/workspaces" = {
+					all-outputs = true;
+					disable-scroll = true;
+					format = "{}";
+					on-click = "activate";
+				};
+				"custom/hardwareMonitor" = {
+					exec = "bash ./scripts/hardwareMonitor.sh";
+					interval = 1;
+					return-type = "text";
+					format = "{}";
+					on-click = "kitty -e btop";
+					tooltip = false;
+				};
+				"clock" = {
+					format = "{:%a %m.%d.%Y %I:%M %p}";
+					tooltip = false;
+				};
+				"network" = {
+					format-ethernet = "󰈀  {ifname}";
+					format-wifi = "  {essid} ({signalStrength}%)";
+					format-disconnected = "󱘖  Disconnected";
+				};
+				"pulseaudio" = {
+					format = "  {volume}%";
+					on-click = "pavucontrol";
+				};
+				"custom/updates" = {
+					exec = "~/.config/waybar/scripts/check-updates.sh";
+					interval =  600;
+					return-type = "json";
+					tooltip = true;
+				};
+			}];	
 		};
 		
 	};	
