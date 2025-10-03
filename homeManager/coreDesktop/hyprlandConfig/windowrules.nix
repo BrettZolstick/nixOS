@@ -13,6 +13,11 @@
 			# disable transparency for firefox
 			"opacity 1.2, class:firefox"
 
+			# disable transparency for discord
+			"opacity 1.2, class:vesktop"
+			"opacity 1.2, class:discord"
+			
+
 			# disable hyprland transparency for kitty (so it doesn't stack with kitty's built in transparency)
 			#"opacity 99 1, class:kitty" # leaving this commented out because I kinda like the stacked transparency
 
