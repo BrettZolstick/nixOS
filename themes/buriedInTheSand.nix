@@ -1,10 +1,10 @@
 { config, lib, stylix, pkgs, ...}: {
 
 	# Colors
-	stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/icy.yaml";
+	stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
 
 	# Wallpaper
-	stylix.image = ./wallpapers/raja-theLight.jpg;
+	stylix.image = ./wallpapers/haelos-buriedInTheSand.jpg;
 
 	# Cursors
 	#stylix.cursor.package = pkgs.nordzy-cursor-theme;
