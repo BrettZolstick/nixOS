@@ -18,7 +18,7 @@
 			# launch apps
 			"$mainMod,	RETURN,	exec,	$terminal"
 			"$mainMod,	SPACE, 	exec,	$appLauncher"
-			"$mainMod,	DEL,	exec,	$processViewer"
+			"$mainMod,	DELETE,	exec,	$terminal $processViewer"
 			"$mainMod,	B, 		exec,	$browser"
 			"$mainMod,	E,		exec,	$fileManager"
 			
