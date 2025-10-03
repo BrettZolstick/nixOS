@@ -2,9 +2,10 @@
 
 	imports = [
 		
-		#../themes/gaucho.nix
+		../themes/gaucho.nix
+
 		#../themes/theLight.nix
-		../themes/buriedInTheSand.nix
+		#../themes/buriedInTheSand.nix
 
 	];
 
