@@ -32,7 +32,7 @@ in
 		home.packages = [ hardwareMonitor ];
 
 		# disable stylix auto themeing
-		stylix.targets.waybar.enable = true;
+		stylix.targets.waybar.enable = false;
 		
 		programs.waybar = {
 			enable = true;
@@ -83,7 +83,7 @@ in
 				
 				/* ------------ Background ------------ */
 				window#waybar {
-				    background: rgba(0,0,0,0);
+				    background: alpha(${colors.base00}, 0);
 				}
 				
 				
@@ -93,18 +93,21 @@ in
 					padding: 0px 4px;
 				}
 				#workspaces button{ /* The individual workspace identifers */
-					background: alpha(${colors.base02},0.1);
+					background: alpha(${colors.base01},0.6);
+					color: alpha(${colors.base03},0.8);
 					margin: 0px 1px;
 					padding: 0px 3px; 
 					border-radius: 4px;
-					font-weight: lighter; 
+					font-weight: normal; 
 				}
 				#workspaces button.visible{ /* All workspaces visible on screen*/
+					background: alpha(${colors.base01},0.8);
+					color: alpha(${colors.base06},0.9);
 					font-weight: bold;
 				}
 				#workspaces button.active{ /* The current active workspace*/
-					background: rgba(200,200,200,0.8);
-					color: rgba(20,20,20,1);
+					background: alpha(${colors.base01},1.0);
+					color: alpha(${colors.base06},0.9);
 					font-weight: bold;
 				}
 				
@@ -112,7 +115,8 @@ in
 				
 				/* ------------ Active Window Title ------------ */
 				#window {
-					background: rgba(0,0,0,0.2);
+					background: alpha(${colors.base00},0.8);
+					color: alpha(${colors.base06},0.9);
 					border-radius: 5px;
 					margin: 6px 2px;
 					padding: 0px 8px;
@@ -123,7 +127,8 @@ in
 				
 				/* ------------ Hardware Monitor ------------ */
 				#custom-hardwareMonitor {
-					background: rgba(0,0,0,0.3);
+					background: alpha(${colors.base00},0.4);
+					color: alpha(${colors.base06},0.9);
 					margin: 6px; 
 					padding: 0px 8px;
 					border-radius: 5px;
@@ -131,7 +136,8 @@ in
 				
 				/* ------------ System Tray ------------ */
 				#tray {
-					background: rgba(0,0,0,0.4);
+					background: alpha(${colors.base00},0.4);
+					color: alpha(${colors.base06},0.9);
 					margin: 4px; 
 					padding: 0px 8px;
 					border-radius: 500px;
@@ -142,8 +148,8 @@ in
 				#pulseaudio,
 				#custom-updates,
 				#clock {
-					background: rgba(20,20,20,0.7);
-					color: rgba(200,200,200,1);
+					background: alpha(${colors.base01},0.8);
+					color: alpha(${colors.base06},0.9);
 					font-weight: bold;
 					margin: 2px 2px; 
 					padding: 0px 8px;
@@ -156,8 +162,8 @@ in
 				
 				/* ------------ Network Disconnected ------------ */
 				#network.disconnected{
-					background: rgba(200,40,40,0.7);
-					color: rgba(255,255,255,1);
+					background: alpha(${colors.base0D},0.7);
+					color: alpha(${colors.base06},1);
 					font-weight: 800; 
 				}
 				
