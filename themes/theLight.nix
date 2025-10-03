@@ -4,7 +4,7 @@
 	stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/brewer.yaml";
 
 	# Wallpaper
-	stylix.image = ./wallpapers/knowName-crepuscularRays.jpg;
+	stylix.image = ./wallpapers/raja-theLight.jpg;
 
 	# Cursors
 	#stylix.cursor.package = pkgs.nordzy-cursor-theme;
