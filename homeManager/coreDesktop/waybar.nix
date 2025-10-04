@@ -94,7 +94,7 @@ in
 				}
 				#workspaces button{ /* The individual workspace identifers */
 					background: alpha(${colors.base01},0.6);
-					color: alpha(${colors.base03},0.8);
+					color: alpha(${colors.base05},0.8);
 					margin: 0px 1px;
 					padding: 0px 3px; 
 					border-radius: 4px;

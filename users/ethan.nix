@@ -2,9 +2,9 @@
 
 	imports = [
 		
-		#../themes/gaucho.nix
+		../themes/gaucho.nix
 
-		../themes/niceMountain.nix
+		#../themes/niceMountain.nix
 		#../themes/theLight.nix
 		#../themes/buriedInTheSand.nix
 
