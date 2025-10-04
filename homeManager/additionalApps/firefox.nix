@@ -35,6 +35,10 @@
 
 			};
 		};
-				
-	};	
+
+		stylix.targets.firefox.profileNames = [
+			"ethanPersonal"
+		];
+
+        };
 }
