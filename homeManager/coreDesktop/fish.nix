@@ -2,16 +2,21 @@
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
-		starship.enable = lib.mkOption {
+		fish.enable = lib.mkOption {
 			default = true;	
 		};
 	};
 	
-	config = lib.mkIf config.starship.enable {
+	config = lib.mkIf config.fish.enable {
 		# Actual content of the module goes here:
-		programs.starship = {
+		programs.fish = {
 			enable = true;
-			enableFishIntegration = true;			
-		};	
+			plugins = [
+				{
+					name = tide;
+					src = pkgs.fishPlugsins.tide;
+				}
+			];
+		};
 	};	
 }
