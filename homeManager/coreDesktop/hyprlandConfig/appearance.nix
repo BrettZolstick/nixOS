@@ -1,4 +1,20 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, stylix, ... }: 
+let
+
+	colors = config.lib.stylix.colors.withHashtag; # "#RRGGBB"
+
+	# Hyprland likes rgb(0xAARRGGBB).
+	# This builds that from a Stylix "#RRGGBB" plus an alpha like "ff".
+	withAlpha = color: alpha:
+		let 
+			hex = lib.removePrefix "#" color;
+		in 
+			"0x${alpha}${hex}";
+
+in
+{
+
+	stylix.targets.hyprland.enable = false;
 	wayland.windowManager.hyprland.settings = {
 		general = {
 			# borders
@@ -8,7 +24,11 @@
 			# gaps
 			gaps_in 		= 2;
 			gaps_out 		= 2;
-			gaps_workspaces	= 0;	
+			gaps_workspaces	= 0;
+
+			# colors
+			"col.inactive_border" = withAlpha colors.base01 "FF";	
+			"col.active_border" = withAlpha colors.base04 "FF";		
 		};
 
 		decoration = {
