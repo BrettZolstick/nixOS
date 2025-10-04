@@ -12,6 +12,15 @@
 			programs.vesktop.enable = true;
 
 			stylix.targets.vesktop.enable = false;
+
+			xdg.desktopEntries.vesktop = {
+				categories 		= [ "Network" "InstantMessaging" "Chat" ];
+				exec 			= "vesktop %U";
+				genericName		= "Internet Messenger";
+				icon			= "${pkgs.discord}/share/pixmaps/discord.png";
+				name			= "Discord (Vesktop)";
+				type			= "Application";
+			};
 				
 	};	
 }

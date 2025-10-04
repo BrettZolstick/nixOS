@@ -13,9 +13,45 @@ in
 	
 	config = lib.mkIf config.wofi.enable {
 		# Actual content of the module goes here:
+
+		# hide unwanted desktop entries
+		xdg.desktopEntries = {
+			fish = {
+				name = "fish";
+				noDisplay = true;
+			};
+
+			qt5ct = {
+				name = "Qt5 Settings";
+				noDisplay = true;
+			};
+
+			qt6ct = {
+				name = "Qt6 Settings";
+				noDisplay = true;
+			};
+
+			nixos-manual = {
+				name = "NixOS Manual";
+				noDisplay = true;
+			};
+
+			kvantummanager = {
+				name = "Kvantum Manager";
+				noDisplay = true;
+			};
+
+			micro = {
+				name = "Micro";
+				noDisplay = true;
+			};
+
+			
+		};
+
 		programs.wofi = {
 			enable = true;
-
+			
 			settings = {
 
 				# behavior
