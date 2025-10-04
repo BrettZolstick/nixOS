@@ -19,6 +19,8 @@
 				settings = {
 					"toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 					"browser.fullscreen.autohide" = false;
+					"browser.bookmarks.visibility" = "always";
+					
 				};
 
 				userChrome = ''
