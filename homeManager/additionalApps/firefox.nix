@@ -10,19 +10,20 @@
 	config = lib.mkIf config.firefox.enable {
 		# Actual content of the module goes here:
 
+
+		stylix.targets.firefox.profileNames = [
+			"ethanPersonal"
+		];
+
 		programs.firefox = {
-
 			enable = true;
-
 			profiles.ethanPersonal = {
-
 				settings = {
 					"toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 					"browser.fullscreen.autohide" = false;
 					"browser.bookmarks.visibility" = "always";
 					
 				};
-
 				userChrome = ''
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 					
@@ -32,13 +33,8 @@
 	visibility: visible !important;
 }
 				'';
-
 			};
 		};
-
-		stylix.targets.firefox.profileNames = [
-			"ethanPersonal"
-		];
-
-        };
+						
+	};	
 }
