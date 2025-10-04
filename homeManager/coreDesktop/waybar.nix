@@ -68,7 +68,7 @@ in
 				};
 				"pulseaudio" = {
 					format = "  {volume}%";
-					on-click = "pavucontrol";
+					on-click = "pwvucontrol";
 				};
 			}];
 			
