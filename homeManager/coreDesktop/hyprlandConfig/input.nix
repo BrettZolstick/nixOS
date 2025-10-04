@@ -44,7 +44,21 @@
 			#    3 - Cursor focus will be separate from keyboard focus, clicking on a window will not change keyboard focus.
 			#               
 			########################################
-			
+
+			touchpad = {
+				disable_while_typing 	= true;
+				natural_scroll 			= true;
+				scroll_factor 			= 1.0;
+				middle_button_emulation	= true;
+				#tap_button_map = ;
+				clickfinger_behavior 	= false; # this makes 1 finger click on the right side of the trackpad right click (gross)
+				tap-to-click 			= true;
+				drag_lock 				= 0;
+				tap-and-drag 			= true;
+				flip_x 					= false;
+				flip_y 					= false;
+				drag_3fg 				= 0;
+			};
 			
 		};
 		

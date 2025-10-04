@@ -59,6 +59,13 @@
 			"$mainMod SHIFT,	0,	movetoworkspace,	10"
 		 ];
 
+		# repeating binds
+		binde = [
+		 	# multimedia buttons
+		 	", xf86audioraisevolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+" 
+		 	", xf86audiolowervolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+		 ];
+
 
 
 		# mouse binds
