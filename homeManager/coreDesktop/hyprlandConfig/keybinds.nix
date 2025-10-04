@@ -16,11 +16,12 @@
 		bind = [
 
 			# launch apps
-			"$mainMod,	RETURN,	exec,	$terminal"
-			"$mainMod,	SPACE, 	exec,	$appLauncher"
-			"$mainMod,	DELETE,	exec,	$terminal $processViewer"
-			"$mainMod,	B, 		exec,	$browser"
-			"$mainMod,	E,		exec,	$fileManager"
+			"$mainMod,			RETURN,	exec,	$terminal"
+			"$mainMod,			SPACE, 	exec,	$appLauncher"
+			"$mainMod,			DELETE,	exec,	$terminal $processViewer"
+			"$mainMod,			B, 		exec,	$browser"
+			"$mainMod,			E,		exec,	$fileManager"
+			"$mainMod SHIFT,	S,		exec,	grimblast --freeze copy area"
 			
 			# window actions
 			"$mainMod,	Q,	killactive"		

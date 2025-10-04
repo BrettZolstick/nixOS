@@ -14,8 +14,6 @@ let
 	'';
 
 	colors = config.lib.stylix.colors.withHashtag;
-	withAlpha = color: alphaHex: "${color}${alphaHex}";
-	hexWithAlpha = color: opacity: config.lib.stylix.mkOpacityHexColor "${color}${opacity}";
 in
 {
 

@@ -27,7 +27,7 @@
 			# Wofi 
 			"float, class:wofi"
 			"rounding 10, class:wofi"
-			"roundingpower 1, class:wofi"
+			#"roundingpower 1, class:wofi"
 			"bordersize 4, class:wofi"
 
 			# Open discord and todoist in workspace 2
