@@ -13,7 +13,7 @@
 			enable = true;
 			plugins = [
 				{
-					name = tide;
+					name = "tide";
 					src = pkgs.fishPlugsins.tide;
 				}
 			];
