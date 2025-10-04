@@ -9,6 +9,7 @@ let
 	directoryFg	= colors.base00;
 	gitBg		= colors.base03;
 	gitFg		= colors.base00;
+	gitStatusFg = colors.base06;
 	devLangBg	= colors.base02;
 	devLangFg	= colors.base00;
 	timeBg		= colors.base01;
@@ -56,12 +57,12 @@ in
 
 				git_status = {
 					style  		= "bg:${gitBg}";
-					ahead 		= " \${count}";
-					behind 		= "  \${ahead_count} \${behind_count}";
-					diverged 	= " \${count}";
-					modified 	= " !\${count}";
-					staged 		= " +\${count}";
-					format 		= "[[($all_status$ahead_behind )](fg:${gitFg} bg:${gitBg})]($style)";
+					diverged 	= "[[  \${ahead_count} \${behind_count}](bg:${gitBg} fg:${gitStatusFg})]($style)";
+					ahead 		= "[[ \${count}](bg:${gitBg} fg:${gitStatusFg})]($style)";
+					behind 		= "[[ \${count}](bg:${gitBg} fg:${gitStatusFg})]($style)";
+					modified 	= "[[ !\${count}](bg:${gitBg} fg:${gitStatusFg})]($style)";
+					staged 		= "[[ +\${count}](bg:${gitBg} fg:${gitStatusFg})]($style)";
+					format 		= "[[($all_status$ahead_behind )](bg:${gitBg} fg:${gitFg})]($style)";
 				};
 
 				nodejs = {
@@ -107,11 +108,7 @@ in
 					show_milliseconds 	= false;
 					style 				= "light";
 					format 				= "[[  $duration](fg:${cmdDuration})]($style)";
-				};
-
-
-
-				
+				};				
 			};
 		};
 		
