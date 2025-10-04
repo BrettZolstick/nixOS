@@ -9,7 +9,17 @@
 	
 	config = lib.mkIf config.vesktop.enable {
 		# Actual content of the module goes here:
-			programs.vesktop.enable = true;
+
+
+			programs.vesktop = {
+				enable = true;
+
+				settings = {
+					enableSplashScreen = false;
+					tray = true;
+					minimizeToTray = true;
+				};
+			};
 
 			stylix.targets.vesktop.enable = false;
 
