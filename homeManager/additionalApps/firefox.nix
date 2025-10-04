@@ -9,8 +9,6 @@
 	
 	config = lib.mkIf config.firefox.enable {
 		# Actual content of the module goes here:
-
-
 		stylix.targets.firefox.profileNames = [
 			"ethanPersonal"
 		];
