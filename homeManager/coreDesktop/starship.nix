@@ -49,44 +49,49 @@ in
 				};
 				
 				git_branch = {
-					symbol = "";
-					style  = "bg:${gitBg}";
-					format = "[[ $symbol $branch ](fg:${gitFg} bg:${gitBg})]($style)";
+					symbol 	= "";
+					style  	= "bg:${gitBg}";
+					format 	= "[[ $symbol $branch ](fg:${gitFg} bg:${gitBg})]($style)";
 				};
 
 				git_status = {
-					style  = "bg:${gitBg}";
-					format = "[[($all_status$ahead_behind )](fg:${gitFg} bg:${gitBg})]($style)";
+					style  		= "bg:${gitBg}";
+					ahead 		= " \${count}";
+					behind 		= "  \${ahead_count} \${behind_count}";
+					diverged 	= " \${count}";
+					modified 	= " !\${count}";
+					staged 		= " +\${count}";
+					format 		= "[[($all_status$ahead_behind )](fg:${gitFg} bg:${gitBg})]($style)";
 				};
 
 				nodejs = {
-					symbol = "";
-					style  = "bg:${devLangBg} fg:${devLangFg}";
-					format = "[[ $symbol ($version) ](fg:${devLangFg} bg:${devLangBg})]($style)";
+					symbol 	= "";
+					style  	= "bg:${devLangBg} fg:${devLangFg}";
+					format 	= "[[ $symbol ($version) ](fg:${devLangFg} bg:${devLangBg})]($style)";
 				};
 
 				rust = {
-					symbol = " ";
-					style  = "bg:${devLangBg} fg:${devLangFg}";
-					format = "[[ $symbol ($version) ](fg:${devLangFg} bg:${devLangBg})]($style)";
+					symbol 	= " ";
+					style	= "bg:${devLangBg} fg:${devLangFg}";
+					format 	= "[[ $symbol ($version) ](fg:${devLangFg} bg:${devLangBg})]($style)";
 				};
 
 				golang = {
-					symbol = "";
-					style  = "bg:${devLangBg} fg:${devLangFg}";
-					format = "[[ $symbol ($version) ](fg:${devLangFg} bg:${devLangBg})]($style)";
+					symbol	= "";
+					style  	= "bg:${devLangBg} fg:${devLangFg}";
+					format 	= "[[ $symbol ($version) ](fg:${devLangFg} bg:${devLangBg})]($style)";
 				};
 
 				php = {
-					symbol = " ";
-					style  = "bg:${devLangBg} fg:${devLangFg}";
-					format = "[[ $symbol ($version) ](fg:${devLangFg} bg:${devLangBg})]($style)";
+					symbol 	= " ";
+					style  	= "bg:${devLangBg} fg:${devLangFg}";
+					format 	= "[[ $symbol ($version) ](fg:${devLangFg} bg:${devLangBg})]($style)";
 				};
 
 				nix_shell = {
-					symbol = " ";
-					style = "bg:${devLangBg} fg:${devLangFg}";
-					format = "[[ $symbol ($version) ](fg:${devLangFg} bg:${devLangBg})]($style)";
+					symbol 	= " ";
+					style 	= "bg:${devLangBg} fg:${devLangFg}";
+					format 	= "[[ $symbol ($version) ](fg:${devLangFg} bg:${devLangBg})]($style)";
 				};
 
 				time = {
