@@ -18,10 +18,10 @@
 	
 	outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: {
 		nixosConfigurations = {
-			mainDesktop = nixpkgs.lib.nixosSystem {
+			ethanDesktop = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				modules = [
-					./hosts/mainDesktop.nix
+					./hosts/ethanDesktop.nix
 					./users/ethan.nix					
 					home-manager.nixosModules.home-manager
 					inputs.stylix.nixosModules.stylix
