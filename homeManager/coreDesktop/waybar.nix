@@ -1,37 +1,88 @@
-{ config, pkgs, lib, stylix, ... }: 
+{ config, pkgs, lib, stylix, ... }:
 
-let 
-	hardwareMonitor = pkgs.writeShellScriptBin "hardware-monitor" '' 
-		#!/bin/bash
-		
-		cpu=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf "%.0f", usage}')
-		ram=$(free -h | awk '/Mem:/ {print $3}')
-		gpu=$(cat /sys/class/drm/card1/device/gpu_busy_percent)
+let
+        cfg = config.waybar;
+        hardwareMonitor = pkgs.writeShellScriptBin "hardware-monitor" ''
+                #!/bin/bash
 
-		
-		
-		echo "󰍛 ''${cpu}% |   ''${ram}B | 󰢮  ''${gpu}% ''${null}"
-	'';	
+                cpu=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf "%.0f", usage}')
+                ram=$(free -h | awk '/Mem:/ {print $3}')
+                gpu=$(cat /sys/class/drm/card1/device/gpu_busy_percent)
 
-	colors = config.lib.stylix.colors.withHashtag;
+
+
+                echo "󰍛 ''${cpu}% |   ''${ram}B | 󰢮  ''${gpu}% ''${null}"
+        '';
+
+        gitBehindIndicator = pkgs.writeShellScriptBin "waybar-git-behind" ''
+                #!/bin/sh
+                set -eu
+
+                repo=${lib.escapeShellArg (cfg.gitRepoPath or "")}
+
+                if [ -z "$repo" ] || [ ! -d "$repo/.git" ]; then
+                        printf '{"text":"","tooltip":"No repository configured"}'
+                        exit 0
+                fi
+
+                if ! git -C "$repo" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+                        printf '{"text":"","tooltip":"No repository configured"}'
+                        exit 0
+                fi
+
+                if ! git -C "$repo" rev-parse --abbrev-ref --symbolic-full-name @{u} >/dev/null 2>&1; then
+                        printf '{"text":"","tooltip":"Tracking branch unavailable"}'
+                        exit 0
+                fi
+
+                status="$(git -C "$repo" status -sb --branch 2>/dev/null | head -n1)"
+                behind="$(printf '%s' "$status" | sed -n "s/.*\[behind \([0-9]\+\)\].*/\1/p")"
+
+                text=""
+                tooltip="Up to date"
+
+                if [ -n "$behind" ] && [ "$behind" -ne 0 ]; then
+                        text="󰅂"
+                        if [ "$behind" -eq 1 ]; then
+                                tooltip="1 commit behind"
+                        else
+                                tooltip="$behind commits behind"
+                        fi
+                fi
+
+                printf '{"text":"%s","tooltip":"%s"}' "$text" "$tooltip"
+        '';
+
+        colors = config.lib.stylix.colors.withHashtag;
 in
 {
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
-	options = {
-		waybar.enable = lib.mkOption {
-			default = true;	
-		};
-	};
-	
-	config = lib.mkIf config.waybar.enable {
-		# Actual content of the module goes here:
+        options = {
+                waybar.enable = lib.mkOption {
+                        default = true;
+                };
 
-		home.packages = [ hardwareMonitor ];
+                waybar.gitRepoPath = lib.mkOption {
+                        type = lib.types.nullOr lib.types.str;
+                        default = null;
+                        description = ''
+                                Absolute path to the Git repository that should surface an
+                                icon when it falls behind its upstream remote.
+                        '';
+                };
+        };
 
-		# disable stylix auto themeing
-		stylix.targets.waybar.enable = false;
-		
+        config = lib.mkIf cfg.enable {
+                # Actual content of the module goes here:
+
+                home.packages =
+                        [ hardwareMonitor ]
+                        ++ lib.optionals (cfg.gitRepoPath != null) [ gitBehindIndicator pkgs.gitMinimal ];
+
+                # disable stylix auto themeing
+                stylix.targets.waybar.enable = false;
+
 		programs.waybar = {
 			enable = true;
 			systemd.enable = true;
@@ -42,7 +93,10 @@ in
 				position = "top";
 				modules-left = [ "hyprland/workspaces" "hyprland/window" ];
 				modules-center = [ "custom/hardwareMonitor" ];
-				modules-right = [ "tray" "custom/updates" "custom/clipboard" "network" "pulseaudio" "clock" ];
+                                modules-right =
+                                        [ "tray" "custom/updates" ]
+                                        ++ lib.optional (cfg.gitRepoPath != null) "custom/gitBehind"
+                                        ++ [ "custom/clipboard" "network" "pulseaudio" "clock" ];
 				"hyprland/workspaces" = {
 					all-outputs = true;
 					disable-scroll = true;
@@ -66,11 +120,18 @@ in
 					format-wifi = "  {essid} ({signalStrength}%)";
 					format-disconnected = "󱘖  Disconnected";
 				};
-				"pulseaudio" = {
-					format = "  {volume}%";
-					on-click = "pwvucontrol";
-				};
-			}];
+                                "pulseaudio" = {
+                                        format = "  {volume}%";
+                                        on-click = "pwvucontrol";
+                                };
+                        } // lib.optionalAttrs (cfg.gitRepoPath != null) {
+                                "custom/gitBehind" = {
+                                        exec = "${gitBehindIndicator}/bin/waybar-git-behind";
+                                        interval = 300;
+                                        return-type = "json";
+                                        format = "{}";
+                                };
+                        }];
 			
 			style = ''
 				
