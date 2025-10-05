@@ -8,49 +8,25 @@ let
 		ram=$(free -h | awk '/Mem:/ {print $3}')
 		gpu=$(cat /sys/class/drm/card1/device/gpu_busy_percent)
 
-		
-		
 		echo "󰍛 ''${cpu}% |   ''${ram}B | 󰢮  ''${gpu}% ''${null}"
 	'';
 
 	# testing
 	remoteRepoStatus = pkgs.writeShellScriptBin "remoteRepoStatus" ''
 		#!/usr/bin/env bash
+
 		set -euo pipefail
 
-		# Config via env (defaults shown)
-		REPO="${REPO:-$PWD}"
-		REMOTE="${REMOTE:-origin}"
-		BRANCH="${BRANCH:-main}"
-		FETCH_TIMEOUT="${FETCH_TIMEOUT:-3s}"   # set to 0s to effectively skip fetch
+		# fetch remote repo
+		timeout 3s bash -c "git -C ~/nixOS/ fetch" >/dev/null 2>&1 || true
 
-		GIT="git -C \"$REPO\""
-		remote_ref="$REMOTE/$BRANCH"
-
-		# Not a repo? -> false
-		if ! eval $GIT rev-parse --git-dir >/dev/null 2>&1; then
-		  echo false
-		  exit 0
-		fi
-
-		# Best-effort fetch (non-fatal if offline)
-		timeout "$FETCH_TIMEOUT" bash -lc "$GIT fetch --quiet \"$REMOTE\" \"$BRANCH\"" >/dev/null 2>&1 || true
-
-		# If we still don't have the remote ref locally, call it not behind
-		if ! eval $GIT show-ref --verify --quiet "refs/remotes/$remote_ref"; then
-		  echo false
-		  exit 0
-		fi
-
-		# ahead/behind counts: left=HEAD, right=remote
-		read -r ahead behind < <(eval $GIT rev-list --left-right --count HEAD...\"$remote_ref\" 2>/dev/null | awk '{print $1, $2}')
-
-		# Print true only if behind > 0
-		if [[ "${behind:-0}" -gt 0 ]]; then
-		  echo true
+		# check if behind
+		if git -C ~/nixOS/ status -uno | grep -qF "Your branch is behind"; then
+			echo true
 		else
-		  echo false
+			echo false
 		fi
+
 	'';
 	
 
