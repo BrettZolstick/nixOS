@@ -1,60 +1,20 @@
 { config, pkgs, lib, stylix, ... }: 
 
-let 
-	hardwareMonitor = pkgs.writeShellScriptBin "hardware-monitor" '' 
-		#!/bin/bash
-		
-		cpu=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf "%.0f", usage}')
-		ram=$(free -h | awk '/Mem:/ {print $3}')
-		gpu=$(cat /sys/class/drm/card1/device/gpu_busy_percent)
+let
+        hardwareMonitor = pkgs.writeShellScriptBin "hardware-monitor" ''
+                #!/bin/bash
 
-		
-		
-		echo "󰍛 ''${cpu}% |   ''${ram}B | 󰢮  ''${gpu}% ''${null}"
-	'';
+                cpu=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf "%.0f", usage}')
+                ram=$(free -h | awk '/Mem:/ {print $3}')
+                gpu=$(cat /sys/class/drm/card1/device/gpu_busy_percent)
 
-	# testing
-	remoteRepoStatus = pkgs.writeShellScriptBin "remoteRepoStatus" ''
-		#!/usr/bin/env bash
-		set -euo pipefail
 
-		# Config via env (defaults shown)
-		REPO="${REPO:-$PWD}"
-		REMOTE="${REMOTE:-origin}"
-		BRANCH="${BRANCH:-main}"
-		FETCH_TIMEOUT="${FETCH_TIMEOUT:-3s}"   # set to 0s to effectively skip fetch
 
-		GIT="git -C \"$REPO\""
-		remote_ref="$REMOTE/$BRANCH"
-
-		# Not a repo? -> false
-		if ! eval $GIT rev-parse --git-dir >/dev/null 2>&1; then
-		  echo false
-		  exit 0
-		fi
-
-		# Best-effort fetch (non-fatal if offline)
-		timeout "$FETCH_TIMEOUT" bash -lc "$GIT fetch --quiet \"$REMOTE\" \"$BRANCH\"" >/dev/null 2>&1 || true
-
-		# If we still don't have the remote ref locally, call it not behind
-		if ! eval $GIT show-ref --verify --quiet "refs/remotes/$remote_ref"; then
-		  echo false
-		  exit 0
-		fi
-
-		# ahead/behind counts: left=HEAD, right=remote
-		read -r ahead behind < <(eval $GIT rev-list --left-right --count HEAD...\"$remote_ref\" 2>/dev/null | awk '{print $1, $2}')
-
-		# Print true only if behind > 0
-		if [[ "${behind:-0}" -gt 0 ]]; then
-		  echo true
-		else
-		  echo false
-		fi
-	'';
-	
-
-	colors = config.lib.stylix.colors.withHashtag;
+                echo "󰍛 ''${cpu}% |   ''${ram}B | 󰢮  ''${gpu}% ''${null}"
+        '';
+        gitBehindIcon = "󰊢";
+        gitBehindRepo = "${config.home.homeDirectory}/nixOS";
+        colors = config.lib.stylix.colors.withHashtag;
 in
 {
 
@@ -83,7 +43,7 @@ in
 				position = "top";
 				modules-left = [ "hyprland/workspaces" "hyprland/window" ];
 				modules-center = [ "custom/hardwareMonitor" ];
-				modules-right = [ "tray" "custom/updates" "custom/clipboard" "network" "pulseaudio" "clock" ];
+                                modules-right = [ "tray" "custom/updates" "custom/clipboard" "custom/gitBehind" "network" "pulseaudio" "clock" ];
 				"hyprland/workspaces" = {
 					all-outputs = true;
 					disable-scroll = true;
@@ -107,11 +67,26 @@ in
 					format-wifi = "  {essid} ({signalStrength}%)";
 					format-disconnected = "󱘖  Disconnected";
 				};
-				"pulseaudio" = {
-					format = "  {volume}%";
-					on-click = "pwvucontrol";
-				};
-			}];
+                                "pulseaudio" = {
+                                        format = "  {volume}%";
+                                        on-click = "pwvucontrol";
+                                };
+                                # Show when the configured repository is behind its upstream branch; adjust
+                                # 'gitBehindRepo' or the ref in the command to target a different repo/branch.
+                                "custom/gitBehind" = {
+                                        exec = ''bash -lc '
+                                                repo="${gitBehindRepo}"
+                                                [ -d "$repo/.git" ] || exit 0
+                                                behind=$(git -C "$repo" rev-list --left-right --count HEAD...@{upstream} 2>/dev/null | awk "{print \$2}")
+                                                if [ "${behind:-0}" -gt 0 ]; then
+                                                        printf "%s\n" "${gitBehindIcon}"
+                                                fi
+                                        '''';
+                                        interval = 300;
+                                        format = "{}";
+                                        tooltip = "Local branch is behind upstream";
+                                };
+                        }];
 			
 			style = ''
 				
