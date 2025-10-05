@@ -81,7 +81,7 @@ in
 				};
 				"custom/gitBehind" = {
 					exec = "${gitBehind}/bin/git-behind";
-					interval = 300;
+					interval = 5;
 					return-type = "json";
 					format = "{text}";
 					on-click = "kitty --directory ~/nixOS"; 
