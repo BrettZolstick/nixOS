@@ -13,6 +13,24 @@ let
 		echo "󰍛 ''${cpu}% |   ''${ram}B | 󰢮  ''${gpu}% ''${null}"
 	'';	
 
+	gitBehind = pkgs.writeShellScriptBin "gitBehind" ''
+
+		#!/usr/bin/env bash
+		
+		set -euo pipefail
+		
+		# fetch remote repo
+		timeout 3s bash -c "git -C ~/nixOS/ fetch" >/dev/null 2>&1 || true
+		
+		# check if behind
+		if git -C ~/nixOS/ status -uno | grep -qF "Your branch is behind"; then
+			echo true
+		else
+			echo false
+		fi
+
+	'';
+	
 	colors = config.lib.stylix.colors.withHashtag;
 in
 {
@@ -27,7 +45,10 @@ in
 	config = lib.mkIf config.waybar.enable {
 		# Actual content of the module goes here:
 
-		home.packages = [ hardwareMonitor ];
+		home.packages = [ 
+			hardwareMonitor
+			gitBehind
+		];
 
 		# disable stylix auto themeing
 		stylix.targets.waybar.enable = false;
