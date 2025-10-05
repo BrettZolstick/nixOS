@@ -13,7 +13,7 @@ let
 		echo "󰍛 ''${cpu}% |   ''${ram}B | 󰢮  ''${gpu}% ''${null}"
 	'';	
 
-	gitBehind = pkgs.writeShellScriptBin "gitBehind" ''
+	gitBehind = pkgs.writeShellScriptBin "git-behind" ''
 
 		#!/usr/bin/env bash
 		
@@ -24,9 +24,9 @@ let
 		
 		# check if behind
 		if git -C ~/nixOS/ status -uno | grep -qF "Your branch is behind"; then
-			echo true
+			printf '{"text":" ","tooltip":"Your Flake's repo is behind","class":["behind"]}\n'
 		else
-			echo false
+			printf '{"text":"","class":["hidden"]}\n'
 		fi
 
 	'';
@@ -63,7 +63,7 @@ in
 				layer = "top";
 				position = "top";
 				modules-left = [ "hyprland/workspaces" "hyprland/window" ];
-				modules-center = [ "custom/hardwareMonitor" ];
+				modules-center = [ "custom/hardwareMonitor" "custom/gitBehind" ];
 				modules-right = [ "tray" "custom/updates" "custom/clipboard" "network" "pulseaudio" "clock" ];
 				"hyprland/workspaces" = {
 					all-outputs = true;
@@ -78,6 +78,14 @@ in
 					format = "{}";
 					on-click = "kitty -e btop";
 					tooltip = false;
+				};
+				"custom/gitBehind" = {
+					exec = "${gitBehind}/bin/git-behind";
+					interval = 5;
+					return-type = "json";
+					format = "{text}";
+					on-click = "kitty --directory ~/nixOS"; 
+					tooltip = true;
 				};
 				"clock" = {
 					format = "{:%a %m.%d.%Y %I:%M %p}";
@@ -150,6 +158,15 @@ in
 				#custom-hardwareMonitor {
 					background: alpha(${colors.base00},0.4);
 					color: alpha(${colors.base06},0.9);
+					margin: 6px; 
+					padding: 0px 8px;
+					border-radius: 5px;
+				}
+				
+				/* ------------ Flake Repo Status (gitBehind) ------------ */
+				#custom-gitBehind {
+					background: alpha(${colors.base06},0.8);
+					color: alpha(${colors.base00},0.9);
 					margin: 6px; 
 					padding: 0px 8px;
 					border-radius: 5px;
