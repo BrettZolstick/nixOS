@@ -52,7 +52,6 @@ let
 		fi
 	'';
 
-
 	colors = config.lib.stylix.colors.withHashtag;
 	
 in
