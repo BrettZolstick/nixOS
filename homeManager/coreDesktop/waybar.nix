@@ -34,9 +34,8 @@ let
 		# Ask GitHub if BRANCH is ahead of CURRENT_REV
 		# Docs: GET /repos/{owner}/{repo}/compare/{base}...{head}
 		# We set base=CURRENT_REV, head=BRANCH. If behind_by>0 => remote has newer commits.
-		url="https://api.github.com/repos/$OWNER/$REPO/compare/${CURRENT_REV}...${BRANCH}"
-		json="$(curl -sS "\${AUTH[@]}" -H "Accept: application/vnd.github+json" "$url" || true)"
-
+		url="https://api.github.com/repos/$OWNER/$REPO/compare/$CURRENT_REV...$BRANCH"
+		json="$(curl -sS -H 'Accept: application/vnd.github+json' "$url" || true)"
 		# A 404 usually means CURRENT_REV isn't in the remote history (force-push or different repo);
 		# treat that as "updates available".
 		if [[ "$json" =~ \"message\"\:\ \"Not\ Found\" ]]; then
