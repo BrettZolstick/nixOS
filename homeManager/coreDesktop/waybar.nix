@@ -11,26 +11,51 @@ let
 		echo "󰍛 ''${cpu}% |   ''${ram}B | 󰢮  ''${gpu}% ''${null}"
 	'';
 
-	# testing
-	remoteRepoStatus = pkgs.writeShellScriptBin "remoteRepoStatus" ''
-		#!/usr/bin/env bash
+	rev = config.system.configurationRevision or "unknown";
 
+	flakeUpdateAvailable = pkgs.writeShellScriptBin "flake-update-available" ''
+		#!/usr/bin/env bash
 		set -euo pipefail
 
-		# fetch remote repo
-		timeout 3s bash -c "git -C ~/nixOS/ fetch" >/dev/null 2>&1 || true
+		# Build-time injected commit of the *running* flake
+		CURRENT_REV="${rev}"
 
-		# check if behind
-		if git -C ~/nixOS/ status -uno | grep -qF "Your branch is behind"; then
+		# Configure your repo + branch (can override via env)
+		OWNER="${OWNER:-BrettZolstick}"
+		REPO="${REPO:-nixOS}"
+		BRANCH="${BRANCH:-main}"
+		
+		# If we don't have a revision (e.g., built from non-git source), say false.
+		if [[ -z "$CURRENT_REV" || "$CURRENT_REV" == "unknown" || "$CURRENT_REV" == "null" ]]; then
+			echo false
+			exit 0
+		fi
+
+		# Ask GitHub if BRANCH is ahead of CURRENT_REV
+		# Docs: GET /repos/{owner}/{repo}/compare/{base}...{head}
+		# We set base=CURRENT_REV, head=BRANCH. If behind_by>0 => remote has newer commits.
+		url="https://api.github.com/repos/$OWNER/$REPO/compare/${CURRENT_REV}...${BRANCH}"
+		json="$(curl -sS "\${AUTH[@]}" -H "Accept: application/vnd.github+json" "$url" || true)"
+
+		# A 404 usually means CURRENT_REV isn't in the remote history (force-push or different repo);
+		# treat that as "updates available".
+		if [[ "$json" =~ \"message\"\:\ \"Not\ Found\" ]]; then
+			echo true
+			exit 0
+		fi
+
+		# Parse 'behind_by' (how many commits BRANCH is ahead of CURRENT_REV)
+		behind_by="$(printf '%s' "$json" | awk -F'[,:}]' '/"behind_by"/{gsub(/[^0-9]/,"",$2); print $2; exit}')"
+		if [[ -n "$behind_by" && "$behind_by" -gt 0 ]]; then
 			echo true
 		else
 			echo false
 		fi
-
 	'';
-	
+
 
 	colors = config.lib.stylix.colors.withHashtag;
+	
 in
 {
 
@@ -44,10 +69,17 @@ in
 	config = lib.mkIf config.waybar.enable {
 		# Actual content of the module goes here:
 
-		home.packages = [ hardwareMonitor ];
-
+		home.packages = [ 
+			hardwareMonitor
+			flakeUpdateAvailable
+		];
+		
 		# disable stylix auto themeing
 		stylix.targets.waybar.enable = false;
+
+
+
+
 		
 		programs.waybar = {
 			enable = true;

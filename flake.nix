@@ -13,7 +13,7 @@
 		stylix = {
 			url = "github:nix-community/stylix";			
 		};
-
+		
 	};
 	
 	outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: {
