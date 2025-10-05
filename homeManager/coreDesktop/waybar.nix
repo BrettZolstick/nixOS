@@ -13,7 +13,7 @@ let
 		echo "󰍛 ''${cpu}% |   ''${ram}B | 󰢮  ''${gpu}% ''${null}"
 	'';
 
-	# testing
+	# testing2
 	remoteRepoStatus = pkgs.writeShellScriptBin "remoteRepoStatus" ''
 		#!/usr/bin/env bash
 		set -euo pipefail
