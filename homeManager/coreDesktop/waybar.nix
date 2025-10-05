@@ -52,10 +52,9 @@ in
 			hardwareMonitor
 			gitBehind
 		];
-
-		# disable stylix auto themeing
-		stylix.targets.waybar.enable = false;
 		
+		# disable stylix auto themeing
+		stylix.targets.waybar.enable = false;		
 		programs.waybar = {
 			enable = true;
 			systemd.enable = true;
@@ -83,7 +82,7 @@ in
 				};
 				"custom/gitBehind" = {
 					exec = "${gitBehind}/bin/git-behind";
-					interval = 300;
+					interval = 61;
 					return-type = "json";
 					format = "{text}";
 					on-click = "kitty --directory ~/nixOS"; 
