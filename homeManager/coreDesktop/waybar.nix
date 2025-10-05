@@ -24,7 +24,7 @@ let
 		
 		# check if behind
 		if git -C ~/nixOS/ status -uno | grep -qF "Your branch is behind"; then
-			printf '{"text":" ","tooltip":"Your Flake's repo is behind","class":["behind"]}\n'
+			printf '{"text":" ","tooltip":"Your Flake repo is behind","class":["behind"]}'
 		else
 			printf '{"text":"","class":["hidden"]}\n'
 		fi
@@ -166,11 +166,18 @@ in
 				/* ------------ Flake Repo Status (gitBehind) ------------ */
 				#custom-gitBehind {
 					background: alpha(${colors.base06},0.8);
-					color: alpha(${colors.base00},0.9);
-					margin: 6px; 
-					padding: 0px 8px;
-					border-radius: 5px;
+					color: alpha(${colors.base00},1);
+					font-size: 16px;
+					font-weight: bold;
+					margin: 2px; 
+					padding-top: 0px;
+					padding-bottom: 0px;
+					padding-right: 4px;
+					padding-left: 7px;
+					border-radius: 100px;
 				}
+
+
 				
 				/* ------------ System Tray ------------ */
 				#tray {
