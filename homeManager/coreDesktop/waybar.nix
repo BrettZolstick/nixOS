@@ -12,7 +12,8 @@ let
 		
 		echo "󰍛 ''${cpu}% |   ''${ram}B | 󰢮  ''${gpu}% ''${null}"
 	'';	
-
+	
+	flakeRoot = "~/nixOS";
 	gitBehind = pkgs.writeShellScriptBin "git-behind" ''
 
 		#!/usr/bin/env bash
@@ -20,11 +21,11 @@ let
 		set -euo pipefail
 		
 		# fetch remote repo
-		timeout 3s bash -c "git -C ~/nixOS/ fetch" >/dev/null 2>&1 || true
+		timeout 3s bash -c "git -C ${flakeRoot} fetch" >/dev/null 2>&1 || true
 		
 		# check if behind
-		if git -C ~/nixOS/ status -uno | grep -qF "Your branch is behind"; then
-			printf '{"text":" ","tooltip":"Your Flake repo is behind","class":["behind"]}'
+		if git -C ${flakeRoot} status -uno | grep -qF "Your branch is behind"; then
+			printf '{"text":" ","tooltip":"Your Flake repo at ${flakeRoot} is behind","class":["behind"]}'
 		else
 			printf '{"text":"","class":["hidden"]}\n'
 		fi
@@ -32,6 +33,7 @@ let
 	'';
 	
 	colors = config.lib.stylix.colors.withHashtag;
+
 
 in
 {
