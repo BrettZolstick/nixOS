@@ -22,7 +22,6 @@
 			"$mainMod,			B, 		exec,	$browser"
 			"$mainMod,			E,		exec,	$fileManager"
 			"$mainMod SHIFT,	S,		exec,	grimblast --freeze copy area"
-			#"$mainMod,		 	R, 		exec, 	$terminal --hold sh -c 'sudo nixos-rebuild switch --flake $HOME/nixOS##$hostname --impure --show-trace'"
 			"$mainMod,			R, 		exec, 	$terminal /run/current-system/sw/bin/bash -lc 'sudo nixos-rebuild switch --flake $HOME/nixOS##ethanDesktop --impure --show-trace; ec=$?; if [ $ec -eq 0 ]; then exit 0; else echo; echo \"Rebuild failed (exit $ec). Press Enter to close…\"; read -r _; exit $ec; fi'"
 			
 			# window actions
