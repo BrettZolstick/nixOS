@@ -2,12 +2,12 @@
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
-		template.enable = lib.mkOption {
+		dolphin.enable = lib.mkOption {
 			default = true;	
 		};
 	};
 	
-	config = lib.mkIf config.template.enable {
+	config = lib.mkIf config.dolphin.enable {
 		# Actual content of the module goes here:
 
 		home.packages = with pkgs; [
