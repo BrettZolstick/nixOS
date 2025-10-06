@@ -7,7 +7,7 @@
 		};
 	};
 	
-	config = lib.mkIf config.todist.enable {
+	config = lib.mkIf config.todoist.enable {
 		# Actual content of the module goes here:
 		home.packages = with pkgs; [ todoist-electron ];
 	};	
