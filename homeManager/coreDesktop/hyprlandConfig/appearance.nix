@@ -29,6 +29,7 @@ in
 			# colors
 			"col.inactive_border" = withAlpha colors.base01 "FF";	
 			"col.active_border" = withAlpha colors.base04 "FF";		
+			
 		};
 
 		decoration = {
