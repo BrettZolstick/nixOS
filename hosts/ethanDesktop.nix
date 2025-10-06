@@ -21,8 +21,6 @@
 
 
 
-
-
 	# =========================================================================================================
 	# 
 	# - Options that you would regularly store in configuration.nix are stored in
