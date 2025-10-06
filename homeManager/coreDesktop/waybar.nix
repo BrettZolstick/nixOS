@@ -65,13 +65,14 @@ in
 				position = "top";
 				modules-left = [ "hyprland/workspaces" "hyprland/window" ];
 				modules-center = [ "custom/hardwareMonitor" "custom/gitBehind" ];
-				modules-right = [ "tray" "custom/updates" "custom/clipboard" "network" "pulseaudio" "clock" ];
+				modules-right = [ "tray" "custom/updates" "custom/clipboard" "network" "pulseaudio" "custom/notification" "clock" ];
 				"hyprland/workspaces" = {
 					all-outputs = true;
 					disable-scroll = true;
 					format = "{}";
 					on-click = "activate";
 				};
+				
 				"custom/hardwareMonitor" = {
 					exec = "${hardwareMonitor}/bin/hardware-monitor";
 					interval = 1;
@@ -80,6 +81,7 @@ in
 					on-click = "kitty -e btop";
 					tooltip = false;
 				};
+				
 				"custom/gitBehind" = {
 					exec = "${gitBehind}/bin/git-behind";
 					interval = 61;
@@ -88,18 +90,42 @@ in
 					on-click = "kitty --directory ~/nixOS"; 
 					tooltip = true;
 				};
-				"clock" = {
-					format = "{:%a %m.%d.%Y %I:%M %p}";
-					tooltip = false;
-				};
+
 				"network" = {
 					format-ethernet = "󰈀  {ifname}";
 					format-wifi = "  {essid} ({signalStrength}%)";
 					format-disconnected = "󱘖  Disconnected";
 				};
+
 				"pulseaudio" = {
 					format = "  {volume}%";
 					on-click = "pwvucontrol";
+				};
+
+				"custom/notification" = {
+					tooltip = false;
+					format = "{icon}";
+					format-icons = {
+						notification = "<span foreground='red'><sup></sup></span>";
+						none = "";
+						dnd-notification = "<span foreground='red'><sup></sup></span>";
+						dnd-none = "";
+						inhibited-notification = "<span foreground='red'><sup></sup></span>";
+						inhibited-none = "";
+						dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
+						dnd-inhibited-none = "";
+					};
+					return-type = "json";
+					exec-if = "which swaync-client";
+					exec = "swaync-client -swb";
+					on-click = "swaync-client -t -sw";
+					on-click-right = "swaync-client -d -sw";
+					escape = true;
+				};
+				
+				"clock" = {
+					format = "{:%a %m.%d.%Y %I:%M %p}";
+					tooltip = false;
 				};
 			}];
 			
@@ -193,6 +219,7 @@ in
 				#network,
 				#pulseaudio,
 				#custom-updates,
+				#custom-notification,
 				#clock {
 					background: alpha(${colors.base01},0.8);
 					color: alpha(${colors.base06},0.9);
@@ -204,6 +231,10 @@ in
 				
 				#custom-updates{
 					padding-right: 11px;
+				}
+
+				#custom-notification{
+					margin-right: 2px;
 				}
 				
 				/* ------------ Network Disconnected ------------ */
