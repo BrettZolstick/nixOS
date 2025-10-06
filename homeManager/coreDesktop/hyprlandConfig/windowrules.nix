@@ -31,7 +31,7 @@
 			"bordersize 4, class:wofi"
 
 			# Open discord and todoist in workspace 2
-			"workspace 2, class: discord"
+			"workspace 2, class: vesktop"
 			"workspace 2, class: Todoist"
 
 			# Open steam games in fullscreen on DP-1
