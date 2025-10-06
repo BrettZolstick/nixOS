@@ -84,8 +84,10 @@ in
 				offset	 		=	"1 1";				#	shadow’s rendering offset.
 				scale	 		=	1;					#	shadow’s scale. [0.0 - 1.0]
 			};
+		};
 
-			
+		misc = {
+			disable_splash_rendeirng = true; 
 		};
 	};
 }
