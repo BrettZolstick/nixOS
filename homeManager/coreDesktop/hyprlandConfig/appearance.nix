@@ -88,7 +88,7 @@ in
 		};
 
 		misc = {
-			disable_splash_rendeirng = true; 
+			disable_splash_rendering = true; 
 		};
 	};
 }
