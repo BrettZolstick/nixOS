@@ -10,9 +10,15 @@
 	config = lib.mkIf config.micro.enable {
 		# Actual content of the module goes here:
 
+
+		# sets micro as the default editor
+		home.sessionVariables = {
+			EDITOR = "micro";
+			VISUAL = "micro";
+		};
+
        	programs.micro.enable = true;
        	programs.micro.settings = {
-
 			# configuration options can be found here: 
 			# https://github.com/zyedidia/micro/blob/master/runtime/help/options.md	
        	};
