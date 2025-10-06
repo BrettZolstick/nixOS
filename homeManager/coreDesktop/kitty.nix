@@ -34,34 +34,6 @@
 				confirm_os_window_close = 0;
 				
 			};
-       		# Background
-			#background_opacity	= 0.75;
-			#background_blur 	= 32;
-
-			# Font
-			#font_family 		= "JetBrains Mono Nerd Font";
-			#bold_font			= "auto";
-			#italic_font			= "auto";
-			#bold_italic_font	= "auto";
-			#font_size			= 12;
-
-			# Behavior
-			#tab_width 					= 4;
-			#wheel_scroll_multiplier 	= 5;
-			#sync_to_monitor 			= "yes";		
-			#confirm_os_window_close 	= 0;
-
-			# extra
-#			extraConfig 	=''
-#				background_opacity 	0.2
-#				background_blur 	32
-#
-#				tab_width 					4
-#				wheel_scroll_multiplier 	5
-#				sync_to_monitor 			yes		
-#				confirm_os_window_close 	0
-#			'';      		
-       	};
-       			
+       	};       			
 	};	
 }
