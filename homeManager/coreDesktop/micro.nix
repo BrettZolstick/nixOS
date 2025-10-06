@@ -16,6 +16,5 @@
 			# configuration options can be found here: 
 			# https://github.com/zyedidia/micro/blob/master/runtime/help/options.md	
        	};
-		
 	};	
 }

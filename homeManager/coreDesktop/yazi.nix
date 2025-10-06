@@ -2,16 +2,17 @@
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
-		nnn.enable = lib.mkOption {
+		yazi.enable = lib.mkOption {
 			default = true;	
 		};
 	};
 	
-	config = lib.mkIf config.nnn.enable {
+	config = lib.mkIf config.yazi.enable {
 		# Actual content of the module goes here:
 
-		programs.nnn.enable = true;
-		
-		
+		programs.yazi = {
+			enable = true;
+		};
+
 	};	
 }
