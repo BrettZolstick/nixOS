@@ -7,7 +7,7 @@
 		"$terminal"			=	"kitty";
 		"$browser"			=	"firefox";
 		"$appLauncher"		=	"wofi";
-		"$fileManager"		=	"dolphin";
+		"$fileManager"		=	"nnn";
 		"$processViewer"	=	"btop";
 
 
