@@ -9,6 +9,6 @@
 	
 	config = lib.mkIf config.kicad.enable {
 		# Actual content of the module goes here:
-		home.packages = with pkgs; [ kicad ];		
+		home.packages = with pkgs; [ kicad-unstable ];		
 	};	
 }
