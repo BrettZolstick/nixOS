@@ -19,6 +19,11 @@
 		wheelNeedsPassword = false;
 	};
 
+	# Udev rules
+	services.udev.extraRules = ''
+		# Prevent Hyprland's tablet settings from interfering with Open Tablet Driver
+		ATTRS{name}=="Wacom One by Wacom M Pen", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+	'';
 
 
 	# =========================================================================================================
