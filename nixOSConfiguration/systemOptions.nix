@@ -39,4 +39,6 @@
 	# Enable stylix
 	stylix.enable = true; # this must always be enabled, as its colors are refrenced throughout the entire config.
 
+	# Enable wooting
+	hardware.wooting.enable = true;
 }
