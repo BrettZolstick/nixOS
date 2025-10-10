@@ -9,6 +9,6 @@
 	
 	config = lib.mkIf config.osu-lazer.enable {
 		# Actual content of the module goes here:
-		home.packages = with pkgs; [ osu-lazer ];		
+		home.packages = with pkgs; [ osu-lazer-bin ];		
 	};	
 }
