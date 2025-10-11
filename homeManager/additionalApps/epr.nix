@@ -9,6 +9,6 @@
 	
 	config = lib.mkIf config.epr.enable {
 		# Actual content of the module goes here:
-		home.packages = with pkgs; [ epr ];		
+		home.packages = with pkgs; [ epr koreader ];		
 	};	
 }
