@@ -31,7 +31,6 @@ in
 			name = "Ethan Server (RDP)";
 			exec = "rdp-ethan-server";
 			terminal = false;
-			icon = "computer";
 		};
 		
 	};	
