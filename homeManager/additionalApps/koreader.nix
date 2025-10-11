@@ -2,7 +2,7 @@
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
-		epr.koreader = lib.mkOption {
+		koreader.enable = lib.mkOption {
 			default = true;	
 		};
 	};
