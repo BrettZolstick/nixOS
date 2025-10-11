@@ -1,10 +1,10 @@
 { config, pkgs, lib, ... }: {
 
-	boot.supportedFileSystems = [ "cifs" ]
+	boot.supportedFilesystems = [ "cifs" ];
 	
 	environment.systemPackages = with pkgs; [ cifs-utils ];
 
-	filesystems."/mnt/NetworkShare" = {
+	fileSystems."/mnt/NetworkShare" = {
 		device = "//192.168.68.63/ShareName";
 		fsType = "cifs";
 		options = [
