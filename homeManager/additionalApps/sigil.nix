@@ -2,13 +2,13 @@
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
-		epr.enable = lib.mkOption {
+		sigil.enable = lib.mkOption {
 			default = true;	
 		};
 	};
 	
-	config = lib.mkIf config.epr.enable {
+	config = lib.mkIf config.sigil.enable {
 		# Actual content of the module goes here:
-		home.packages = with pkgs; [ epr koreader sigil ];		
+		home.packages = with pkgs; [ sigil ];		
 	};	
 }
