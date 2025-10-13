@@ -9,6 +9,6 @@
 	
 	config = lib.mkIf config.koreader.enable {
 		# Actual content of the module goes here:
-		home.packages = with pkgs; [ koreader ];		
+		home.packages = with pkgs; [ koreader kdePackages.arianna];		
 	};	
 }
