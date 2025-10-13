@@ -2,13 +2,15 @@
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
-		koreader.enable = lib.mkOption {
+		calibre.enable = lib.mkOption {
 			default = true;	
 		};
 	};
 	
-	config = lib.mkIf config.koreader.enable {
+	config = lib.mkIf config.calibre.enable {
 		# Actual content of the module goes here:
-		home.packages = with pkgs; [ koreader kdePackages.arianna];		
+		home.packages = with pkgs; [ 
+			calibre
+		];		
 	};	
 }
