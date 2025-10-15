@@ -33,8 +33,8 @@
 	#		};
 	# 
 	# =========================================================================================================
-
 	# =========================================================================================================
+
 	#
 	# - All packages in nixOS/nixOSConfiguration/baseSystemConfiguration and nixOS/homeManager were made modular 
 	#	and toggleable by using lib.mkOption 
@@ -56,9 +56,15 @@
 	#
 	# =========================================================================================================
 
-	openTabletDriver.enable = false;
-	alsaScarlettGui.enable = false;
-	cifsShares = false;
-	steam = false;
+	openTabletDriver.enable 	= false;
+	alsaScarlettGui.enable 		= false;
+	cifsShares.enable 			= false;
+	steam.enable 				= false;
+
+	home-manager.users.ethan = {
+		firefox.enable 	= true;
+		todoist.enable 	= true;
+		vesktop.enable 	= true;
+	};
 	
 }
