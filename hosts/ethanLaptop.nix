@@ -61,6 +61,11 @@
 	#
 	# =========================================================================================================
 
-	alsa-scarlett-gui.enable = false;
-
+	home-manager.users.ethan = {
+		alsaScarlettGui.enable = false;
+		firefox.enable = true;
+		osu-lazer.enable = true;
+		todoist.enable = true;
+		vesktop.enable = true;
+	};
 }

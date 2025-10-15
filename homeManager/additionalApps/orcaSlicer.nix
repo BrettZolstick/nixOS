@@ -3,7 +3,7 @@
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
 		orcaSlicer.enable = lib.mkOption {
-			default = true;	
+			default = false;	
 		};
 	};
 	

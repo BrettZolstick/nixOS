@@ -57,18 +57,8 @@
 	# =========================================================================================================
 
 	openTabletDriver.enable = false;
-
-	home-manager.users.ethan = {
-
-		alsa-scarlett-gui.enable 	= false;
-		anicli.enable 				= false;
-		epr.enable 					= false;
-		koreader.enable 			= false;
-		lingot.enable 				= false;
-		osu-lazer.enable 			= false;
-		sigil.enable 				= false;
-		wootility.enable 			= false;
-			
-	};
+	alsaScarlettGui.enable = false;
+	cifsShares = false;
+	steam = false;
 	
 }

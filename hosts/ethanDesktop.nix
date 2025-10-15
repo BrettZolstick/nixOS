@@ -68,4 +68,21 @@
 	#
 	# =========================================================================================================
 
+	home-manager.users.ethan = {
+		aniCli.enable 		= true;
+		blender.enable 		= true;
+		calibre.enable 		= true;
+		firefox.enable 		= true;
+		freecad.enable 		= true;
+		freerdp.enable 		= true;
+		kikcad.enable 		= true;
+		lingot.enable 		= true;
+		orcaSlicer.enable 	= true;
+		osuLazer.enable 	= true;
+		sigil.enable 		= true;
+		todoist.enable 		= true;
+		vesktop.enable 		= true;
+		wootility.enable 	= true;
+	};
+	
 }

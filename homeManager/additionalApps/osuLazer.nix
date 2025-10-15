@@ -2,12 +2,12 @@
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
-		osu-lazer.enable = lib.mkOption {
-			default = true;	
+		osuLazer.enable = lib.mkOption {
+			default = false;	
 		};
 	};
 	
-	config = lib.mkIf config.osu-lazer.enable {
+	config = lib.mkIf config.osuLazer.enable {
 		# Actual content of the module goes here:
 		home.packages = with pkgs; [ osu-lazer-bin ];	
 
