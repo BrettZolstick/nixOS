@@ -64,8 +64,10 @@
 		# repeating binds
 		binde = [
 		 	# multimedia buttons
-		 	", xf86audioraisevolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+" 
-		 	", xf86audiolowervolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+		 	", xf86audioraisevolume, 	exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+" 
+		 	", xf86audiolowervolume, 	exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+		 	", XF86MonBrightnessDown,	exec, brightnessctl s 10%-"
+		 	", XF86MonBrightnessUp, 	exec, brightnessctl s +10%"
 		 ];
 
 
