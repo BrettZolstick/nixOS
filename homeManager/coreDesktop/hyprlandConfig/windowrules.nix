@@ -7,6 +7,9 @@
 			# Fix some dragging issues with XWayland
 			"nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
 
+			# force permenant transparency on prism launcher because it looks good
+			"opacity override 0.9 override 0.91, class:org.prismlauncher.PrismLauncher"
+
 			# disable transparency for videos
 			"opacity 1.2, content:video"
 
@@ -16,7 +19,6 @@
 			# disable transparency for discord
 			"opacity 1.2, class:vesktop"
 			"opacity 1.2, class:discord"
-			
 
 			# disable hyprland transparency for kitty (so it doesn't stack with kitty's built in transparency)
 			#"opacity 99 1, class:kitty" # leaving this commented out because I kinda like the stacked transparency
@@ -37,6 +39,8 @@
 			# Open steam games in fullscreen on DP-1
 			"workspace 1, class: ^(steam_app_.*)$"
 			"fullscreen , class: ^(steam_app_.*)$"
+
+			
 		];	
 	};
 }
