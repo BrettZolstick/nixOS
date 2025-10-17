@@ -84,6 +84,7 @@
 		vesktop.enable 			= true;
 		wootility.enable 		= true;
 		prismLauncher.enable 	= true;
+		gamescope.enable 		= true;
 	};
 	
 }
