@@ -85,6 +85,7 @@
 		wootility.enable 		= true;
 		prismLauncher.enable 	= true;
 		gamescope.enable 		= true;
+		mangohud.enable  		= true;
 	};
 	
 }
