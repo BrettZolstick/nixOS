@@ -13,8 +13,8 @@
 
 		environment.systemPackages = with pkgs; [ 
 
-			temurin-bin
-			zulu
+			#temurin-bin
+			#zulu
 			
 		];
 
