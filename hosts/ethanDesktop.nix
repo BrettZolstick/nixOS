@@ -86,6 +86,8 @@
 		prismLauncher.enable 	= true;
 		gamescope.enable 		= true;
 		mangohud.enable  		= true;
+		missionCenter.enable 	= true;
+		audacity.enable 		= true;
 	};
 	
 }
