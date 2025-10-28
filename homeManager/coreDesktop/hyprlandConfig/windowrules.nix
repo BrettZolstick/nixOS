@@ -40,6 +40,8 @@
 			"workspace 1, class: ^(steam_app_.*)$"
 			"fullscreen , class: ^(steam_app_.*)$"
 
+			# disable tiling for keyoverlay
+			"float, class:KeyOverlay"
 			
 		];	
 	};
