@@ -88,6 +88,9 @@
 		mangohud.enable  		= true;
 		missionCenter.enable 	= true;
 		audacity.enable 		= true;
+		renoise.enable 			= true;
+		furnace.enable 			= true;
+		musescore.enable 		= true;
 	};
 	
 }
