@@ -18,7 +18,7 @@
 
 			# This is the dirty part. (need to clone the KeyOverlay repo into home manually, and then make a flake for it)
 			# This desktop entry only builds the flake.
-			exec = "nix develop ~/KeyOverlay/ --command dotnet run --project /home/ethan/KeyOverlay/KeyOverlay -c Release";
+			exec = "nix develop /home/ethan/KeyOverlay/ --command dotnet run --project /home/ethan/KeyOverlay/KeyOverlay -c Release";
 			comment = "An overlay that shows key press history";
 			terminal = false;
 			startupNotify = true;
