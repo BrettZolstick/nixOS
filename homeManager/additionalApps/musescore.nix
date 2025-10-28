@@ -9,6 +9,9 @@
 	
 	config = lib.mkIf config.musescore.enable {
 		# Actual content of the module goes here:
-		home.packages = with pkgs; [ musescore ];		
+		home.packages = with pkgs; [ 
+			musescore
+		 	muse-sounds-manager
+		];		
 	};	
 }
