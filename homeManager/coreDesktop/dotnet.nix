@@ -9,8 +9,8 @@
 	
 	config = lib.mkIf config.dotnet.enable {
 		# Actual content of the module goes here:
-
-       	home.packages = with pkgs; [ dotnet-runtime_7 ];
+		
+       	home.packages = with pkgs; [ dotnet-runtime ];
 		
 	};	
 }

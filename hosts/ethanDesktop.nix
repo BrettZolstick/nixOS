@@ -92,6 +92,7 @@
 		furnace.enable 			= true;
 		musescore.enable 		= true;
 		obsStudio.enable 		= true;
+		keyOverlay.enable 		= true;
 	};
 	
 }
