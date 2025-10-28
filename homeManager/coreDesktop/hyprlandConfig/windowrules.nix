@@ -41,7 +41,7 @@
 			"fullscreen , class: ^(steam_app_.*)$"
 
 			# disable tiling for keyoverlay
-			"float, class:KeyOverlay"
+			#"float, class:KeyOverlay"
 			
 		];	
 	};
