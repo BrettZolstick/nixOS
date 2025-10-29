@@ -68,7 +68,7 @@
 	#
 	# =========================================================================================================
 
-	amdGraphics.enable 		= true;
+	AMDGraphics.enable 		= true;
 	cifsShares.enable 		= true;
 	openTabletDriver.enable = true;
 	alsaScarlettGui.enable 	= true;
