@@ -5,7 +5,7 @@ let
 			ver = "2025.1029.1";
 		in {
 			osu-lazer-bin-custom = prev.appimageTools.wrapType2 {
-				pname = "osu-lazer-bin";
+				pname = "osu!";
 				version = ver;
 				src = prev.fetchurl {
 					url = "https://github.com/ppy/osu/releases/download/${ver}-lazer/osu.AppImage";
