@@ -3,6 +3,7 @@
 
 	inputs = {
 		nixpkgs.url = "nixpkgs/nixos-unstable";
+		#nixpkgs.url = "github:NixOS/nixpkgs/master";
 
 		# manages dotfiles
 		home-manager = {

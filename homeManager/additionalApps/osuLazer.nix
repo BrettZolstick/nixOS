@@ -1,4 +1,31 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }: 
+let
+	osuOverlay = (final: prev:
+		let
+			ver = "2025.1029.1";
+		in {
+			osu-lazer-bin-custom = prev.appimageTools.wrapType2 {
+				pname = "osu-lazer-bin";
+				version = ver;
+				src = prev.fetchurl {
+					url = "https://github.com/ppy/osu/releases/download/${ver}-lazer/osu.AppImage";
+					sha256 = "sha256:971f91376d2c3e21befa92d2d205ba8b1218c37fa0d4a18232b021816fb2648c";
+					# Find hash here: https://github.com/ppy/osu/releases
+					# Alternatively, rebuild with this and copy hash from error log.
+					#sha256 = lib.fakeHash;
+				};
+				extraPkgs = pkgs: with pkgs; [ 
+					icu
+				]; 
+			};
+		}
+	);
+
+	
+	# Create a local version of pkgs that includes osuOverlay
+	pkgsWithOverlays = pkgs.extend osuOverlay;
+in
+{
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
@@ -8,8 +35,16 @@
 	};
 	
 	config = lib.mkIf config.osuLazer.enable {
-		# Actual content of the module goes here:
-		home.packages = with pkgs; [ osu-lazer-bin ];	
+		# Actual content of the module goes here:		
+
+		home.packages = [
+			
+		 	# Official from nixpkgs
+			#pkgs.osu-lazer-bin	
+
+			# Version from my overlay above (can be used to immediately download the latest version as soon as it releases)
+			pkgsWithOverlays.osu-lazer-bin-custom
+		];	
 
 		xdg.desktopEntries."osu!" = {
 			name = "osu!";
