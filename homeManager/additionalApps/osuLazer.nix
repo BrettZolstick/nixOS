@@ -49,7 +49,7 @@ in
 		xdg.desktopEntries."osu!" = {
 			name = "osu!";
 			exec = "env PIPEWIRE_LATENCY=128/48000 PIPEWIRE_QUANTUM=128/48000 osu!";
-			icon = "osu";
+			icon = ../../assets/lazer.png;
 			comment = "A free-to-win rhythm game. Rhythm is just a *click* away!";
 			terminal = false;
 			mimeType = [
