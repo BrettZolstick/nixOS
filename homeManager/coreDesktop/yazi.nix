@@ -1,4 +1,8 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, stylix, ... }: 
+let
+	colors = config.lib.stylix.colors.withHashtag;
+in
+{
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
@@ -30,6 +34,174 @@
 					title_format = "Yazi => {cwd}"; # The terminal title format, which is a string with the following placeholders available:
 					
 				};				
+			};
+			theme = lib.mkForce {
+				mgr = {
+					cwd = {
+						fg 			= colors.base05;
+						bg 			= colors.base00;
+						bold 		= true;
+						dim 		= false;
+						italic 		= false;
+						underline 	= false;
+						blink 		= false;
+						blink_rapid	= false;
+						reversed 	= false;
+						hidden 		= false;
+						crossed 	= false;
+					};
+					hovered = {
+						fg 			= colors.base00;
+						bg 			= colors.base04;
+						bold 		= true;
+						dim 		= false;
+						italic 		= false;
+						underline 	= false;
+						blink 		= false;
+						blink_rapid	= false;
+						reversed 	= false;
+						hidden 		= false;
+						crossed 	= false;
+					};					
+					preview_hovered = {
+					 	#fg 			= colors.base04;
+					 	#bg 			= colors.base00;
+					 	bold 		= false;
+					 	dim 		= false;
+					 	italic 		= false;
+					 	underline 	= false;
+					 	blink 		= false;
+					 	blink_rapid	= false;
+					 	reversed 	= false;
+					 	hidden 		= false;
+					 	crossed 	= false;
+					};
+					find_keyword = {
+					 	fg 			= colors.base05;
+					 	bg 			= colors.base01;
+					 	bold 		= true;
+					 	dim 		= false;
+					 	italic 		= false;
+					 	underline 	= false;
+					 	blink 		= false;
+					 	blink_rapid	= false;
+					 	reversed 	= false;
+					 	hidden 		= false;
+					 	crossed 	= false;
+					};
+					marker_copied = {
+					 	fg 			= colors.base0A;
+					 	bg 			= colors.base0A;
+					 	bold 		= false;
+					 	dim 		= false;
+					 	italic 		= false;
+					 	underline 	= false;
+					 	blink 		= false;
+					 	blink_rapid	= false;
+					 	reversed 	= false;
+					 	hidden 		= false;
+					 	crossed 	= false;
+					};
+					marker_cut = {
+					 	fg 			= colors.base08;
+					 	bg 			= colors.base08;
+					 	bold 		= false;
+					 	dim 		= false;
+					 	italic 		= false;
+					 	underline 	= false;
+					 	blink 		= false;
+					 	blink_rapid	= false;
+					 	reversed 	= false;
+					 	hidden 		= false;
+					 	crossed 	= false;
+					};
+					marker_marked = {
+					 	fg 			= colors.base0C;
+					 	bg 			= colors.base0C;
+					 	bold 		= false;
+					 	dim 		= false;
+					 	italic 		= false;
+					 	underline 	= false;
+					 	blink 		= false;
+					 	blink_rapid	= false;
+					 	reversed 	= false;
+					 	hidden 		= false;
+					 	crossed 	= false;
+					};
+					marker_selected = {
+					 	fg 			= colors.base0C;
+					 	bg 			= colors.base0C;
+					 	bold 		= false;
+					 	dim 		= false;
+					 	italic 		= false;
+					 	underline 	= false;
+					 	blink 		= false;
+					 	blink_rapid	= false;
+					 	reversed 	= false;
+					 	hidden 		= false;
+					 	crossed 	= false;
+					};
+					count_copied = {
+					 	fg 			= colors.base00;
+					 	bg 			= colors.base0B;
+					 	bold 		= false;
+					 	dim 		= false;
+					 	italic 		= false;
+					 	underline 	= false;
+					 	blink 		= false;
+					 	blink_rapid	= false;
+					 	reversed 	= false;
+					 	hidden 		= false;
+					 	crossed 	= false;
+					};
+					count_cut = {
+					 	fg 			= colors.base00;
+					 	bg 			= colors.base08;
+					 	bold 		= false;
+					 	dim 		= false;
+					 	italic 		= false;
+					 	underline 	= false;
+					 	blink 		= false;
+					 	blink_rapid	= false;
+					 	reversed 	= false;
+					 	hidden 		= false;
+					 	crossed 	= false;
+					};
+					count_selected = {
+					 	fg 			= colors.base00;
+					 	bg 			= colors.base0C;
+					 	bold 		= false;
+					 	dim 		= false;
+					 	italic 		= false;
+					 	underline 	= false;
+					 	blink 		= false;
+					 	blink_rapid	= false;
+					 	reversed 	= false;
+					 	hidden 		= false;
+					 	crossed 	= false;
+					};
+					border_symbol = "│";
+					border_style = {
+					 	fg 			= colors.base02;
+					 	bg 			= colors.base00;
+					 	bold 		= false;
+					 	dim 		= false;
+					 	italic 		= false;
+					 	underline 	= false;
+					 	blink 		= false;
+					 	blink_rapid	= false;
+					 	reversed 	= false;
+					 	hidden 		= false;
+					 	crossed 	= false;
+					};
+					#syntect_theme = "./example.tmTheme"; # syntax color theme in previews
+				};
+				filetype = {
+					rules = [
+						{name = "*/"; fg = colors.base0A; dim = false;}
+						{name = "*"; fg = colors.base04;}
+					];
+				};
 			};	
 		};
 
