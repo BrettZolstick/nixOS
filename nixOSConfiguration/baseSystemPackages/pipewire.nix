@@ -18,26 +18,31 @@
 			pulse.enable = true;
 			jack.enable = true;
 			wireplumber.enable = true;
-			wireplumber.extraConfig."51-alsa-profiles" = {
-				"monitor.alsa.rules" = [
-					# Force Clarett+ 2Pre to Pro Audio
-					{
-						matches = [ { "device.nick" = "Clarett+ 2Pre"; } ];
-						actions = {
-							update-props = { "device.profile" = "pro-audio"; };
-						};
-					}
+			wireplumber.extraConfig = {
+				"10-alsa-midi" = {
+					"wireplumber.settings" = {"monitor.alsa-midi" = true; };
+				};
+				
+				"51-alsa-profiles" = {
+					"monitor.alsa.rules" = [
+						# Force Clarett+ 2Pre to Pro Audio
+						{
+							matches = [ { "device.nick" = "Clarett+ 2Pre"; } ];
+							actions = {
+								update-props = { "device.profile" = "pro-audio"; };
+							};
+						}
 
-					# Turn off Navi 31 HDMI/DP
-					{
-						matches = [ { "device.nick" = "Navi 31 HDMI/DP Audio"; } ];
-						actions = {
-							update-props = { "device.profile" = "off"; };
-						};
-					}
-				];
+						# Turn off Navi 31 HDMI/DP
+						{
+							matches = [ { "device.nick" = "Navi 31 HDMI/DP Audio"; } ];
+							actions = {
+								update-props = { "device.profile" = "off"; };
+							};
+						}
+					];
+				};
 			};
-
 			wireplumber.configPackages = [
 				(pkgs.writeTextDir "share/wireplumber/main.lua.d/99-alsa-lowlatency.lua" ''
 					alsa_monitor.rules = {
