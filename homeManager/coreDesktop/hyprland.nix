@@ -14,9 +14,7 @@
 			systemd.enable = true;
 		};
 
-		programs.hyprlock = {
-			enable = true;
-		};
+
 
 		services.hyprpaper.enable = true;
 
@@ -31,7 +29,25 @@
 		    };
 		};
 
+
+		
+		programs.hyprlock = {
+			enable = true;
+		};
 				
 
+
+		services.hypridle = {
+			enable = true;
+			settings = {
+				general = { lock_cmd = "hyprlock"; };
+				listener = [
+					{
+						timeout = 300;
+						on-timeout = "hyprlock";
+					}
+				];
+			};
+		};
 	};	
 }
