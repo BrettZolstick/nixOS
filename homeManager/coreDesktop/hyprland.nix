@@ -13,6 +13,24 @@
 			enable = true;
 			systemd.enable = true;
 		};
+
+		programs.hyprlock = {
+			enable = true;
+		};
+
+		services.hyprpaper.enable = true;
+
+		# this is to fix the hyprpaper service not starting because it tries to start before wayland
+		systemd.user.services.hyprpaper = {
+			Unit = {
+		      After = [ "hyprland-session.target" ];
+		      PartOf = [ "hyprland-session.target" ];
+		    };
+		    Install = {
+		      WantedBy = [ "hyprland-session.target" ];
+		    };
+		};
+
 				
 
 	};	
