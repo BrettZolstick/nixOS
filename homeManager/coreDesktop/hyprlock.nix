@@ -9,7 +9,9 @@
 	
 	config = lib.mkIf config.hyprlock.enable {
 		# Actual content of the module goes here:
-		programs.hyprlock.enable = true;
+		programs.hyprlock = {
+			enable = true;
+		};
 		
 				
 
