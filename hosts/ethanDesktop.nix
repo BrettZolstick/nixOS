@@ -98,6 +98,7 @@
 		musescore.enable 		= true;
 		obsStudio.enable 		= true;
 		keyOverlay.enable 		= true;
+		krita.enable 			= true;
 	};
 	
 }
