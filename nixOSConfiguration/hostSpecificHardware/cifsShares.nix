@@ -15,7 +15,7 @@
 	
 		fileSystems = {
 			"/mnt/NetworkShare" = {
-				device = "//192.168.68.61/Network Share";
+				device = "//192.168.68.67/Network Share";
 				fsType = "cifs";
 				options = [
 					"credentials=/mnt/NetworkShare.creds" 
@@ -38,7 +38,7 @@
 			};
 			
 			"/mnt/Prep" = {
-				device = "//192.168.68.61/Prep";
+				device = "//192.168.68.67/Prep";
 				fsType = "cifs";
 				options = [
 					"credentials=/mnt/Prep.creds" 

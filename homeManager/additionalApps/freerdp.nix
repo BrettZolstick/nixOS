@@ -7,7 +7,7 @@ let
 		PW="$(cat $HOME/nixOS/homeManager/additionalApps/freerdp-servertron9000.pass)"
 
 		exec ${pkgs.freerdp}/bin/xfreerdp \
-		/v:192.168.68.61 \
+		/v:192.168.68.67 \
 		/u:'servertron9000' \
 		/p:"$PW" \
 		/cert:ignore \
