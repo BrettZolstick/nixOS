@@ -9,6 +9,6 @@
 	
 	config = lib.mkIf config.figma.enable {
 		# Actual content of the module goes here:
-		home.packages = with pkgs; [ figma ];
+		home.packages = with pkgs; [ figma-linux ];
 	};	
 }
