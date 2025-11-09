@@ -13,7 +13,7 @@
 
 		stylix.url = "github:nix-community/stylix";			
 
-		coyparty.url = "github:9001/copyparty";
+		copyparty.url = "github:9001/copyparty";
 
 	};
 	

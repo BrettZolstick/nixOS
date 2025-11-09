@@ -100,6 +100,7 @@
 		keyOverlay.enable 		= true;
 		krita.enable 			= true;
 		figma.enable 			= true;
+		copyparty.enable 		= true;
 	};
 	
 }
