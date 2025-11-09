@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, copyparty, ... }: {
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
@@ -12,7 +12,7 @@
 
 		nixpkgs.overlays = [ copyparty.overlays.default ];
 
-		home.packages = with pkgs; [ copyparty ];
+		environment.systemPackages = with pkgs; [ copyparty ];
 
 		services.copyparty.enable = true;		
 
