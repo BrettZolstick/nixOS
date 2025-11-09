@@ -11,13 +11,13 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
-		stylix = {
-			url = "github:nix-community/stylix";			
-		};
+		stylix.url = "github:nix-community/stylix";			
+
+		coyparty.url = "github:9001/copyparty";
 
 	};
 	
-	outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: {
+	outputs = { self, nixpkgs, home-manager, stylix, copyparty, ... }@inputs: {
 		nixosConfigurations = {
 			ethanDesktop = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
@@ -26,6 +26,7 @@
 					./users/ethan.nix					
 					home-manager.nixosModules.home-manager
 					inputs.stylix.nixosModules.stylix
+					copyparty.nixosModules.default
 				];
 			};
 
