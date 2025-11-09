@@ -39,6 +39,7 @@
 					inputs.stylix.nixosModules.stylix
 				];
 			};
+			
 			# Additional hosts go here	
 			
 		};
