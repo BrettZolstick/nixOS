@@ -12,11 +12,11 @@
 		home.packages = with pkgs; [ prismlauncher ];		
 
 		xdg.desktopEntries."GregTech: New Horizons" = {
-					name = "GregTech: New Horizons (GTNH)";
-					exec = "prismlauncher --launch 'GregtechNewHorizons'";
-					comment = "Greg Tech New Horizons";
-					terminal = false;
-					startupNotify = true;
-				};
+			name = "GregTech: New Horizons (GTNH)";
+			exec = "prismlauncher --launch GregtechNewHorizons";
+			comment = "Greg Tech New Horizons";
+			terminal = false;
+			startupNotify = true;
+		};
 	};	
 }
