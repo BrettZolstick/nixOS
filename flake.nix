@@ -21,6 +21,9 @@
 		nixosConfigurations = {
 			ethanDesktop = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
+				specialArgs = {
+					inherit copyparty;
+				};
 				modules = [
 					./hosts/ethanDesktop.nix
 					./users/ethan.nix					
