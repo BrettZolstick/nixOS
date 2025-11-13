@@ -61,10 +61,12 @@
 	#
 	# =========================================================================================================
 
+	cifsShares.enable 		= true;
+	
+
 	home-manager.users.ethan = {
-		alsaScarlettGui.enable = false;
 		firefox.enable = true;
-		osu-lazer.enable = true;
+		osuLazer.enable = true;
 		todoist.enable = true;
 		vesktop.enable = true;
 	};
