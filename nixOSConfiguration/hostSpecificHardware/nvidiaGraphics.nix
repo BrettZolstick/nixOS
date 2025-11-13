@@ -15,11 +15,12 @@
 			enable32Bit = true;	
 		};
 
+		services.xserver.videoDrivers = ["nvidia"];
 		hardware.nvidia = {
 			modesetting.enable = true;
-			package = config.boot.kernalPackages.nvidiaPackages.stable;
-			powerManagement.enable = true;
-			powerManagement.finegrained = true; # turns off gpu when not in use
+			package = config.boot.kernelPackages.nvidiaPackages.stable;
+			#powerManagement.enable = true;
+			#powerManagement.finegrained = true; # turns off gpu when not in use
 			open = false; # use open source driver
 			nvidiaSettings = true;
 		};
