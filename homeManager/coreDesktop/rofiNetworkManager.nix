@@ -2,13 +2,13 @@
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
-		impala.enable = lib.mkOption {
+		rofiNetworkManager.enable = lib.mkOption {
 			default = true;	
 		};
 	};
 	
-	config = lib.mkIf config.impala.enable {
+	config = lib.mkIf config.rofiNetworkManager.enable {
 		# Actual content of the module goes here:
-		home.packages = with pkgs; [ impala ];		
+		home.packages = with pkgs; [ rofi-network-manager ];		
 	};	
 }
