@@ -35,11 +35,13 @@ let
 		fi
 
 	'';
+	
 	batteryMonitor = pkgs.writeShellScriptBin "battery-monitor" ''
 		#!/bin/bash
 		
 		status=$(cat /sys/class/power_supply/BAT0/status)
-		
+
+		# Power Usage
 		current=$(cat /sys/class/power_supply/BAT0/current_now)  # µA
 		voltage=$(cat /sys/class/power_supply/BAT0/voltage_now)  # µV
 		abs_current=$(awk -v c="$current" 'BEGIN {if(c<0) c*=-1; print c}')
@@ -49,23 +51,55 @@ let
 		charge_now=$(cat /sys/class/power_supply/BAT0/charge_now)     # µAh
 		charge_full=$(cat /sys/class/power_supply/BAT0/charge_full)   # µAh
 		voltage_v=$(awk -v v="$voltage" 'BEGIN {print v/1e6}')        # V
-		
+		battery_percentage=$(awk -v now="$charge_now" -v full="$charge_full" 'BEGIN {print (now/full)*100}')
+
+
+		# Remaining Watt Hours
 		remaining_wh=$(awk -v q="$charge_now" -v v="$voltage_v" 'BEGIN {print (q/1e6)*v}')
 		capacity_wh=$(awk -v q="$charge_full" -v v="$voltage_v" 'BEGIN {print (q/1e6)*v}')
 		needed_wh=$(awk -v full="$capacity_wh" -v now="$remaining_wh" 'BEGIN {print full-now}')
+
 		
 		# Time estimate
 		if [[ "$status" == "Charging" ]]; then
 		    arrow=""
-		    time=$(awk -v e="$needed_wh" -v p="$wattage" '
-		        BEGIN {if (p > 0.001) printf "%.1f", e/p; else print "∞"}')
+		    time=$(awk -v e="$needed_wh" -v p="$wattage" 'BEGIN {if (p > 0.001) printf "%.1f", e/p; else print "∞"}')
 		else
 		    arrow=""
-		    time=$(awk -v e="$remaining_wh" -v p="$wattage" '
-		        BEGIN {if (p > 0.001) printf "%.1f", e/p; else print "∞"}')
+		    time=$(awk -v e="$remaining_wh" -v p="$wattage" 'BEGIN {if (p > 0.001) printf "%.1f", e/p; else print "∞"}')
 		fi
+
+		# Charge Level
+		
+
+		if [ "$status" == "$null" ]; then
+			echo "No Battery"
+			printf '{
+				"text":"",
+				"class":["hidden"]
+			}\n'
+		fi
+
+		if [ "$status" == "Not charging" ] || [ "$status" == "Full" ]; then
+			echo "Full"
+			printf '{
+				"text":"  $battery_percentage",
+				"class":["hidden"]
+			}\n'
+		fi
+
+		if [ "$status" == "Discharging" ]; then
+			echo "Discharging"
+		fi
+
+		if [ "$status" == "Charging" ]; then
+			echo "Charging"
+		fi
+
+
 		
 		echo "''${arrow} ''${wattage} W | ''${arrow} ''${time}h"
+		
 		
 	'';
 	
