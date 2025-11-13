@@ -9,12 +9,13 @@
 	
 	config = lib.mkIf config.hyprland.enable {
 		# Actual content of the module goes here:
+
+		home.packages = [pkgs.brightnessctl];
+		
 		wayland.windowManager.hyprland = {
 			enable = true;
 			systemd.enable = true;
 		};
-
-
 
 		services.hyprpaper.enable = true;
 
@@ -29,14 +30,10 @@
 		    };
 		};
 
-
-		
 		programs.hyprlock = {
 			enable = true;
 		};
-				
-
-
+		
 		services.hypridle = {
 			enable = true;
 			settings = {
