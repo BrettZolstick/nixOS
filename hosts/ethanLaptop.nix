@@ -22,7 +22,6 @@
 
 
 
-
 	# =========================================================================================================
 	# 
 	# - Options that you would regularly store in configuration.nix are stored in
@@ -57,8 +56,8 @@
 	#		home-manager.users.ethan = {
 	#			bat.enable 	= false;
 	#			tree.enable = false;
-	#		};	
 	#
+	#		};	
 	# =========================================================================================================
 
 	nvidiaGraphics.enable 	= true;
@@ -66,9 +65,17 @@
 	
 
 	home-manager.users.ethan = {
+		aniCli.enable = true;
 		firefox.enable = true;
+		furnace.enable = true;
+		gamescope.enable = true;
+		mangohud.enable = true;
+		musescore.enable = true;
 		osuLazer.enable = true;
+		prismLauncher.enable = true;
+		renoise.enable = true;		
 		todoist.enable = true;
 		vesktop.enable = true;
+
 	};
 }
