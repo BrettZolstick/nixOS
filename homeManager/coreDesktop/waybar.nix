@@ -6,9 +6,13 @@ let
 		
 		cpu=$(top -bn1 | grep "Cpu(s)" | awk '{printf "%.0f\n", 100 - $8}')
 		ram=$(free -h | awk '/Mem:/ {print $3}')
-		gpu=$(cat /sys/class/drm/card1/device/gpu_busy_percent)
+		#gpu=$(cat /sys/class/drm/card1/device/gpu_busy_percent)
 
-		
+		if command -v nvidia-smi >/dev/null 2>&1 && nvidia-smi -L >/dev/null 2>&1; then
+			gpu=$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits)
+		else [ -r /sys/class/drm/card1/device/gpu_busy_percent ]
+			gpu=$(cat /sys/class/drm/card1/device/gpu_busy_percent)
+		fi
 		
 		echo "󰍛 ''${cpu}% |   ''${ram}B | 󰢮  ''${gpu}% ''${null}"
 	'';	
