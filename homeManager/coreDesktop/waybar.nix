@@ -51,7 +51,7 @@ let
 		charge_now=$(cat /sys/class/power_supply/BAT0/charge_now)     # µAh
 		charge_full=$(cat /sys/class/power_supply/BAT0/charge_full)   # µAh
 		voltage_v=$(awk -v v="$voltage" 'BEGIN {print v/1e6}')        # V
-		battery_percentage=$(awk -v now="$charge_now" -v full="$charge_full" 'BEGIN {print (now/full)*100}')
+		battery_percentage=$(awk -v now="$charge_now" -v full="$charge_full" 'BEGIN {print int((now/full)*100)}')
 
 
 		# Remaining Watt Hours
@@ -59,47 +59,26 @@ let
 		capacity_wh=$(awk -v q="$charge_full" -v v="$voltage_v" 'BEGIN {print (q/1e6)*v}')
 		needed_wh=$(awk -v full="$capacity_wh" -v now="$remaining_wh" 'BEGIN {print full-now}')
 
-		
-		# Time estimate
-		if [[ "$status" == "Charging" ]]; then
-		    arrow=""
-		    time=$(awk -v e="$needed_wh" -v p="$wattage" 'BEGIN {if (p > 0.001) printf "%.1f", e/p; else print "∞"}')
-		else
-		    arrow=""
-		    time=$(awk -v e="$remaining_wh" -v p="$wattage" 'BEGIN {if (p > 0.001) printf "%.1f", e/p; else print "∞"}')
-		fi
 
-		# Charge Level
 		
-
 		if [ "$status" == "$null" ]; then
-			echo "No Battery"
-			printf '{
-				"text":"",
-				"class":["hidden"]
-			}\n'
+			printf '{"text":"","class":["hidden"]}\n'
 		fi
 
 		if [ "$status" == "Not charging" ] || [ "$status" == "Full" ]; then
-			echo "Full"
-			printf '{
-				"text":"  $battery_percentage",
-				"class":["hidden"]
-			}\n'
+			printf '{"text":"  %s%%","class":["Full"]}\n' "$battery_percentage"
 		fi
 
 		if [ "$status" == "Discharging" ]; then
-			echo "Discharging"
+		    time=$(awk -v e="$remaining_wh" -v p="$wattage" 'BEGIN {if (p > 0.001) printf "%.1f", e/p; else print "∞"}')
+			printf '{"text":"  %s%% |  %sW %sh","class":["Discharging"]}\n' "$battery_percentage" "$wattage" "$time"
+
 		fi
 
 		if [ "$status" == "Charging" ]; then
-			echo "Charging"
-		fi
-
-
-		
-		echo "''${arrow} ''${wattage} W | ''${arrow} ''${time}h"
-		
+			time=$(awk -v e="$needed_wh" -v p="$wattage" 'BEGIN {if (p > 0.001) printf "%.1f", e/p; else print "∞"}')
+			printf '{"text":"  %s%% |  %sW %sh","class":["Charging"]}\n' "$battery_percentage" "$wattage" "$time"
+		fi		
 		
 	'';
 	
@@ -156,9 +135,8 @@ in
 				"custom/batteryMonitor" = {
 					exec = "${batteryMonitor}/bin/battery-monitor";
 					interval = 1;
-					return-type = "text";
-					format = "{}";
-					on-click = "kitty -e btop";
+					return-type = "json";
+					format = "{text}";
 					tooltip = false;
 				};
 				"custom/gitBehind" = {
