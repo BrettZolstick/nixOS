@@ -35,6 +35,39 @@ let
 		fi
 
 	'';
+	batteryMonitor = pkgs.writeShellScriptBin "battery-monitor" ''
+		#!/bin/bash
+		
+		status=$(cat /sys/class/power_supply/BAT0/status)
+		
+		current=$(cat /sys/class/power_supply/BAT0/current_now)  # µA
+		voltage=$(cat /sys/class/power_supply/BAT0/voltage_now)  # µV
+		abs_current=$(awk -v c="$current" 'BEGIN {if(c<0) c*=-1; print c}')
+		wattage=$(awk -v c="$abs_current" -v v="$voltage" 'BEGIN {printf "%.2f", c*v/1e12}')
+		
+		# Capacity info
+		charge_now=$(cat /sys/class/power_supply/BAT0/charge_now)     # µAh
+		charge_full=$(cat /sys/class/power_supply/BAT0/charge_full)   # µAh
+		voltage_v=$(awk -v v="$voltage" 'BEGIN {print v/1e6}')        # V
+		
+		remaining_wh=$(awk -v q="$charge_now" -v v="$voltage_v" 'BEGIN {print (q/1e6)*v}')
+		capacity_wh=$(awk -v q="$charge_full" -v v="$voltage_v" 'BEGIN {print (q/1e6)*v}')
+		needed_wh=$(awk -v full="$capacity_wh" -v now="$remaining_wh" 'BEGIN {print full-now}')
+		
+		# Time estimate
+		if [[ "$status" == "Charging" ]]; then
+		    arrow=""
+		    time=$(awk -v e="$needed_wh" -v p="$wattage" '
+		        BEGIN {if (p > 0.001) printf "%.1f", e/p; else print "∞"}')
+		else
+		    arrow=""
+		    time=$(awk -v e="$remaining_wh" -v p="$wattage" '
+		        BEGIN {if (p > 0.001) printf "%.1f", e/p; else print "∞"}')
+		fi
+		
+		echo "''${arrow} ''${wattage} W | ''${arrow} ''${time}h"
+		
+	'';
 	
 	colors = config.lib.stylix.colors.withHashtag;
 
@@ -55,6 +88,7 @@ in
 		home.packages = [ 
 			hardwareMonitor
 			gitBehind
+			batteryMonitor
 		];
 		
 		# disable stylix auto themeing
@@ -68,7 +102,7 @@ in
 				layer = "top";
 				position = "top";
 				modules-left = [ "hyprland/workspaces" "hyprland/window" ];
-				modules-center = [ "custom/hardwareMonitor" "custom/gitBehind" ];
+				modules-center = [ "custom/hardwareMonitor" "custom/batteryMonitor" "custom/gitBehind" ];
 				modules-right = [ "tray" "custom/updates" "custom/clipboard" "network" "pulseaudio" "custom/notification" "clock" ];
 				"hyprland/workspaces" = {
 					all-outputs = true;
@@ -85,7 +119,14 @@ in
 					on-click = "kitty -e btop";
 					tooltip = false;
 				};
-				
+				"custom/batteryMonitor" = {
+					exec = "${batteryMonitor}/bin/battery-monitor";
+					interval = 1;
+					return-type = "text";
+					format = "{}";
+					on-click = "kitty -e btop";
+					tooltip = false;
+				};
 				"custom/gitBehind" = {
 					exec = "${gitBehind}/bin/git-behind";
 					interval = 61;
@@ -193,7 +234,14 @@ in
 					padding: 0px 8px;
 					border-radius: 5px;
 				}
-				
+				/* ------------ Battery Monitor ------------ */
+				#custom-batteryMonitor {
+					background: alpha(${colors.base00},0.4);
+					color: alpha(${colors.base06},0.9);
+					margin: 6px; 
+					padding: 0px 8px;
+					border-radius: 5px;
+				}
 				/* ------------ Flake Repo Status (gitBehind) ------------ */
 				#custom-gitBehind {
 					background: alpha(${colors.base06},0.8);
