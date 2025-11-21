@@ -41,4 +41,5 @@
 
 	# Enable wooting
 	hardware.wooting.enable = true;
+
 }

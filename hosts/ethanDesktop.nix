@@ -101,6 +101,7 @@
 		obsStudio.enable 		= true;
 		krita.enable 			= true;
 		figma.enable 			= true;
+		woeusb.enabled			= true;
 	};
 	
 }

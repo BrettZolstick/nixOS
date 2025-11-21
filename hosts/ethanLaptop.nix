@@ -76,6 +76,7 @@
 		renoise.enable = true;		
 		todoist.enable = true;
 		vesktop.enable = true;
+		woeusb.enable = true;
 
 	};
 }
