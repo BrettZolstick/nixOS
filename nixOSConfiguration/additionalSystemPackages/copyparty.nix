@@ -39,7 +39,7 @@
 
 			settings = {
 				i = "127.0.0.1"; 	# IP
-				p = [ 3923 ];	# port(s)
+				p = [ 3923 ];		# port(s)
 				"xff-hdr" = "cf-connecting-ip"; # get client IPs connecting from cloudflare
 			};
 
@@ -47,7 +47,7 @@
 				"/public" = {
 					path = "/srv/copyparty/publics";
 					access = {
-						r = "*";
+						rw = "*";
 					};
 					
 				};
