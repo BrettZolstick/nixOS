@@ -44,11 +44,12 @@
 			};
 
 			volumes = {
-				"/" = {
-					path = "/srv/copyparty";
+				"/public" = {
+					path = "/srv/copyparty/publics";
 					access = {
 						r = "*";
 					};
+					
 				};
 			};
 		};		
