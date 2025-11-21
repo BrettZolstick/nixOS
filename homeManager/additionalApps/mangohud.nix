@@ -10,7 +10,7 @@
 	config = lib.mkIf config.mangohud.enable {
 		# Actual content of the module goes here:
 		programs.mangohud = {
-			enable = true;
+			enable = false;
 			enableSessionWide = true;
 			settings = {
 				preset = 3;

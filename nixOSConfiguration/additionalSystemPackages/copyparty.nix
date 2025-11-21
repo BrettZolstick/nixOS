@@ -12,7 +12,25 @@
 
 		nixpkgs.overlays = [ copyparty.overlays.default ];
 
-		environment.systemPackages = with pkgs; [ copyparty ];
+		environment.systemPackages = with pkgs; [ 
+			copyparty
+			cloudflared
+		];
+
+		services.cloudflared = {
+			enable = true;
+
+			# create a tunnel
+			#	❯ cloudflared tunnel login
+			#	❯ cloudflared tunnel create <name>
+			# 	❯ cloudflared tunnel route dns <name> files.yourdomain.com
+			tunnels."03d4872e-4766-46dd-9869-750ce18d97c3" = {
+				credentialsFile = "/home/ethan/.cloudflared/03d4872e-4766-46dd-9869-750ce18d97c3.json";
+				ingress."files.cookiegroup.net" = "http://127.0.0.1:3923";
+				default = "http_status:404";
+			};
+		};
+		
 
 		services.copyparty = {
 			enable = true;		
@@ -20,8 +38,9 @@
 			group = "copyparty";	# The group to run the service as
 
 			settings = {
-				i = "0.0.0.0"; 	# IP
-				p = [ 3210 ];	# port(s)
+				i = "127.0.0.1"; 	# IP
+				p = [ 3923 ];	# port(s)
+				"xff-hdr" = "cf-connecting-ip"; # get client IPs connecting from cloudflare
 			};
 
 			volumes = {
