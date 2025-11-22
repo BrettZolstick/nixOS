@@ -43,29 +43,49 @@
 			};
 
 			accounts = {
-				ethanDesktop.passwordFile = "/etc/secrets/ethanDesktopCopyparty.pass";
+				# Set passwords at /etc/secrets/
+				ethan.passwordFile = "/etc/secrets/ethanCopyparty.pass";
+				syncthing.passwordFile = "/etc/secrets/syncthingCopyparty.pass";
 			};
 
 			groups = {
-				"admins" = [
-					"ethanDestkop"
+				admins = [
+					"ethan"
 				];
 			};
+			
 			volumes = {
 				"/public" = {
 					path = "/srv/copyparty/public";
 					access = {
 						rw = "*";
-					};
-					
+						A = "@admins";
+					};					
 				};
+
+				"/ethan" = {
+					path = "/srv/copyparty/ethan";
+					access = {
+						A = "ethan";
+					};
+				};
+
+				"/prep" = {
+					path = "/srv/copyparty/prep";
+					access = {
+						rwmd = "syncthing";
+						A = "@admins";
+					};
+				};
+
 			};
 		};
 
 		# Create template passwordFiles if they are not present.
 		systemd.tmpfiles.rules = [
 			"d /etc/secrets 0770 root copyparty - -"
-			"f /etc/secrets/ethanDesktopCopyparty.pass 0660 root copyparty - <password>"
+			"f /etc/secrets/ethanCopyparty.pass 0660 root copyparty - <password>"
+			"f /etc/secrets/syncthingCopyparty.pass 0660 root copyparty - <password>"
 		];		
 
 	};	
