@@ -43,14 +43,6 @@
 				"xff-hdr" = "cf-connecting-ip"; # get client IPs connecting from cloudflare
 			};
 
-			accounts = {
-				ethan.passwordFile = "./ethan.pass";
-			};
-
-			groups = {
-				admins = [];
-			};
-
 			volumes = {
 				"/public" = {
 					path = "/srv/copyparty/publics";
