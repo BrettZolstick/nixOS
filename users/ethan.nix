@@ -13,7 +13,7 @@
 	users.users.ethan = {
 		isNormalUser = true;
 		description = "Ethan";
-		extraGroups = [ "networkmanager" "wheel" "inputs" "audio"];
+		extraGroups = [ "networkmanager" "wheel" "inputs" "audio" "copyparty"];
 		packages = with pkgs; [];
 		shell = pkgs.fish;
 	};

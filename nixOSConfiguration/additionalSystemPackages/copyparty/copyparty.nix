@@ -31,7 +31,6 @@
 			};
 		};
 		
-
 		services.copyparty = {
 			enable = true;		
 			user = "copyparty"; 	# The user to run the service as
@@ -43,16 +42,31 @@
 				"xff-hdr" = "cf-connecting-ip"; # get client IPs connecting from cloudflare
 			};
 
+			accounts = {
+				ethanDesktop.passwordFile = "/etc/secrets/ethanDesktopCopyparty.pass";
+			};
+
+			groups = {
+				"admins" = [
+					"ethanDestkop"
+				];
+			};
 			volumes = {
 				"/public" = {
-					path = "/srv/copyparty/publics";
+					path = "/srv/copyparty/public";
 					access = {
 						rw = "*";
 					};
 					
 				};
 			};
-		};		
+		};
+
+		# Create template passwordFiles if they are not present.
+		systemd.tmpfiles.rules = [
+			"d /etc/secrets 0770 root copyparty - -"
+			"f /etc/secrets/ethanDesktopCopyparty.pass 0660 root copyparty - <password>"
+		];		
 
 	};	
 }
