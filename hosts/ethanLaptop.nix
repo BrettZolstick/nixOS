@@ -77,6 +77,7 @@
 		todoist.enable = true;
 		vesktop.enable = true;
 		woeusb.enable = true;
+		qdirstat = true;
 
 	};
 }
