@@ -14,6 +14,10 @@ let
 		ethanLaptop = [
 			"eDP-1,	1920x1080@144,	0x0,	1"
 		];
+		
+		ethanServer = [
+			"DP-1,		1920x1080@60.0,	0x0,	1"
+		];
 	};
 
 	workspacesByHost = {
@@ -26,6 +30,10 @@ let
 		
 		ethanLaptop = [
 			"1,	monitor:eDP-1,	default:true"			
+		];
+		
+		ethanServer = [
+			"1, monitor:DP-1, 	defualt:true"
 		];
 	};
 
