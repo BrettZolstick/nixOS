@@ -73,8 +73,6 @@
 	openTabletDriver.enable = true;
 	alsaScarlettGui.enable 	= true;
 
-	copyparty.enable 	= true;
-
 	home-manager.users.ethan = {
 		aniCli.enable 			= true;
 		blender.enable 			= true;
