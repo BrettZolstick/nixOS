@@ -72,7 +72,7 @@
 	mullvad.enable 					= false;
 	pipewire.enable 				= false;
 	steam.enable 					= false;
-	nerdFontsJetBrainsMono.enabled	= false;
+	nerdFontsJetBrainsMono.enable	= false;
 	
 	copyparty.enable 	= true;
 
