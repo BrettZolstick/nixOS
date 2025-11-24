@@ -30,7 +30,7 @@
 	# enable ssh
 	services.openssh = {
 		enable = true;
-		settings.passwordauthentication = false;
+		settings.passwordAuthentication = false;
 		settings.PermitRootLogin = "no";
 	};
 
