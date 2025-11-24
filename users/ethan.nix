@@ -14,6 +14,9 @@
 		isNormalUser = true;
 		description = "Ethan";
 		extraGroups = [ "networkmanager" "wheel" "inputs" "audio" "copyparty"];
+		openssh.authorizedKeys.keys = [
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMxhcqn5hmpiu+eUlEJUnu1L53d1If4HXEXpsTPfrhJJ"
+		];
 		packages = with pkgs; [];
 		shell = pkgs.fish;
 	};

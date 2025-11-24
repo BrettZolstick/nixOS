@@ -27,6 +27,12 @@
 		grub.device = "/dev/nvme0n1";
 	};
 
+	# enable ssh
+	services.openssh = {
+		enable = true;
+		settings.passwordauthentication = false;
+		settings.PermitRootLogin = "no";
+	};
 
 	# =========================================================================================================
 	# 
