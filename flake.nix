@@ -50,7 +50,7 @@
 					inherit copyparty;
 				};
 				modules = [
-					./hosts/ethanDesktop.nix
+					./hosts/ethanServer.nix
 					./users/ethan.nix					
 					home-manager.nixosModules.home-manager
 					inputs.stylix.nixosModules.stylix
