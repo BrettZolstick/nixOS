@@ -11,23 +11,13 @@
 
 
 	# Host specific options
-	networking.hostName = "ethanDesktop";
+	networking.hostName = "ethanServer";
 	networking.networkmanager.enable = true;
 	time.timeZone = "America/New_York";
 	security.sudo = {
 		enable = true;
 		wheelNeedsPassword = false;
 	};
-
-	# Udev rules
-	services.udev.extraRules = ''
-		# Prevent Hyprland's tablet settings from interfering with Open Tablet Driver
-		ATTRS{name}=="Wacom One by Wacom M Pen", ENV{LIBINPUT_IGNORE_DEVICE}="1"
-
-		# Generic Wooting devices
-		SUBSYSTEM=="hidraw", ATTRS{idVendor}=="31e3", TAG+="uaccess"
-		SUBSYSTEM=="usb", ATTRS{idVendor}=="31e3", TAG+="uaccess"
-	'';
 
 
 	# =========================================================================================================
@@ -68,40 +58,11 @@
 	#
 	# =========================================================================================================
 
-	AMDGraphics.enable 		= true;
-	cifsShares.enable 		= true;
-	openTabletDriver.enable = true;
-	alsaScarlettGui.enable 	= true;
-
 	copyparty.enable 	= true;
 
 	home-manager.users.ethan = {
-		aniCli.enable 			= true;
-		blender.enable 			= true;
-		calibre.enable 			= true;
 		firefox.enable 			= true;
-		freecad.enable 			= true;
-		freerdp.enable 			= true;
-		kicad.enable 			= true;
-		lingot.enable 			= true;
-		orcaSlicer.enable 		= true;
-		osuLazer.enable 		= true;
-		sigil.enable 			= true;
-		todoist.enable 			= true;
-		vesktop.enable 			= true;
-		wootility.enable 		= true;
-		prismLauncher.enable 	= true;
-		gamescope.enable 		= true;
-		mangohud.enable  		= true;
 		missionCenter.enable 	= true;
-		audacity.enable 		= true;
-		renoise.enable 			= true;
-		furnace.enable 			= true;
-		musescore.enable 		= true;
-		obsStudio.enable 		= true;
-		krita.enable 			= true;
-		figma.enable 			= true;
-		woeusb.enable			= true;
 	};
 	
 }
