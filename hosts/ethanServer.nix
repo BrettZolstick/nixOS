@@ -66,11 +66,32 @@
 	#
 	# =========================================================================================================
 
+
+	hyprlandSystem.enable 			= false;
+	ly.enable 						= false;
+	mullvad.enable 					= false;
+	pipewire.enable 				= false;
+	steam.enable 					= false;
+	nerdFontsJetBrainsMono.enabled	= false;
+	
 	copyparty.enable 	= true;
 
 	home-manager.users.ethan = {
-		firefox.enable 			= true;
-		missionCenter.enable 	= true;
+
+
+		cifs-utils.enable 	= false;
+		grimblast.enable 	= false;
+		hyprcursor.enable 	= false;
+		hyprland.enable 	= false;
+		kitty.enable 		= false;
+		pwvucontrol.enable 	= false;
+		qpwgraph.enable 	= false;
+		starship.enable 	= false;
+		swaync.enable 		= false;
+		waybar.enable 		= false;
+		wl-clipboard.enable	= false;
+		wofi.enable 		= false;
+		yazi.enable 		= false;
 	};
 	
 }
