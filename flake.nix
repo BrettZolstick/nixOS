@@ -43,7 +43,21 @@
 					copyparty.nixosModules.default
 				];
 			};
-			
+
+			ethanServer = nixpkgs.lib.nixosSystem {
+				system = "x86_64-linux";
+				specialArgs = {
+					inherit copyparty;
+				};
+				modules = [
+					./hosts/ethanDesktop.nix
+					./users/ethan.nix					
+					home-manager.nixosModules.home-manager
+					inputs.stylix.nixosModules.stylix
+					copyparty.nixosModules.default
+				];
+			};
+
 			# Additional hosts go here	
 			
 		};
