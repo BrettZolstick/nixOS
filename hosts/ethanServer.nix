@@ -30,8 +30,11 @@
 	# enable ssh
 	services.openssh = {
 		enable = true;
-		settings.passwordAuthentication = false;
-		settings.PermitRootLogin = "no";
+		ports = [ 22 ];
+		settings = {
+			PasswordAuthentication = false;
+			PermitRootLogin = "no"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
+		};
 	};
 
 	# =========================================================================================================
