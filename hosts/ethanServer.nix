@@ -19,6 +19,14 @@
 		wheelNeedsPassword = false;
 	};
 
+	# Switch bootloader to grub (non-uefi system)
+	systemdBoot.enable = false;
+	boot.loader = {
+		systemd-boot.enable = false;
+		grub.enable = true;
+		grub.device = "/dev/nvme0n1";
+	};
+
 
 	# =========================================================================================================
 	# 
