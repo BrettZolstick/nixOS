@@ -87,15 +87,17 @@
 
 	home-manager.users.ethan = {
 
+		kitty.enable 		= true;
+		starship.enable 	= true;
+
+
 
 		cifs-utils.enable 	= false;
 		grimblast.enable 	= false;
 		hyprcursor.enable 	= false;
 		hyprland.enable 	= false;
-		kitty.enable 		= false;
 		pwvucontrol.enable 	= false;
 		qpwgraph.enable 	= false;
-		starship.enable 	= false;
 		swaync.enable 		= false;
 		waybar.enable 		= false;
 		wl-clipboard.enable	= false;
