@@ -38,7 +38,7 @@ in
 
 				hostname = {
 					ssh_only = false;
-					ssh_symbol = " ";
+					ssh_symbol = "󰢹 ";
 					format = "[$hostname $ssh_symbol]($style)";
 					style = "bold bg:${logoBg} fg:${logoFg}";
 				};
