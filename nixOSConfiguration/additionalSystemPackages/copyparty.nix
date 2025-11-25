@@ -44,8 +44,8 @@
 			#	❯ cloudflared tunnel login
 			#	❯ cloudflared tunnel create <name>
 			# 	❯ cloudflared tunnel route dns <name> files.yourdomain.com
-			tunnels."2d8c3263-406b-4ce6-b7f0-244857faaa15" = {
-				credentialsFile = "/home/ethan/.cloudflared/2d8c3263-406b-4ce6-b7f0-244857faaa15.json";
+			tunnels."b34be7c0-e420-4fa5-b7a1-2c36ca6a9c52" = {
+				credentialsFile = "/home/ethan/.cloudflared/b34be7c0-e420-4fa5-b7a1-2c36ca6a9c52.json";
 				ingress."files.cookiegroup.net" = "http://127.0.0.1:3923";
 				default = "http_status:404";
 			};
