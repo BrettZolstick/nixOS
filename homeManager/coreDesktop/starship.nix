@@ -1,6 +1,7 @@
 { config, pkgs, lib, stylix, ... }: 
 let 
 
+
 	colors = config.lib.stylix.colors.withHashtag;
 
 	logoBg 		= colors.base05;
@@ -33,7 +34,13 @@ in
 			enable = true;
 			enableFishIntegration = true;
 			settings = {
-				format = "[](${logoBg})[  ](bg:${logoBg} fg:${logoFg})[](fg:${logoBg} bg:${directoryBg})$directory[](fg:${directoryBg} bg:${gitBg})$git_branch$git_status[](fg:${gitBg} bg:${devLangBg})$nodejs$rust$golang$php[](fg:${devLangBg} bg:${timeBg})$time[](fg:${timeBg})$cmd_duration\n$character";
+				format = "[](${logoBg})$hostname[  ](bg:${logoBg} fg:${logoFg})[](fg:${logoBg} bg:${directoryBg})$directory[](fg:${directoryBg} bg:${gitBg})$git_branch$git_status[](fg:${gitBg} bg:${devLangBg})$nodejs$rust$golang$php[](fg:${devLangBg} bg:${timeBg})$time[](fg:${timeBg})$cmd_duration\n$character";
+
+				hostname = {
+					ssh_only = true;
+					format = "[ $hostname ](bg:$logoBg fg:${logoFg})";
+					style = "bg:${logoBg} fg:${logoFg}";
+				};
 
 				directory = {
 					style = "fg:${directoryFg} bg:${directoryBg}";
