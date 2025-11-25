@@ -55,6 +55,12 @@
 			};
 			
 			volumes = {
+				"/" = {
+					path = "/srv/copyparty/";
+					access = {
+						A = "@admins";
+					};
+				};
 				"/public" = {
 					path = "/srv/copyparty/public";
 					access = {
