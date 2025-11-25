@@ -10,12 +10,31 @@
 	config = lib.mkIf config.copyparty.enable {
 		# Actual content of the module goes here:
 
-		nixpkgs.overlays = [ copyparty.overlays.default ];
+		nixpkgs.overlays = [ 
+		
+			copyparty.overlays.default
+
+			# override to include optional dependencies
+			(final: prev: {
+				copyparty = prev.copyparty.overridePythonAttrs (old: {
+				
+					buildInputs = (old.buildInputs or []) ++ [prev.vips];
+
+					propagatedBuildInputs = (old.propagatedBuildInputs or []) ++ (with prev.python3Packages; [
+						mutagen
+						rawpy
+						pillow-heif
+						pyvips	
+					]);	
+					
+				});	
+			})
+			
+		];
 
 		environment.systemPackages = with pkgs; [ 
 			copyparty
 			cloudflared
-			cfssl
 		];
 
 		services.cloudflared = {
@@ -117,7 +136,12 @@
 
 			};
 		};
-
+		
+		# Optional dependencies for the copyparty service 
+		systemd.services.copyparty.path = lib.mkAfter [ 
+			pkgs.cfssl # gives TLS certificates so that https can work properly
+		];
+		
 		# Create template passwordFiles if they are not present.
 		systemd.tmpfiles.rules = [
 			"d /etc/secrets 0770 root copyparty - -"
