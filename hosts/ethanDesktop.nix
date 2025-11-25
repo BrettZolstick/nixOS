@@ -69,10 +69,10 @@
 	# =========================================================================================================
 
 	AMDGraphics.enable 		= true;
-	cifsShares.enable 		= true;
 	openTabletDriver.enable = true;
 	alsaScarlettGui.enable 	= true;
-
+	rcloneShares.enable 	= true;
+	
 	home-manager.users.ethan = {
 		aniCli.enable 			= true;
 		blender.enable 			= true;

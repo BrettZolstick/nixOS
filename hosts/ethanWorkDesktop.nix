@@ -58,8 +58,10 @@
 
 	openTabletDriver.enable 	= false;
 	alsaScarlettGui.enable 		= false;
-	cifsShares.enable 			= false;
 	steam.enable 				= false;
+
+	rcloneShares.enable  	= true;
+
 
 	home-manager.users.ethan = {
 		firefox.enable 	= true;

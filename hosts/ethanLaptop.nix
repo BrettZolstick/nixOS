@@ -61,7 +61,8 @@
 	# =========================================================================================================
 
 	nvidiaGraphics.enable 	= true;
-	cifsShares.enable 		= true;
+	rcloneShares.enable 	= true;
+
 	
 
 	home-manager.users.ethan = {
