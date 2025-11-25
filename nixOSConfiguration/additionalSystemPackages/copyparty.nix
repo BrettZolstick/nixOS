@@ -57,7 +57,7 @@
 			group = "copyparty";
 
 			settings = {
-				i = "127.0.0.1";
+				i = "0.0.0.0";
 				p = [ 3923 ];
 				"xff-hdr" = "cf-connecting-ip"; # get client IPs connecting from cloudflare
 				"xff-src" = "127.0.0.1";
@@ -132,6 +132,11 @@
 
 			};
 		};
+
+		networking.firewall.enable = true;
+		networking.firewall.allowedTCPPorts = [ 3923 ];
+
+
 		
 		# Optional dependencies needed at runtime 
 		systemd.services.copyparty.path = lib.mkAfter [ 
