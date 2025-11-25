@@ -25,6 +25,7 @@
 
 			functions = {
 				copypartyJournal = "sudo journalctl -u copyparty.service --since=@$(stat -c %Y /run/current-system) -f";
+				ethanServerSSH = "ssh ethan@192.168.68.67";
 			};
 		};
 	};	
