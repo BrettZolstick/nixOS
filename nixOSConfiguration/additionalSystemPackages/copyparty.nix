@@ -53,12 +53,12 @@
 		
 		services.copyparty = {
 			enable = true;		
-			user = "copyparty"; 	# The user to run the service as
-			group = "copyparty";	# The group to run the service as
+			user = "copyparty";
+			group = "copyparty";
 
 			settings = {
-				i = "127.0.0.1"; 	# IP
-				p = [ 3923 ];		# port(s)
+				i = "127.0.0.1";
+				p = [ 3923 ];
 				"xff-hdr" = "cf-connecting-ip"; # get client IPs connecting from cloudflare
 				"xff-src" = "127.0.0.1";
 				rproxy = 1;
@@ -99,9 +99,6 @@
 						A = "@owner";
 						"rwmd." = "@admins";
 					};
-					flags = {
-						df = "100g"; # free disk space cannot go lower than this 
-					};
 				};
 				
 				"/public" = {
@@ -112,10 +109,7 @@
 						rw = "*";
 					};
 					flags = {
-						#vmaxb = "100g"; # volume cannot exceed <x>GiB
-						lifetime = 10; # deletes files after 10 seconds
-						#dedup = false;
-						#sz="0b-1b";
+						vmaxb = "100g"; # volume cannot exceed <x>GiB
 					};					
 				};
 
@@ -129,22 +123,26 @@
 				"/prep" = {
 					path = "/srv/copyparty/prep";
 					access = {
-						"rwmd." = "syncthing, @cookiegroup";
 						A = "@owner";
+						"rwmd." = "syncthing, @cookiegroup";
 					};
 				};
 
 			};
 		};
 		
-		# Optional dependencies for the copyparty service 
+		# Optional dependencies needed at runtime 
 		systemd.services.copyparty.path = lib.mkAfter [ 
 			pkgs.cfssl # gives TLS certificates so that https can work properly
 		];
 		
 		# Create template passwordFiles if they are not present.
+		# 	- Change these externaly to whatever passwords you want 
+		# 	- Copyparty has the user log in without a username (password only)
+		#	  because of this, duplicate passwords are not supported. each
+		#	  password must be unique
 		systemd.tmpfiles.rules = [
-			"d /etc/secrets 0770 root copyparty - -"
+			"d /etc/secrets 0660 root copyparty - -"
 			"f /etc/secrets/ethanCopyparty.pass 0660 root copyparty - <password>"
 			"f /etc/secrets/syncthingCopyparty.pass 0660 root copyparty - <password>"
 		];		
