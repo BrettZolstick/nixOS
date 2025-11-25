@@ -19,7 +19,7 @@ in
 			enableFishIntegration = true;
 			settings = {
 				# view options here: https://yazi-rs.github.io/docs/configuration/yazi
-				manager = {
+				mgr = {
 					ratio = [1 2 5]; # Manager layout by ratio
 					sort_by = "natural"; # File sorting method.
 					sort_sensitive = false; # Sort case-sensitively.
