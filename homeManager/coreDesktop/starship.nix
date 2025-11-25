@@ -40,7 +40,7 @@ in
 					ssh_only = false;
 					ssh_symbol = " ";
 					format = "[$hostname $ssh_symbol]($style)";
-					style = "bg:${logoBg} fg:${logoFg}";
+					style = "bold bg:${logoBg} fg:${logoFg}";
 				};
 
 				directory = {
