@@ -15,7 +15,8 @@
 		description = "Ethan";
 		extraGroups = [ "networkmanager" "wheel" "inputs" "audio" "copyparty"];
 		openssh.authorizedKeys.keys = [
-			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMxhcqn5hmpiu+eUlEJUnu1L53d1If4HXEXpsTPfrhJJ"
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMxhcqn5hmpiu+eUlEJUnu1L53d1If4HXEXpsTPfrhJJ ethanDesktop"
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFTzcYjIWJt+H7q4W6fwdsFGp7Uz3EymKWDBo0McQ1uU ethanLaptop"
 		];
 		packages = with pkgs; [];
 		shell = pkgs.fish;
