@@ -67,6 +67,8 @@
 				e2dsa = true; # enable indexing of all files (enables cool things like de-duplication, file lifetime, etc...)
 				e2ts = true; # enables media tags (change to e2tsr to reindex everything if you want that for some reason)
 				df = "100g"; # minimum free disk space
+				dedup = true;
+				reflink = true; # reflink based de-duplication (filesystem dependent (btrfs works)) 
 			};
 
 			accounts = {

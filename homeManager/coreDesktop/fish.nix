@@ -22,6 +22,10 @@
 			interactiveShellInit = ''
 				set -U fish_greeting ""
 			'';
+
+			functions = {
+				copypartyJournal = "sudo journalctl -u copyparty.service --since=@$(stat -c %Y /run/current-system) -f";
+			};
 		};
 	};	
 }
