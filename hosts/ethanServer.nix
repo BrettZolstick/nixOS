@@ -89,6 +89,7 @@
 
 		kitty.enable 		= true;
 		starship.enable 	= true;
+		yazi.enable 		= true;
 
 
 
@@ -102,7 +103,6 @@
 		waybar.enable 		= false;
 		wl-clipboard.enable	= false;
 		wofi.enable 		= false;
-		yazi.enable 		= false;
 	};
 	
 }
