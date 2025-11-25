@@ -15,6 +15,7 @@
 		environment.systemPackages = with pkgs; [ 
 			copyparty
 			cloudflared
+			cfssl
 		];
 
 		services.cloudflared = {
@@ -40,6 +41,13 @@
 				i = "127.0.0.1"; 	# IP
 				p = [ 3923 ];		# port(s)
 				"xff-hdr" = "cf-connecting-ip"; # get client IPs connecting from cloudflare
+				"xff-src" = "127.0.0.1";
+				rproxy = 1;
+
+				# global flags
+				e2dsa = true; # enable indexing of all files (enables cool things like de-duplication, file lifetime, etc...)
+				e2ts = true; # enables media tags (change to e2tsr to reindex everything if you want that for some reason)
+				df = "100g"; # minimum free disk space
 			};
 
 			accounts = {
@@ -49,23 +57,46 @@
 			};
 
 			groups = {
+			
+				owner = [
+					"ethan"
+				];
+
 				admins = [
 					"ethan"
 				];
+
+				cookiegroup = [
+					"ethan"
+				];
+				
 			};
 			
 			volumes = {
+
 				"/" = {
 					path = "/srv/copyparty/";
 					access = {
-						A = "@admins";
+						A = "@owner";
+						"rwmd." = "@admins";
+					};
+					flags = {
+						df = "100g"; # free disk space cannot go lower than this 
 					};
 				};
+				
 				"/public" = {
 					path = "/srv/copyparty/public";
 					access = {
+						A = "@owner";
+						"rwmd." = "@admins";
 						rw = "*";
-						A = "@admins";
+					};
+					flags = {
+						#vmaxb = "100g"; # volume cannot exceed <x>GiB
+						lifetime = 10; # deletes files after 10 seconds
+						#dedup = false;
+						#sz="0b-1b";
 					};					
 				};
 
@@ -79,8 +110,8 @@
 				"/prep" = {
 					path = "/srv/copyparty/prep";
 					access = {
-						rwmd = "syncthing";
-						A = "@admins";
+						"rwmd." = "syncthing, @cookiegroup";
+						A = "@owner";
 					};
 				};
 
