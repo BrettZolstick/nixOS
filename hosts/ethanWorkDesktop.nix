@@ -11,7 +11,7 @@
 
 
 	# Host specific options
-	networking.hostName = "ethanLaptop";
+	networking.hostName = "ethanWorkDesktop";
 	networking.networkmanager.enable = true;
 	time.timeZone = "America/New_York";
 	security.sudo = {
