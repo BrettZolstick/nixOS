@@ -11,7 +11,7 @@
 
 
 	# Host specific options
-	networking.hostName = "ethanWorkDesktop";
+	networking.hostName = "cg";
 	networking.networkmanager.enable = true;
 	time.timeZone = "America/New_York";
 	security.sudo = {
@@ -61,6 +61,7 @@
 	steam.enable 				= false;
 
 	rcloneShares.enable  	= true;
+	samba.enable 			= true;
 
 
 	home-manager.users.ethan = {
