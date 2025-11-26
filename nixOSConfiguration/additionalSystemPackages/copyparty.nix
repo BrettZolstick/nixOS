@@ -68,7 +68,8 @@
 				e2ts = true; # enables media tags (change to e2tsr to reindex everything if you want that for some reason)
 				df = "100g"; # minimum free disk space
 				dedup = true;
-				reflink = true; # reflink based de-duplication (filesystem dependent (btrfs works)) 
+				reflink = true; # reflink based de-duplication (filesystem dependent (btrfs works))
+				daw = true; # allows webdav clients to edit/overwrite files (otherwise they will make copies instead) 
 			};
 
 			accounts = {

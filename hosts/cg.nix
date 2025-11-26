@@ -25,6 +25,7 @@
 		"gid=100"
 		"file-perms=0777"
 		"dir-perms=0777"
+		"umask=000"
 	];
 
 
