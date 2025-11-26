@@ -18,6 +18,10 @@ let
 		ethanServer = [
 			"DP-1,		1920x1080@60.0,	0x0,	1"
 		];
+		
+		ethanWorkDesktop = [
+			"HDMI-A-1,	1920x1080@75.0,		0x0,	1"				
+		];
 	};
 
 	workspacesByHost = {
@@ -34,6 +38,10 @@ let
 		
 		ethanServer = [
 			"1, monitor:DP-1, 	defualt:true"
+		];
+		
+		ethanWorkDesktop = [
+			"1, monitor:HDMI-A-1, 	defualt:true"
 		];
 	};
 

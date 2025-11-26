@@ -65,6 +65,7 @@
 
 	home-manager.users.ethan = {
 		firefox.enable 	= true;
+		googleChrome.enable = true;
 		todoist.enable 	= true;
 		vesktop.enable 	= true;
 	};
