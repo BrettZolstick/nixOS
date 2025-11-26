@@ -19,6 +19,14 @@
 		wheelNeedsPassword = false;
 	};
 
+	# give 777 perms to mounted copyparty directory 
+	fileSystems."/mnt/copyparty".options = lib.mkAfter [
+		"--uid=1001"
+		"--gid=100"
+		"--file-perms=0777"
+		"--dir-perms=0777"
+	];
+
 
 	# =========================================================================================================
 	# 

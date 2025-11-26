@@ -13,27 +13,28 @@
 		services.samba = {
 			enable = true;
 			openFirewall = true;
-			securityType = "user";
 			settings = {
 				global = {
 					"workgroup" = "WORKGROUP";
 					"server string" = "CookieGroup NixOS Samba Server";
 					"netbios name" = "cg";
 					"security" = "user";
-					"hosts allow" = "10.0.0. 127.0.0.1 localhost" # allows traffic on LAN and localhost (10.0.0. subnet) 
+					"hosts allow" = "10.0.0. 127.0.0.1 localhost"; # allows traffic on LAN and localhost (10.0.0. subnet) 
 					"hosts deny" = "0.0.0.0/0"; # denies all traffic, excluing what is set in "host allow"
 					"guest account" = "nobody";
-					"map to guest" = "bad user";
-					"p" = {
-						"path" = "/mnt/copyparty/prep";
-						"browseable" = "yes";
-						"read only" = "no";						
-						"guest ok" = "yes";
-						"create mask" = "0777";						
-						"directory mask" = "0777";
-						"force user" = "nobody";
-						"force group" = "nogroup";
-					};	
+					"map to guest" = "bad user";	
+				};
+				"p" = {
+					"path" = "/mnt/copyparty/prep";
+					"browseable" = "yes";
+					"read only" = "no";						
+					"guest ok" = "no";
+					"create mask" = "0777";						
+					"directory mask" = "0777";
+					"valid users" = "administrator";
+					"force user" = "administrator";
+					#"force user" = "nobody";
+					#"force group" = "nogroup";
 				};
 			};
 		};
