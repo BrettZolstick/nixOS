@@ -33,6 +33,7 @@
 		ports = [ 22 ];
 		settings = {
 			PasswordAuthentication = false;
+			PubkeyAuthentication = true;
 			PermitRootLogin = "no"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
 		};
 	};
