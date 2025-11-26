@@ -17,6 +17,7 @@
 		openssh.authorizedKeys.keys = [
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMxhcqn5hmpiu+eUlEJUnu1L53d1If4HXEXpsTPfrhJJ ethanDesktop"
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFTzcYjIWJt+H7q4W6fwdsFGp7Uz3EymKWDBo0McQ1uU ethanLaptop"
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBvB+N3V0bdBaYeK4BrrWEvc4BGNMUcsLr63pPtHiyHR ethanWorkDesktop"
 		];
 		packages = with pkgs; [];
 		shell = pkgs.fish;
