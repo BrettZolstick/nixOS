@@ -18,6 +18,7 @@
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOndt9pcrojkgDiVXSVZNhxeQYKtgliiaa4AfjSzzgL4 sshFromEthanDesktop"
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEbZKk4p+nxPj9GIkQ/2iFAnOPBx3Pa56hF4nrn2NLYR sshFromEthanLaptop"
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBvB+N3V0bdBaYeK4BrrWEvc4BGNMUcsLr63pPtHiyHR ethanWorkDesktop"
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMx4aJOCFybYEqWfLZD8Q2GDa4jvTV+I02Nda4LmqUUn sshFromEthanPhone"
 		];
 		packages = with pkgs; [];
 		shell = pkgs.fish;
