@@ -37,7 +37,7 @@
 
 	rcloneShares.enable  	= true;
 	samba.enable 			= true;
-	ssh.enable 				= true;
+	sshInto.enable 				= true;
 
 	home-manager.users.ethan = {
 		firefox.enable 	= true;

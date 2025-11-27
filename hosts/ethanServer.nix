@@ -38,7 +38,7 @@
 	nerdFontsJetBrainsMono.enable	= false;
 	
 	copyparty.enable 	= true;
-	ssh.enable 			= true;
+	sshInto.enable 		= true;
 
 	home-manager.users.ethan = {
 

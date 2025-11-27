@@ -2,12 +2,12 @@
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
-		ssh.enable = lib.mkOption {
+		sshInto.enable = lib.mkOption {
 			default = false;	
 		};
 	};
 	
-	config = lib.mkIf config.ssh.enable {
+	config = lib.mkIf config.sshInto.enable {
 		# Actual content of the module goes here:
 
 		# enable ssh

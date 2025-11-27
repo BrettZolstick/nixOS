@@ -23,7 +23,7 @@
 
 	nvidiaGraphics.enable 	= true;
 	rcloneShares.enable 	= true;
-	ssh.enable 				= true;
+	sshInto.enable			= true;
 
 	home-manager.users.ethan = {
 		aniCli.enable 			= true;
