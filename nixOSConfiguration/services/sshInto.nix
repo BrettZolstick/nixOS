@@ -25,7 +25,6 @@
 		services.fail2ban = {
 			enable = true;
 			maxretry = 10;
-			findtime = "30m";
 			bantime = "24h";
 			bantime-increment = {
 				enable = true; # Enable increment of bantime after each violation
