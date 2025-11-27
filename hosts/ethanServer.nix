@@ -10,7 +10,8 @@
 
 
 
-	# Host specific options
+	# Host specific options ################################################
+
 	networking.hostName = "ethanServer";
 	networking.networkmanager.enable = true;
 	time.timeZone = "America/New_York";
@@ -27,55 +28,7 @@
 		grub.device = "/dev/nvme0n1";
 	};
 
-	# enable ssh
-	services.openssh = {
-		enable = true;
-		ports = [ 22 ];
-		settings = {
-			PasswordAuthentication = false;
-			PubkeyAuthentication = true;
-			PermitRootLogin = "no"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
-		};
-	};
-
-	# =========================================================================================================
-	# 
-	# - Options that you would regularly store in configuration.nix are stored in
-	#	nixos/nixOSConfigurations/systemOptions
-	#
-	# - To make host specific revisions to these options, use lib.mkforce.
-	#
-	# 		time.timezone = lib.mkForce {
-	#			layout = "us";
-	#			variant = "";
-	#		};
-	# 
-	# =========================================================================================================
-
-
-
-	# =========================================================================================================
-	#
-	# - All packages in nixOS/nixOSConfiguration/baseSystemConfiguration and nixOS/homeManager were made modular 
-	#	and toggleable by using lib.mkOption 
-	# 
-	# - All modules are enabled by default
-	#
-	# - To disable a system level module on a host, use the follwing:
-	#
-	# 		steam.enable 				= false;
-	#		ly.enable 					= false;
-	# 		alsa-scarlett-gui.enable	= false;
-	#
-	# - To disable a user level module on a host, specify the user and disable it inside like this:
-	#	
-	#		home-manager.users.ethan = {
-	#			bat.enable 	= false;
-	#			tree.enable = false;
-	#		};	
-	#
-	# =========================================================================================================
-
+	# Optional Modules #####################################################
 
 	hyprlandSystem.enable 			= false;
 	ly.enable 						= false;
@@ -85,15 +38,9 @@
 	nerdFontsJetBrainsMono.enable	= false;
 	
 	copyparty.enable 	= true;
+	ssh.enable 			= true;
 
 	home-manager.users.ethan = {
-
-		kitty.enable 		= true;
-		starship.enable 	= true;
-		yazi.enable 		= true;
-		wl-clipboard.enable	= true;
-
-
 
 		cifs-utils.enable 	= false;
 		grimblast.enable 	= false;
@@ -104,6 +51,12 @@
 		swaync.enable 		= false;
 		waybar.enable 		= false;
 		wofi.enable 		= false;
+		
+		kitty.enable 		= true;
+		starship.enable 	= true;
+		yazi.enable 		= true;
+		wl-clipboard.enable	= true;
+
 	};
 	
 }

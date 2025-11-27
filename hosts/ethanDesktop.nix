@@ -10,7 +10,8 @@
 
 
 
-	# Host specific options
+	# Host specific options ################################################
+	
 	networking.hostName = "ethanDesktop";
 	networking.networkmanager.enable = true;
 	time.timeZone = "America/New_York";
@@ -30,48 +31,13 @@
 	'';
 
 
-	# =========================================================================================================
-	# 
-	# - Options that you would regularly store in configuration.nix are stored in
-	#	nixos/nixOSConfigurations/systemOptions
-	#
-	# - To make host specific revisions to these options, use lib.mkforce.
-	#
-	# 		time.timezone = lib.mkForce {
-	#			layout = "us";
-	#			variant = "";
-	#		};
-	# 
-	# =========================================================================================================
-
-
-
-	# =========================================================================================================
-	#
-	# - All packages in nixOS/nixOSConfiguration/baseSystemConfiguration and nixOS/homeManager were made modular 
-	#	and toggleable by using lib.mkOption 
-	# 
-	# - All modules are enabled by default
-	#
-	# - To disable a system level module on a host, use the follwing:
-	#
-	# 		steam.enable 				= false;
-	#		ly.enable 					= false;
-	# 		alsa-scarlett-gui.enable	= false;
-	#
-	# - To disable a user level module on a host, specify the user and disable it inside like this:
-	#	
-	#		home-manager.users.ethan = {
-	#			bat.enable 	= false;
-	#			tree.enable = false;
-	#		};	
-	#
-	# =========================================================================================================
+	# Optional Modules #####################################################
 
 	AMDGraphics.enable 		= true;
 	openTabletDriver.enable = true;
 	alsaScarlettGui.enable 	= true;
 	rcloneShares.enable 	= true;
+	ssh.enable				= true;
 	
 	home-manager.users.ethan = {
 		aniCli.enable 			= true;

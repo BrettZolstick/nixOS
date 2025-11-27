@@ -9,8 +9,8 @@
 	]	++	lib.filter (n: lib.strings.hasSuffix ".nix" n) (lib.filesystem.listFilesRecursive ../nixOSConfiguration/.);
 
 
+	# Host specific options ################################################
 
-	# Host specific options
 	networking.hostName = "ethanLaptop";
 	networking.networkmanager.enable = true;
 	time.timeZone = "America/New_York";
@@ -19,66 +19,26 @@
 		wheelNeedsPassword = false;
 	};
 
-
-
-
-	# =========================================================================================================
-	# 
-	# - Options that you would regularly store in configuration.nix are stored in
-	#	nixos/nixOSConfigurations/systemOptions
-	#
-	# - To make host specific revisions to these options, use lib.mkforce.
-	#
-	# 		time.timezone = lib.mkForce {
-	#			layout = "us";
-	#			variant = "";
-	#		};
-	# 
-	# =========================================================================================================
-
-
-
-	# =========================================================================================================
-	#
-	# - All packages in nixOS/nixOSConfiguration/baseSystemConfiguration and nixOS/homeManager were made modular 
-	#	and toggleable by using lib.mkOption 
-	# 
-	# - All modules are enabled by default
-	#
-	# - To disable a system level module on a host, use the follwing:
-	#
-	# 		steam.enable 				= false;
-	#		ly.enable 					= false;
-	# 		alsa-scarlett-gui.enable	= false;
-	#
-	# - To disable a user level module on a host, specify the user and disable it inside like this:
-	#	
-	#		home-manager.users.ethan = {
-	#			bat.enable 	= false;
-	#			tree.enable = false;
-	#
-	#		};	
-	# =========================================================================================================
+	# Optional Modules #####################################################
 
 	nvidiaGraphics.enable 	= true;
 	rcloneShares.enable 	= true;
-
-	
+	ssh.enable 				= true;
 
 	home-manager.users.ethan = {
-		aniCli.enable = true;
-		firefox.enable = true;
-		furnace.enable = true;
-		gamescope.enable = true;
-		mangohud.enable = true;
-		musescore.enable = true;
-		osuLazer.enable = true;
-		prismLauncher.enable = true;
-		renoise.enable = true;		
-		todoist.enable = true;
-		vesktop.enable = true;
-		woeusb.enable = true;
-		qdirstat.enable = true;
+		aniCli.enable 			= true;
+		firefox.enable 			= true;
+		furnace.enable 			= true;
+		gamescope.enable 		= true;
+		mangohud.enable 		= true;
+		musescore.enable 		= true;
+		osuLazer.enable 		= true;
+		prismLauncher.enable 	= true;
+		renoise.enable 			= true;		
+		todoist.enable 			= true;
+		vesktop.enable 			= true;
+		woeusb.enable 			= true;
+		qdirstat.enable 		= true;
 
 	};
 }
