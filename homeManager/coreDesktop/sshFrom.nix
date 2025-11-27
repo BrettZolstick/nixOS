@@ -44,13 +44,13 @@ in
        				identityFile = keysWithPasswords;
        				identitiesOnly = true;
        			};
-       			#  "cg" = {
-       			#  	hostname = "office.cookiegroup.net";
-       			#  	port = 22022;
-       			#  	user = "ethan";
-       			# 	identityFile = keysWithPasswords;
-       			# 	identitiesOnly = true;
-       			# };
+       			"cg" = {
+       				hostname = "office.cookiegroup.net";
+       			 	port = 22022;
+       			 	user = "ethan";
+       				identityFile = keysWithPasswords;
+       				identitiesOnly = true;
+       			};
        		};
        	};
 		
