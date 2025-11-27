@@ -39,6 +39,36 @@
 			};
 		};
 
+		# Make unix users on the local system
+		#
+		# This allows for the windows users to authenticate automatically 
+		# with no user input if their credentials are the same
+		#
+		# When adding a new user, be sure give the user a samba password
+		# > sudo smbpasswd -a <user>
+		users.users = {
+		
+			administrator = {
+				isSystemUser = true;
+				description = "Samba user for windows users named 'administrators'";
+				home = "/var/empty";
+				createHome = false;
+				group = "users";
+				shell = "${pkgs.shadow}/bin/nologin";
+				
+			};
+			
+			admin = {
+				isSystemUser = true;
+				description = "Samba user for windows users named 'admin'";
+				home = "/var/empty";
+				createHome = false;
+				group = "users";
+				shell = "${pkgs.shadow}/bin/nologin";
+
+			};	
+		};
+
 		# Allows the share to be able to be found under the network tab in Windows
 		services.samba-wsdd = {
 			enable = true;
