@@ -4,7 +4,7 @@ let
 		"~/.ssh/sshFromEthanDesktop-id_ed25519"
 		"~/.ssh/sshFromEthanLaptop-id_ed25519"
 		"~/.ssh/sshFromEthanServer-id_ed25519"
-		"~/.ssh/sshFromCG-id_ed25519"
+		"~/.ssh/sshFromEthanWorkDesktop-id_ed25519"
 	];
 in
 {
