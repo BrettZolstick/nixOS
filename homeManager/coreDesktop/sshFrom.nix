@@ -44,7 +44,7 @@ in
        				identityFile = keysWithPasswords;
        				identitiesOnly = true;
        			};
-       			"cg" = {
+       			"ethanWorkDesktop" = {
        				hostname = "office.cookiegroup.net";
        			 	port = 22022;
        			 	user = "ethan";
