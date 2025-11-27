@@ -16,10 +16,11 @@ in
 	};
 	
 	config = lib.mkIf config.sshFrom.enable {
-		# Actual content of the module goes here:
+		# Actual content of the module goes here
 
        	programs.ssh = {
        		enable = true;
+       		enableDefaultConfig = false;
 
        		matchBlocks = {
        			"ethanServer" = {
