@@ -91,6 +91,7 @@
 
 				cookiegroup = [
 					"ethan"
+					"james"
 				];
 				
 			};
