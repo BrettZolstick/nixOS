@@ -76,6 +76,7 @@
 				# Set passwords at /etc/secrets/
 				ethan.passwordFile = "/etc/secrets/ethanCopyparty.pass";
 				syncthing.passwordFile = "/etc/secrets/syncthingCopyparty.pass";
+				james.passwordFile = "/etc/secrets/jamesCopyparty.pass";
 			};
 
 			groups = {
@@ -153,6 +154,7 @@
 			"d /etc/secrets 0660 root copyparty - -"
 			"f /etc/secrets/ethanCopyparty.pass 0660 root copyparty - <password>"
 			"f /etc/secrets/syncthingCopyparty.pass 0660 root copyparty - <password>"
+			"f /etc/secrets/jamesCopyparty.pass 0660 root copyparty - <password>"
 		];		
 
 	};	
