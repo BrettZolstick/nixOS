@@ -33,7 +33,7 @@
 
 
 		# open ports
-		networking.firewall.allowedTCPPorts = [ 25565 ];
+		networking.firewall.allowedTCPPorts = [ 25565 24565 ];
 
 
 		# create systemd service
