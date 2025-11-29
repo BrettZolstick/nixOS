@@ -137,13 +137,13 @@
 					};
 				};
 
-				# "/minecraftServers" = {
-				# 	path = "/srv/copyparty/minecraftServers"
-				# 	access = {
-				# 		A = "@owner";
-				# 		"rwmd." = "@GTNHAdmins"
-				# 	};
-				# };
+				"/minecraftGTNHServer" = {
+				 	path = "/srv/minecraftGTNHServer";
+				 	access = {
+				 		A = "@owner";
+				 		"rwmd." = "@GTNHAdmins";
+				 	};
+				};
 
 			};
 		};
