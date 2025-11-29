@@ -157,6 +157,9 @@
 		systemd.services.copyparty.path = lib.mkAfter [ 
 			pkgs.cfssl # gives TLS certificates so that https can work properly
 		];
+
+		# force 0007 umask
+		systemd.services.copyparty.serviceConfig.UMask = lib.mkForce "0007";
 		
 		# Create template passwordFiles if they are not present.
 		# 	- Change these externaly to whatever passwords you want 

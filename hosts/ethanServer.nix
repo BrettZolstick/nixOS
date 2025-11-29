@@ -40,6 +40,7 @@
 	copyparty.enable 			= true;
 	sshInto.enable 				= true;
 	minecraftGTNHServer.enable 	= true;
+	emailScanner.enable 		= true;
 
 	home-manager.users.ethan = {
 
