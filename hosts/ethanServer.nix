@@ -37,8 +37,9 @@
 	steam.enable 					= false;
 	nerdFontsJetBrainsMono.enable	= false;
 	
-	copyparty.enable 	= true;
-	sshInto.enable 		= true;
+	copyparty.enable 			= true;
+	sshInto.enable 				= true;
+	minecraftGTNHServer.enable 	= true;
 
 	home-manager.users.ethan = {
 

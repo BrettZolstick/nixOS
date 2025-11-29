@@ -93,6 +93,10 @@
 					"ethan"
 					"james"
 				];
+
+				GTNHAdmins = [
+					"ethan"
+				];
 				
 			};
 			
@@ -132,6 +136,14 @@
 						"rwmd." = "syncthing, @cookiegroup";
 					};
 				};
+
+				# "/minecraftServers" = {
+				# 	path = "/srv/copyparty/minecraftServers"
+				# 	access = {
+				# 		A = "@owner";
+				# 		"rwmd." = "@GTNHAdmins"
+				# 	};
+				# };
 
 			};
 		};
