@@ -28,6 +28,7 @@
 	
 		# install desired packages
 		environment.systemPackages = with pkgs; [
+			pkgs.javaPackages.compiler.temurin-bin.jre-25 
 			mcrcon # minecraft remote console
 		];
 
