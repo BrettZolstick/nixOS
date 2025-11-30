@@ -16,6 +16,7 @@
 			home = "/srv/minecraftGTNHServer";
 			createHome = false;
 			group = "minecraftGTNH";
+			extraGroups = [ "copyparty " ];
 		};
 		users.groups.minecraftGTNH = {};
 
