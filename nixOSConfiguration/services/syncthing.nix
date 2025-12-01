@@ -2,12 +2,12 @@
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
-		rcloneShares.enable = lib.mkOption {
+		syncthing.enable = lib.mkOption {
 			default = false;	
 		};
 	};
 	
-	config = lib.mkIf config.rcloneShares.enable {
+	config = lib.mkIf config.syncthing.enable {
 		# Actual content of the module goes here:
 
 		services.syncthing = {
