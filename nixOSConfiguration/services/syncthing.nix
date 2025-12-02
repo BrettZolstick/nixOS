@@ -6,11 +6,14 @@ let
 	tmpfilesByHost = {
 		ethanDesktop	= [ "d /srv/prep 0770 syncthing fileSharing" ];
 		cg 				= [ "d /srv/prep 0770 syncthing fileSharing" ];
+		ethanServer		= [ "d /srv/copyparty/prep 0770 syncthing fileSharing" ];
+
 	};
 	
 	prepPathByHost = {
 		ethanDesktop	= "/srv/prep";
 		cg 				= "/srv/prep";
+		ethanServer		= "/srv/copyparty/prep"
 
 	};
 	
@@ -43,13 +46,14 @@ in
 				devices = {
 					"cg".id = "FCP4NII-2AIV3RI-IUTDHFM-REZJMQO-JIDQPBC-UXAOYKH-K5W5PPN-KEKHLQX";
 					"ethanDesktop".id = "2YIZFBP-5P6R3QF-67KD5R7-VHEYSNQ-JKYZXXE-ERPTRYJ-B3CK4DD-ONAH5AC";
+					"ethanServer".id = "";
 				};
 
 				folders = {
 					"prep" = {
 						id = "prep";
 						label = "prep";
-						devices = [ "cg" ];
+						devices = [ "cg" "ethanServer" ];
 						path = lib.attrByPath [ hostname ] "/srv/prep" prepPathByHost;
 					};
 				};
