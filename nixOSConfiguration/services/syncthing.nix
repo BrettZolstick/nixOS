@@ -15,8 +15,25 @@
 			user = "syncthing";
 			group = "syncthing";
 			openDefaultPorts = true; #22000-TCP (8384-TCP for web GUI)
-			
-		};
-		
+
+			settings = {
+
+				devices = {
+					"cg".id = "FCP4NII-2AIV3RI-IUTDHFM-REZJMQO-JIDQPBC-UXAOYKH-K5W5PPN-KEKHLQX";
+				};
+
+				folders = {
+					"prep" = {
+						id = "prep";
+						label = "prep";
+						devices = [ "cg" ];
+						path =
+							if config.networking.hostName == "ethanServer"
+							then "/srv/prep"
+							else "/srv/prep";
+					};
+				};
+			};	
+		};		
 	};		
 }
