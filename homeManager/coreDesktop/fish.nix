@@ -25,8 +25,10 @@
 
 			functions = {
 				copypartyJournal = "sudo journalctl -u copyparty.service --since=@$(stat -c %Y /run/current-system) -f";
-				ethanServerSSH = "ssh ethan@192.168.68.67";
-				rbs = "sudo nixos-rebuild switch --flake ~/nixOS#$hostname --impure --show-trace";
+				gtnhJournal = "sudo journalctl -u gtnh.service --since=@$(stat -c %Y /run/current-system) -f";
+				syncthingJournal = "sudo journalctl -u syncthing.service --since=@$(stat -c %Y /run/current-system) -f";
+				emailScannerJournal = "sudo journalctl -u emailScanner.service --since=@$(stat -c %Y /run/current-system) -f";
+				rbs = "sudo nixos-rebuild switch --flake ~/nixOS#$hostname --impure --show-trace";				
 			};
 		};
 	};	

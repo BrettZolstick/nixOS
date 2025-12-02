@@ -41,6 +41,7 @@
 	sshInto.enable 				= true;
 	minecraftGTNHServer.enable 	= true;
 	emailScanner.enable 		= true;
+	syncthing.enable 			= true;
 
 	home-manager.users.ethan = {
 
