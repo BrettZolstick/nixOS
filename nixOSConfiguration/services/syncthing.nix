@@ -13,7 +13,7 @@ let
 	prepPathByHost = {
 		ethanDesktop	= "/srv/prep";
 		cg 				= "/srv/prep";
-		ethanServer		= "/srv/copyparty/prep"
+		ethanServer		= "/srv/copyparty/prep";
 
 	};
 	
