@@ -52,6 +52,7 @@
 		};
 
 		users.groups.fileSharing = {};
+		users.users.copyparty.extraGroups = [ "fileSharing" ];
 		
 		services.copyparty = {
 			enable = true;		
