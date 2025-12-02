@@ -1,4 +1,21 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }: 
+let
+
+	hostname = config.networking.hostName;
+
+	tmpfilesByHost = {
+		ethanDesktop	= [ "d /srv/prep 0770 syncthing syncthing" ];
+		cg 				= [ "d /srv/prep 0770 syncthing syncthing" ];
+	};
+	
+	prepPathByHost = {
+		ethanDesktop	= "/srv/prep";
+		cg 				= "/srv/prep";
+
+	};
+	
+in
+{
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
@@ -20,6 +37,7 @@
 
 				devices = {
 					"cg".id = "FCP4NII-2AIV3RI-IUTDHFM-REZJMQO-JIDQPBC-UXAOYKH-K5W5PPN-KEKHLQX";
+					"ethanDesktop".id = "2YIZFBP-5P6R3QF-67KD5R7-VHEYSNQ-JKYZXXE-ERPTRYJ-B3CK4DD-ONAH5AC";
 				};
 
 				folders = {
@@ -27,19 +45,13 @@
 						id = "prep";
 						label = "prep";
 						devices = [ "cg" ];
-						path =
-							if config.networking.hostName == "ethanServer"
-							then "/srv/prep"
-							else "/srv/prep";
+						path = lib.attrByPath [ hostname ] "/srv/prep" prepPathByHost;
 					};
 				};
 			};	
 		};	
 
-		config = lib.mkIf ( config.networking.hostName == "ethanDesktop" ) {
-			systemd.tmpfiles.rules = [
-			"d /srv/prep 0750 syncthing syncthing -"
-		  	];
-		};
+		systemd.tmpfiles.rules = lib.attrByPath [ hostname ] [ "d /srv/prep 0770 syncthing syncthing" ] tmpfilesByHost;
+		
 	};		
 }

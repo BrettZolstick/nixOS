@@ -13,7 +13,7 @@
 	users.users.ethan = {
 		isNormalUser = true;
 		description = "Ethan";
-		extraGroups = [ "networkmanager" "wheel" "inputs" "audio" "copyparty" "minecraftGTNH" ];
+		extraGroups = [ "networkmanager" "wheel" "inputs" "audio" "copyparty" "minecraftGTNH" "syncthing" ];
 		openssh.authorizedKeys.keys = [
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOndt9pcrojkgDiVXSVZNhxeQYKtgliiaa4AfjSzzgL4 sshFromEthanDesktop"
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEbZKk4p+nxPj9GIkQ/2iFAnOPBx3Pa56hF4nrn2NLYR sshFromEthanLaptop"

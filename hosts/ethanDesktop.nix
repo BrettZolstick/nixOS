@@ -38,6 +38,7 @@
 	alsaScarlettGui.enable 	= true;
 	rcloneShares.enable 	= true;
 	sshInto.enable			= true;
+	syncthing.enable 		= true;
 	
 	home-manager.users.ethan = {
 		aniCli.enable 			= true;
