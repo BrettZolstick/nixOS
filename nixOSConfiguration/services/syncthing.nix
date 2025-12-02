@@ -34,6 +34,12 @@
 					};
 				};
 			};	
-		};		
+		};	
+
+		config = lib.mkIf ( config.networking.hostName == "ethanDesktop" ) {
+			systemd.tmpfiles.rules = [
+			"d /srv/prep 0750 syncthing syncthing -"
+		  	];
+		};
 	};		
 }
