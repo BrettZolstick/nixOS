@@ -19,7 +19,7 @@
 				home = "/srv/copyparty/prep/NewQA/EpcListEnhancer2";
 				createHome = false;
 				group = "emailScanner"; 
-				extraGroups = [ "copyparty" ];
+				extraGroups = [ "copyparty" "fileSharing" ];
 			};
 			groups.emailScanner = {};
 		};			
