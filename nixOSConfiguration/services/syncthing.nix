@@ -4,8 +4,8 @@ let
 	hostname = config.networking.hostName;
 
 	tmpfilesByHost = {
-		ethanDesktop	= [ "d /srv/prep 0770 syncthing syncthing" ];
-		cg 				= [ "d /srv/prep 0770 syncthing syncthing" ];
+		ethanDesktop	= [ "d /srv/prep 0770 syncthing fileSharing" ];
+		cg 				= [ "d /srv/prep 0770 syncthing fileSharing" ];
 	};
 	
 	prepPathByHost = {
@@ -27,10 +27,15 @@ in
 	config = lib.mkIf config.syncthing.enable {
 		# Actual content of the module goes here:
 
+		
+		# make user and group for service
+		users.groups.fileSharing = {};
+		
+
 		services.syncthing = {
 			enable = true;
 			user = "syncthing";
-			group = "syncthing";
+			group = "fileSharing";
 			openDefaultPorts = true; #22000-TCP (8384-TCP for web GUI)
 
 			settings = {
@@ -51,7 +56,8 @@ in
 			};	
 		};	
 
-		systemd.tmpfiles.rules = lib.attrByPath [ hostname ] [ "d /srv/prep 0770 syncthing syncthing" ] tmpfilesByHost;
+		systemd.tmpfiles.rules = lib.attrByPath [ hostname ] [ "d /srv/prep 0770 syncthing fileSharing" ] tmpfilesByHost;
 		
 	};		
+	
 }

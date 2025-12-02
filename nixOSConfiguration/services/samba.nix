@@ -44,7 +44,7 @@
 		# This allows for the windows users to authenticate automatically 
 		# with no user input if their credentials are the same
 		#
-		# When adding a new user, be sure give the user a samba password
+		# When adding a new user, remeber to give the user a samba password
 		# > sudo smbpasswd -a <user>
 		users.users = {
 		

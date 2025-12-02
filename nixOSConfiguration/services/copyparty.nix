@@ -50,11 +50,13 @@
 				default = "http_status:404";
 			};
 		};
+
+		users.groups.fileSharing = {};
 		
 		services.copyparty = {
 			enable = true;		
 			user = "copyparty";
-			group = "copyparty";
+			group = "fileSharing";
 
 			settings = {
 				i = "0.0.0.0";
