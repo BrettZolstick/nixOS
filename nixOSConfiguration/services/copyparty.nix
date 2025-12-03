@@ -52,7 +52,10 @@
 		};
 
 		users.groups.fileSharing = {};
-		users.users.copyparty.extraGroups = [ "fileSharing" ];
+		users.users.copyparty = {
+			isSystemUser = true;
+			extraGroups = [ "fileSharing" ];	
+		};
 		
 		services.copyparty = {
 			enable = true;		

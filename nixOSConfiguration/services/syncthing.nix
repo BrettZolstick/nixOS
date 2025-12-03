@@ -33,7 +33,10 @@ in
 		
 
 		users.groups.fileSharing = {};
-		users.users.copyparty.extraGroups = [ "fileSharing" ];
+		users.users.syncthing = {
+			isSystemUser = true;
+			extraGroups = [ "fileSharing" ];	
+		};
 
 
 		services.syncthing = {
