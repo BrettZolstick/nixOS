@@ -58,7 +58,7 @@ in
 					# when adding a new device id, log in to the web gui on all clients and accept the prompt to authenticate the new client.
 					#
 					"cg".id = "FCP4NII-2AIV3RI-IUTDHFM-REZJMQO-JIDQPBC-UXAOYKH-K5W5PPN-KEKHLQX";
-					"ethanDesktop".id = "2YIZFBP-5P6R3QF-67KD5R7-VHEYSNQ-JKYZXXE-ERPTRYJ-B3CK4DD-ONAH5AC";
+					#"ethanDesktop".id = "2YIZFBP-5P6R3QF-67KD5R7-VHEYSNQ-JKYZXXE-ERPTRYJ-B3CK4DD-ONAH5AC";
 					"ethanServer".id = "WJHCPDV-DDZMORO-HYJHGCQ-MY3PZT3-73QBUD5-5NI3PHJ-2PKQCUV-YEPO4AD";
 				};
 
