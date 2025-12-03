@@ -71,6 +71,8 @@ in
 		};	
 
 		systemd.tmpfiles.rules = lib.attrByPath [ hostname ] [ "d /srv/prep 0770 syncthing fileSharing" ] tmpfilesByHost;
+
+		systemd.services.syncthing.serviceConfig.UMask = "0000";
 		
 	};		
 	
