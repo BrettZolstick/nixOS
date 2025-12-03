@@ -25,7 +25,7 @@
 					"map to guest" = "bad user";	
 				};
 				"p" = {
-					"path" = "/mnt/copyparty/prep";
+					"path" = "/srv/prep";
 					"browseable" = "yes";
 					"read only" = "no";						
 					"guest ok" = "no";
