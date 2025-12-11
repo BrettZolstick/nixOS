@@ -39,6 +39,7 @@
 		vesktop.enable 			= true;
 		woeusb.enable 			= true;
 		qdirstat.enable 		= true;
+		office.enable 			= true;
 
 	};
 }

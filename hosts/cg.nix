@@ -43,6 +43,7 @@
 	home-manager.users.ethan = {
 		firefox.enable 	= true;
 		vesktop.enable 	= true;
+		office.enable 	= true;
 	};
 	
 }
