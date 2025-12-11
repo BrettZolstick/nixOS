@@ -9,13 +9,6 @@
 	
 	config = lib.mkIf config.office.enable {
 		# Actual content of the module goes here:
-		home.packages = with pkgs; [ 
-			wpsoffice
-			gnumeric
-			freeoffice
-			collabora-online
-			libreoffice
-			onlyoffice-desktopeditors
-		];		
+		home.packages = with pkgs; [ onlyoffice-desktopeditors ];		
 	};	
 }
