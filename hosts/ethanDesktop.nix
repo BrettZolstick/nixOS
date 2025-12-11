@@ -68,6 +68,7 @@
 		figma.enable 			= true;
 		woeusb.enable			= true;
 		mcrcon.enable			= true;
+		office.enable 			= true;
 
 	};
 	
