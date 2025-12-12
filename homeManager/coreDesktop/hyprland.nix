@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ config, osConfig, pkgs, lib, ... }: {
 
 	# This is wrapped in an option so that it can be easily toggled elsewhere.
 	options = {
@@ -45,7 +45,9 @@
 				listener = [
 					{
 						timeout = 300;
-						on-timeout = "hyprctl dispatch dpms off && hyprlock";
+						on-timeout = if osConfig.networking.hostName == "ethanDesktop"   
+							then "hyprlock"
+							else "hyprctl dispatch dpms off && hyprlock";
 						on-resume = "hyprctl dispatch dpms on";
 					}
 				];
