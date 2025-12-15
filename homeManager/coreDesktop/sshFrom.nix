@@ -24,9 +24,10 @@ in
 
        		matchBlocks = {
        			"ethanServer" = {
-       				# hostname = "ethan.cookiegroup.net";
-       				hostname = "192.168.68.67";
+       				hostname = "ethan.cookiegroup.net";
        				port = 22022;
+       				# hostname = "192.168.68.67";
+					# port = 22;
        				user = "ethan";
        				identityFile = keysWithPasswords;
        				identitiesOnly = true;
