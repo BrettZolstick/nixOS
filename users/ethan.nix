@@ -15,7 +15,7 @@
 		description = "Ethan";
 		extraGroups = [ "networkmanager" "wheel" "inputs" "audio" "minecraftGTNH" "fileSharing" ];
 		openssh.authorizedKeys.keys = [
-			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOndt9pcrojkgDiVXSVZNhxeQYKtgliiaa4AfjSzzgL4 sshFromEthanDesktop"
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH1qbgzI1O9moyGu9oI82tIrRjW1oRyN4tmtN2fMTw2K sshFromEthanDesktop"
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEbZKk4p+nxPj9GIkQ/2iFAnOPBx3Pa56hF4nrn2NLYR sshFromEthanLaptop"
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGCUoOEQU/+dyJ1ba6O+8tkkQ5ocfdknlLFYbS+S2jzL sshFromCg"
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMx4aJOCFybYEqWfLZD8Q2GDa4jvTV+I02Nda4LmqUUn sshFromEthanPhone"
