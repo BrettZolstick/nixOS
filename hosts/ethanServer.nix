@@ -28,6 +28,8 @@
 		grub.device = "/dev/nvme0n1";
 	};
 
+	boot.kernelPackages = lib.mkForce pkgs.linuxPackages_lts;
+		
 	# Optional Modules #####################################################
 
 	hyprlandSystem.enable 			= false;
