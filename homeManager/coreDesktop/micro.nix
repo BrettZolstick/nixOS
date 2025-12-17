@@ -1,26 +1,29 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  # This is wrapped in an option so that it can be easily toggled elsewhere.
+  options = {
+    micro.enable = lib.mkOption {
+      default = true;
+    };
+  };
 
-	# This is wrapped in an option so that it can be easily toggled elsewhere.
-	options = {
-		micro.enable = lib.mkOption {
-			default = true;	
-		};
-	};
-	
-	config = lib.mkIf config.micro.enable {
-		# Actual content of the module goes here:
+  config = lib.mkIf config.micro.enable {
+    # Actual content of the module goes here:
 
+    # sets micro as the default editor
+    # home.sessionVariables = {
+    # 	EDITOR = "micro";
+    # 	VISUAL = "micro";
+    # };
 
-		# sets micro as the default editor
-		# home.sessionVariables = {
-		# 	EDITOR = "micro";
-		# 	VISUAL = "micro";
-		# };
-
-       	programs.micro.enable = true;
-       	programs.micro.settings = {
-			# configuration options can be found here: 
-			# https://github.com/zyedidia/micro/blob/master/runtime/help/options.md	
-       	};
-	};	
+    programs.micro.enable = true;
+    programs.micro.settings = {
+      # configuration options can be found here:
+      # https://github.com/zyedidia/micro/blob/master/runtime/help/options.md
+    };
+  };
 }

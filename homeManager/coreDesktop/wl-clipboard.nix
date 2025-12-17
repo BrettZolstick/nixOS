@@ -1,16 +1,19 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  # This is wrapped in an option so that it can be easily toggled elsewhere.
+  options = {
+    wl-clipboard.enable = lib.mkOption {
+      default = true;
+    };
+  };
 
-	# This is wrapped in an option so that it can be easily toggled elsewhere.
-	options = {
-		wl-clipboard.enable = lib.mkOption {
-			default = true;	
-		};
-	};
-	
-	config = lib.mkIf config.wl-clipboard.enable {
-		# Actual content of the module goes here:
+  config = lib.mkIf config.wl-clipboard.enable {
+    # Actual content of the module goes here:
 
-	       	home.packages = with pkgs; [ wl-clipboard ];
-		
-	};	
+    home.packages = with pkgs; [wl-clipboard];
+  };
 }

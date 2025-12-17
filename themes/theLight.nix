@@ -1,33 +1,37 @@
-{ config, lib, stylix, pkgs, ...}: {
+{
+  config,
+  lib,
+  stylix,
+  pkgs,
+  ...
+}: {
+  # Colors
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/icy.yaml";
 
-	# Colors
-	stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/icy.yaml";
+  # Wallpaper
+  stylix.image = ./wallpapers/raja-theLight.jpg;
 
-	# Wallpaper
-	stylix.image = ./wallpapers/raja-theLight.jpg;
+  # Cursors
+  #stylix.cursor.package = pkgs.nordzy-cursor-theme;
+  #stylix.cursor.name = "Nordzy-cursors";
 
-	# Cursors
-	#stylix.cursor.package = pkgs.nordzy-cursor-theme;
-	#stylix.cursor.name = "Nordzy-cursors";
-			  	
-	# Fonts	
-	stylix.fonts = {
-		serif = {
-			package = pkgs.dejavu_fonts;
-			name = "DejaVu Serif";						
-		};
-		sansSerif = {
-			package = pkgs.dejavu_fonts;
-			name = "DejaVu Sans";
-		};
-		monospace = {
-			package = pkgs.nerd-fonts.jetbrains-mono;
-			name = "Jetbrains Mono Nerd Font";
-		};
-		emoji = {
-			package = pkgs.noto-fonts-emoji;
-			name = "Noto Color Emoji";
-		};
-	};
-
+  # Fonts
+  stylix.fonts = {
+    serif = {
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Serif";
+    };
+    sansSerif = {
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Sans";
+    };
+    monospace = {
+      package = pkgs.nerd-fonts.jetbrains-mono;
+      name = "Jetbrains Mono Nerd Font";
+    };
+    emoji = {
+      package = pkgs.noto-fonts-emoji;
+      name = "Noto Color Emoji";
+    };
+  };
 }

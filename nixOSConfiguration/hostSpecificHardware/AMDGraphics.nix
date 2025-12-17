@@ -1,19 +1,22 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  # This is wrapped in an option so that it can be easily toggled elsewhere.
+  options = {
+    AMDGraphics.enable = lib.mkOption {
+      default = false;
+    };
+  };
 
-	# This is wrapped in an option so that it can be easily toggled elsewhere.
-	options = {
-		AMDGraphics.enable = lib.mkOption {
-			default = false;	
-		};
-	};
+  config = lib.mkIf config.AMDGraphics.enable {
+    # Actual content of the module goes here:
 
-	config = lib.mkIf config.AMDGraphics.enable {
-		# Actual content of the module goes here:
-
-		hardware.graphics = {
-			enable = true;
-			enable32Bit = true;	
-		};
-
-	};			
+    hardware.graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+  };
 }

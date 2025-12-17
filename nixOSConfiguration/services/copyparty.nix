@@ -1,183 +1,179 @@
-{ config, pkgs, lib, copyparty, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  copyparty,
+  ...
+}: {
+  # This is wrapped in an option so that it can be easily toggled elsewhere.
+  options = {
+    copyparty.enable = lib.mkOption {
+      default = false;
+    };
+  };
 
-	# This is wrapped in an option so that it can be easily toggled elsewhere.
-	options = {
-		copyparty.enable = lib.mkOption {
-			default = false;	
-		};
-	};
-	
-	config = lib.mkIf config.copyparty.enable {
-		# Actual content of the module goes here:
+  config = lib.mkIf config.copyparty.enable {
+    # Actual content of the module goes here:
 
-		nixpkgs.overlays = [ 
-		
-			copyparty.overlays.default
+    nixpkgs.overlays = [
+      copyparty.overlays.default
 
-			# override to include optional dependencies
-			(final: prev: {
-				copyparty = prev.copyparty.overridePythonAttrs (old: {
-				
-					buildInputs = (old.buildInputs or []) ++ [prev.vips];
+      # override to include optional dependencies
+      (final: prev: {
+        copyparty = prev.copyparty.overridePythonAttrs (old: {
+          buildInputs = (old.buildInputs or []) ++ [prev.vips];
 
-					propagatedBuildInputs = (old.propagatedBuildInputs or []) ++ (with prev.python3Packages; [
-						mutagen
-						rawpy
-						pillow-heif
-						pyvips	
-					]);	
-					
-				});	
-			})
-			
-		];
+          propagatedBuildInputs =
+            (old.propagatedBuildInputs or [])
+            ++ (with prev.python3Packages; [
+              mutagen
+              rawpy
+              pillow-heif
+              pyvips
+            ]);
+        });
+      })
+    ];
 
-		environment.systemPackages = with pkgs; [ 
-			copyparty
-			cloudflared
-		];
+    environment.systemPackages = with pkgs; [
+      copyparty
+      cloudflared
+    ];
 
-		services.cloudflared = {
-			enable = true;
+    services.cloudflared = {
+      enable = true;
 
-			# create a tunnel
-			#	❯ cloudflared tunnel login
-			#	❯ cloudflared tunnel create <name>
-			# 	❯ cloudflared tunnel route dns <name> files.yourdomain.com
-			tunnels."b34be7c0-e420-4fa5-b7a1-2c36ca6a9c52" = {
-				credentialsFile = "/home/ethan/.cloudflared/b34be7c0-e420-4fa5-b7a1-2c36ca6a9c52.json";
-				ingress."files.cookiegroup.net" = "http://127.0.0.1:3923";
-				default = "http_status:404";
-			};
-		};
+      # create a tunnel
+      #	❯ cloudflared tunnel login
+      #	❯ cloudflared tunnel create <name>
+      # 	❯ cloudflared tunnel route dns <name> files.yourdomain.com
+      tunnels."b34be7c0-e420-4fa5-b7a1-2c36ca6a9c52" = {
+        credentialsFile = "/home/ethan/.cloudflared/b34be7c0-e420-4fa5-b7a1-2c36ca6a9c52.json";
+        ingress."files.cookiegroup.net" = "http://127.0.0.1:3923";
+        default = "http_status:404";
+      };
+    };
 
-		users.groups.fileSharing = {};
-		users.users.copyparty = {
-			isSystemUser = true;
-			extraGroups = [ "fileSharing" ];	
-		};
-		
-		services.copyparty = {
-			enable = true;		
-			user = "copyparty";
-			group = "fileSharing";
+    users.groups.fileSharing = {};
+    users.users.copyparty = {
+      isSystemUser = true;
+      extraGroups = ["fileSharing"];
+    };
 
-			settings = {
-				i = "0.0.0.0";
-				p = [ 3923 ];
-				"xff-hdr" = "cf-connecting-ip"; # get client IPs connecting from cloudflare
-				"xff-src" = "127.0.0.1";
-				rproxy = 1;
+    services.copyparty = {
+      enable = true;
+      user = "copyparty";
+      group = "fileSharing";
 
-				# global flags
-				e2dsa = true; # enable indexing of all files (enables cool things like de-duplication, file lifetime, etc...)
-				e2ts = true; # enables media tags (change to e2tsr to reindex everything if you want that for some reason)
-				df = "100g"; # minimum free disk space
-				dedup = true;
-				reflink = true; # reflink based de-duplication (filesystem dependent (btrfs works))
-				daw = true; # allows webdav clients to edit/overwrite files (otherwise they will make copies instead) 
-			};
+      settings = {
+        i = "0.0.0.0";
+        p = [3923];
+        "xff-hdr" = "cf-connecting-ip"; # get client IPs connecting from cloudflare
+        "xff-src" = "127.0.0.1";
+        rproxy = 1;
 
-			accounts = {
-				# Set passwords at /etc/secrets/
-				ethan.passwordFile = "/etc/secrets/ethanCopyparty.pass";
-				syncthing.passwordFile = "/etc/secrets/syncthingCopyparty.pass";
-				james.passwordFile = "/etc/secrets/jamesCopyparty.pass";
-			};
+        # global flags
+        e2dsa = true; # enable indexing of all files (enables cool things like de-duplication, file lifetime, etc...)
+        e2ts = true; # enables media tags (change to e2tsr to reindex everything if you want that for some reason)
+        df = "100g"; # minimum free disk space
+        dedup = true;
+        reflink = true; # reflink based de-duplication (filesystem dependent (btrfs works))
+        daw = true; # allows webdav clients to edit/overwrite files (otherwise they will make copies instead)
+      };
 
-			groups = {
-			
-				owner = [
-					"ethan"
-				];
+      accounts = {
+        # Set passwords at /etc/secrets/
+        ethan.passwordFile = "/etc/secrets/ethanCopyparty.pass";
+        syncthing.passwordFile = "/etc/secrets/syncthingCopyparty.pass";
+        james.passwordFile = "/etc/secrets/jamesCopyparty.pass";
+      };
 
-				admins = [
-					"ethan"
-				];
+      groups = {
+        owner = [
+          "ethan"
+        ];
 
-				cookiegroup = [
-					"ethan"
-					"james"
-				];
+        admins = [
+          "ethan"
+        ];
 
-				GTNHAdmins = [
-					"ethan"
-				];
-				
-			};
-			
-			volumes = {
+        cookiegroup = [
+          "ethan"
+          "james"
+        ];
 
-				"/" = {
-					path = "/srv/copyparty/";
-					access = {
-						A = "@owner";
-						"rwmd." = "@admins";
-					};
-				};
-				
-				"/public" = {
-					path = "/srv/copyparty/public";
-					access = {
-						A = "@owner";
-						"rwmd." = "@admins";
-						rw = "*";
-					};
-					flags = {
-						vmaxb = "100g"; # volume cannot exceed <x>GiB
-					};					
-				};
+        GTNHAdmins = [
+          "ethan"
+        ];
+      };
 
-				"/ethan" = {
-					path = "/srv/copyparty/ethan";
-					access = {
-						A = "ethan";
-					};
-				};
+      volumes = {
+        "/" = {
+          path = "/srv/copyparty/";
+          access = {
+            A = "@owner";
+            "rwmd." = "@admins";
+          };
+        };
 
-				"/prep" = {
-					path = "/srv/copyparty/prep";
-					access = {
-						A = "@owner";
-						"rwmd." = "syncthing, @cookiegroup";
-					};
-				};
+        "/public" = {
+          path = "/srv/copyparty/public";
+          access = {
+            A = "@owner";
+            "rwmd." = "@admins";
+            rw = "*";
+          };
+          flags = {
+            vmaxb = "100g"; # volume cannot exceed <x>GiB
+          };
+        };
 
-				"/minecraftGTNHServer" = {
-				 	path = "/srv/minecraftGTNHServer";
-				 	access = {
-				 		A = "@owner";
-				 		"rwmd." = "@GTNHAdmins";
-				 	};
-				};
+        "/ethan" = {
+          path = "/srv/copyparty/ethan";
+          access = {
+            A = "ethan";
+          };
+        };
 
-			};
-		};
+        "/prep" = {
+          path = "/srv/copyparty/prep";
+          access = {
+            A = "@owner";
+            "rwmd." = "syncthing, @cookiegroup";
+          };
+        };
 
-		networking.firewall.enable = true;
-		networking.firewall.allowedTCPPorts = [ 3923 ];
+        "/minecraftGTNHServer" = {
+          path = "/srv/minecraftGTNHServer";
+          access = {
+            A = "@owner";
+            "rwmd." = "@GTNHAdmins";
+          };
+        };
+      };
+    };
 
+    networking.firewall.enable = true;
+    networking.firewall.allowedTCPPorts = [3923];
 
-		
-		# Optional dependencies needed at runtime 
-		systemd.services.copyparty.path = lib.mkAfter [ 
-			pkgs.cfssl # gives TLS certificates so that https can work properly
-		];
+    # Optional dependencies needed at runtime
+    systemd.services.copyparty.path = lib.mkAfter [
+      pkgs.cfssl # gives TLS certificates so that https can work properly
+    ];
 
-		# force 0007 umask
-		systemd.services.copyparty.serviceConfig.UMask = lib.mkForce "0007";
-		
-		# Create template passwordFiles if they are not present.
-		# 	- Change these externaly to whatever passwords you want 
-		# 	- Copyparty has the user log in without a username (password only)
-		#	  because of this, duplicate passwords are not supported. each
-		#	  password must be unique
-		systemd.tmpfiles.rules = [
-			"d /etc/secrets 0660 root copyparty - -"
-			"f /etc/secrets/ethanCopyparty.pass 0660 root copyparty - <password>"
-			"f /etc/secrets/syncthingCopyparty.pass 0660 root copyparty - <password>"
-			"f /etc/secrets/jamesCopyparty.pass 0660 root copyparty - <password>"
-		];		
+    # force 0007 umask
+    systemd.services.copyparty.serviceConfig.UMask = lib.mkForce "0007";
 
-	};	
+    # Create template passwordFiles if they are not present.
+    # 	- Change these externaly to whatever passwords you want
+    # 	- Copyparty has the user log in without a username (password only)
+    #	  because of this, duplicate passwords are not supported. each
+    #	  password must be unique
+    systemd.tmpfiles.rules = [
+      "d /etc/secrets 0660 root copyparty - -"
+      "f /etc/secrets/ethanCopyparty.pass 0660 root copyparty - <password>"
+      "f /etc/secrets/syncthingCopyparty.pass 0660 root copyparty - <password>"
+      "f /etc/secrets/jamesCopyparty.pass 0660 root copyparty - <password>"
+    ];
+  };
 }

@@ -1,85 +1,81 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  wayland.windowManager.hyprland.settings = {
+    # set variables
+    "$mainMod" = "SUPER";
+    "$terminal" = "kitty";
+    "$browser" = "firefox";
+    "$appLauncher" = "wofi";
+    "$fileManager" = "$terminal yazi";
+    "$processViewer" = "btop";
 
-	wayland.windowManager.hyprland.settings = {
-	
-		# set variables
-		"$mainMod"			=	"SUPER";
-		"$terminal"			=	"kitty";
-		"$browser"			=	"firefox";
-		"$appLauncher"		=	"wofi";
-		"$fileManager"		=	"$terminal yazi";
-		"$processViewer"	=	"btop";
+    # keyboard binds
+    bind = [
+      # launch apps
+      "$mainMod,			RETURN,	exec,	$terminal"
+      "$mainMod,			SPACE, 	exec,	$appLauncher"
+      "$mainMod,			DELETE,	exec,	$terminal $processViewer"
+      "$mainMod,			B, 		exec,	$browser"
+      "$mainMod,			E,		exec,	$fileManager"
+      "$mainMod SHIFT,	S,		exec,	grimblast --freeze copy area"
+      "$mainMod,			R, 		exec, 	$terminal /run/current-system/sw/bin/bash -lc 'sudo nixos-rebuild switch --flake $HOME/nixOS##$hostname --impure --show-trace; ec=$?; if [ $ec -eq 0 ]; then exit 0; else echo; echo \"Rebuild failed (exit $ec). Press Enter to close…\"; read -r _; exit $ec; fi'"
+      "$mainMod,			N,		exec, 	swaync-client -t -sw"
+      "$mainMod,			L,		exec, 	hyprlock"
 
+      # window actions
+      "$mainMod,	Q,	killactive"
+      "$mainMod,	T,	toggleFloating"
+      "$mainMod,	F,	fullscreen"
 
+      # move focus with mainMod + arrow keys
+      "$mainMod,	LEFT,	movefocus,	l"
+      "$mainMod,	RIGHT,	movefocus,	r"
+      "$mainMod,	UP,		movefocus,	u"
+      "$mainMod,	DOWN,	movefocus,	d"
 
-		# keyboard binds
-		bind = [
+      # switch workspace with mainMod + [1-9]
+      "$mainMod,	1,	workspace,	1"
+      "$mainMod,	2,	workspace,	2"
+      "$mainMod,	3,	workspace,	3"
+      "$mainMod,	4,	workspace,	4"
+      "$mainMod,	5,	workspace,	5"
+      "$mainMod,	6,	workspace,	6"
+      "$mainMod,	7,	workspace,	7"
+      "$mainMod,	8,	workspace,	8"
+      "$mainMod,	9,	workspace,	9"
+      "$mainMod,	0,	workspace,	10"
 
-			# launch apps
-			"$mainMod,			RETURN,	exec,	$terminal"
-			"$mainMod,			SPACE, 	exec,	$appLauncher"
-			"$mainMod,			DELETE,	exec,	$terminal $processViewer"
-			"$mainMod,			B, 		exec,	$browser"
-			"$mainMod,			E,		exec,	$fileManager"
-			"$mainMod SHIFT,	S,		exec,	grimblast --freeze copy area"
-			"$mainMod,			R, 		exec, 	$terminal /run/current-system/sw/bin/bash -lc 'sudo nixos-rebuild switch --flake $HOME/nixOS##$hostname --impure --show-trace; ec=$?; if [ $ec -eq 0 ]; then exit 0; else echo; echo \"Rebuild failed (exit $ec). Press Enter to close…\"; read -r _; exit $ec; fi'"
-			"$mainMod,			N,		exec, 	swaync-client -t -sw"
-			"$mainMod,			L,		exec, 	hyprlock"
-			
-			# window actions
-			"$mainMod,	Q,	killactive"		
-			"$mainMod,	T,	toggleFloating"	
-			"$mainMod,	F,	fullscreen"		
+      # move active window to a workspace with mainMod + [0-9]
+      "$mainMod SHIFT,	1,	movetoworkspace,	1"
+      "$mainMod SHIFT,	2,	movetoworkspace,	2"
+      "$mainMod SHIFT,	3,	movetoworkspace,	3"
+      "$mainMod SHIFT,	4,	movetoworkspace,	4"
+      "$mainMod SHIFT,	5,	movetoworkspace,	5"
+      "$mainMod SHIFT,	6,	movetoworkspace,	6"
+      "$mainMod SHIFT,	7,	movetoworkspace,	7"
+      "$mainMod SHIFT,	8,	movetoworkspace,	8"
+      "$mainMod SHIFT,	9,	movetoworkspace,	9"
+      "$mainMod SHIFT,	0,	movetoworkspace,	10"
+    ];
 
-			# move focus with mainMod + arrow keys
-			"$mainMod,	LEFT,	movefocus,	l"
-			"$mainMod,	RIGHT,	movefocus,	r"
-			"$mainMod,	UP,		movefocus,	u"
-			"$mainMod,	DOWN,	movefocus,	d"
+    # repeating binds
+    binde = [
+      # multimedia buttons
+      ", xf86audioraisevolume, 	exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+      ", xf86audiolowervolume, 	exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+      ", XF86MonBrightnessDown,	exec, brightnessctl s 10%-"
+      ", XF86MonBrightnessUp, 	exec, brightnessctl s +10%"
+    ];
 
-			# switch workspace with mainMod + [1-9]
-			"$mainMod,	1,	workspace,	1"
-			"$mainMod,	2,	workspace,	2"
-			"$mainMod,	3,	workspace,	3"
-			"$mainMod,	4,	workspace,	4"
-			"$mainMod,	5,	workspace,	5"
-			"$mainMod,	6,	workspace,	6"
-			"$mainMod,	7,	workspace,	7"
-			"$mainMod,	8,	workspace,	8"
-			"$mainMod,	9,	workspace,	9"
-			"$mainMod,	0,	workspace,	10"
-
-			# move active window to a workspace with mainMod + [0-9]
-			"$mainMod SHIFT,	1,	movetoworkspace,	1"
-			"$mainMod SHIFT,	2,	movetoworkspace,	2"
-			"$mainMod SHIFT,	3,	movetoworkspace,	3"
-			"$mainMod SHIFT,	4,	movetoworkspace,	4"
-			"$mainMod SHIFT,	5,	movetoworkspace,	5"
-			"$mainMod SHIFT,	6,	movetoworkspace,	6"
-			"$mainMod SHIFT,	7,	movetoworkspace,	7"
-			"$mainMod SHIFT,	8,	movetoworkspace,	8"
-			"$mainMod SHIFT,	9,	movetoworkspace,	9"
-			"$mainMod SHIFT,	0,	movetoworkspace,	10"
-		 ];
-
-		# repeating binds
-		binde = [
-		 	# multimedia buttons
-		 	", xf86audioraisevolume, 	exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+" 
-		 	", xf86audiolowervolume, 	exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-		 	", XF86MonBrightnessDown,	exec, brightnessctl s 10%-"
-		 	", XF86MonBrightnessUp, 	exec, brightnessctl s +10%"
-		 ];
-
-
-
-		# mouse binds
-		bindm = [
-			# move/resize windows with left/right click + drag
-			"$mainMod,	mouse:272, movewindow"		# move windows with left mouse button drag 
-			"$mainMod,	mouse:273, resizewindow"	# resize windows with right mouse button drag			
-		];
-
-
-	};
+    # mouse binds
+    bindm = [
+      # move/resize windows with left/right click + drag
+      "$mainMod,	mouse:272, movewindow" # move windows with left mouse button drag
+      "$mainMod,	mouse:273, resizewindow" # resize windows with right mouse button drag
+    ];
+  };
 }

@@ -1,82 +1,73 @@
-{ config, pkgs, lib, ... }: 
-let
-
-	hostname = config.networking.hostName;
-
-	tmpfilesByHost = {
-		ethanDesktop	= [ "d /srv/prep 0770 syncthing fileSharing" ];
-		cg 				= [ "d /srv/prep 0770 syncthing fileSharing" ];
-		ethanServer		= [ "d /srv/copyparty/prep 0770 syncthing fileSharing" ];
-
-	};
-	
-	prepPathByHost = {
-		ethanDesktop	= "/srv/prep";
-		cg 				= "/srv/prep";
-		ethanServer		= "/srv/copyparty/prep";
-
-	};
-	
-in
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  hostname = config.networking.hostName;
 
-	# This is wrapped in an option so that it can be easily toggled elsewhere.
-	options = {
-		syncthing.enable = lib.mkOption {
-			default = false;	
-		};
-	};
-	
-	config = lib.mkIf config.syncthing.enable {
-		# Actual content of the module goes here:
+  tmpfilesByHost = {
+    ethanDesktop = ["d /srv/prep 0770 syncthing fileSharing"];
+    cg = ["d /srv/prep 0770 syncthing fileSharing"];
+    ethanServer = ["d /srv/copyparty/prep 0770 syncthing fileSharing"];
+  };
 
-		
+  prepPathByHost = {
+    ethanDesktop = "/srv/prep";
+    cg = "/srv/prep";
+    ethanServer = "/srv/copyparty/prep";
+  };
+in {
+  # This is wrapped in an option so that it can be easily toggled elsewhere.
+  options = {
+    syncthing.enable = lib.mkOption {
+      default = false;
+    };
+  };
 
-		users.groups.fileSharing = {};
-		users.users.syncthing = {
-			isSystemUser = true;
-			extraGroups = [ "fileSharing" ];	
-		};
+  config = lib.mkIf config.syncthing.enable {
+    # Actual content of the module goes here:
 
+    users.groups.fileSharing = {};
+    users.users.syncthing = {
+      isSystemUser = true;
+      extraGroups = ["fileSharing"];
+    };
 
-		services.syncthing = {
-			enable = true;
-			user = "syncthing";
-			group = "fileSharing";
-			openDefaultPorts = true; #22000-TCP (8384-TCP for web GUI)
+    services.syncthing = {
+      enable = true;
+      user = "syncthing";
+      group = "fileSharing";
+      openDefaultPorts = true; #22000-TCP (8384-TCP for web GUI)
 
-			settings = {
+      settings = {
+        devices = {
+          # to get device id, go to localhost:8384 in browser when syncthing service is running
+          #
+          # to get device id on remote machine, port forward with ssh and open using forwarded port in browser
+          #	ssh -L 8385:localhost:8384 ethan@ethanServer
+          # 	(localhost:8385 in browser)
+          #
+          # when adding a new device id, log in to the web gui on all clients and accept the prompt to authenticate the new client.
+          #
+          "cg".id = "FCP4NII-2AIV3RI-IUTDHFM-REZJMQO-JIDQPBC-UXAOYKH-K5W5PPN-KEKHLQX";
+          #"ethanDesktop".id = "2YIZFBP-5P6R3QF-67KD5R7-VHEYSNQ-JKYZXXE-ERPTRYJ-B3CK4DD-ONAH5AC";
+          "ethanServer".id = "WJHCPDV-DDZMORO-HYJHGCQ-MY3PZT3-73QBUD5-5NI3PHJ-2PKQCUV-YEPO4AD";
+        };
 
-				devices = {
+        folders = {
+          "prep" = {
+            id = "prep";
+            label = "prep";
+            devices = ["cg" "ethanServer"];
+            path = lib.attrByPath [hostname] "/srv/prep" prepPathByHost;
+          };
+        };
+      };
+    };
 
-					# to get device id, go to localhost:8384 in browser when syncthing service is running
-					#
-					# to get device id on remote machine, port forward with ssh and open using forwarded port in browser
-					#	ssh -L 8385:localhost:8384 ethan@ethanServer
-					# 	(localhost:8385 in browser)
-					#
-					# when adding a new device id, log in to the web gui on all clients and accept the prompt to authenticate the new client.
-					#
-					"cg".id = "FCP4NII-2AIV3RI-IUTDHFM-REZJMQO-JIDQPBC-UXAOYKH-K5W5PPN-KEKHLQX";
-					#"ethanDesktop".id = "2YIZFBP-5P6R3QF-67KD5R7-VHEYSNQ-JKYZXXE-ERPTRYJ-B3CK4DD-ONAH5AC";
-					"ethanServer".id = "WJHCPDV-DDZMORO-HYJHGCQ-MY3PZT3-73QBUD5-5NI3PHJ-2PKQCUV-YEPO4AD";
-				};
+    systemd.tmpfiles.rules = lib.attrByPath [hostname] ["d /srv/prep 0770 syncthing fileSharing"] tmpfilesByHost;
 
-				folders = {
-					"prep" = {
-						id = "prep";
-						label = "prep";
-						devices = [ "cg" "ethanServer" ];
-						path = lib.attrByPath [ hostname ] "/srv/prep" prepPathByHost;
-					};
-				};
-			};	
-		};	
-
-		systemd.tmpfiles.rules = lib.attrByPath [ hostname ] [ "d /srv/prep 0770 syncthing fileSharing" ] tmpfilesByHost;
-
-		systemd.services.syncthing.serviceConfig.UMask = "0000";
-		
-	};		
-	
+    systemd.services.syncthing.serviceConfig.UMask = "0000";
+  };
 }
