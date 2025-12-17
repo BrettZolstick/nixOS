@@ -28,8 +28,8 @@
 		grub.device = "/dev/nvme0n1";
 	};
 
-	boot.kernelPackages = lib.mkForce pkgs.linuxPackages_lts;
-		
+	hardware.cpu.amd.updateMicrocode = true;
+			
 	# Optional Modules #####################################################
 
 	hyprlandSystem.enable 			= false;
