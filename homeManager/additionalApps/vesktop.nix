@@ -2,7 +2,6 @@
   config,
   pkgs,
   lib,
-  stylix,
   ...
 }: {
   # This is wrapped in an option so that it can be easily toggled elsewhere.

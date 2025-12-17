@@ -1,8 +1,6 @@
 {
   config,
-  pkgs,
   lib,
-  stylix,
   ...
 }: let
   colors = config.lib.stylix.colors.withHashtag; # "#RRGGBB"

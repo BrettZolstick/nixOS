@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }: {
@@ -14,9 +13,9 @@
   config = lib.mkIf config.javaVersions.enable {
     # Actual content of the module goes here:
 
-    environment.systemPackages = with pkgs; [
-      #temurin-bin
-      #zulu
-    ];
+    # environment.systemPackages = with pkgs; [
+    #   temurin-bin
+    #   zulu
+    # ];
   };
 }

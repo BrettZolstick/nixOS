@@ -2,7 +2,6 @@
   config,
   pkgs,
   lib,
-  stylix,
   ...
 }: let
   hardwareMonitor = pkgs.writeShellScriptBin "hardware-monitor" ''

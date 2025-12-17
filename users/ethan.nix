@@ -1,7 +1,5 @@
 {
-  config,
   pkgs,
-  home-manager,
   lib,
   ...
 }: {
@@ -23,7 +21,6 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGCUoOEQU/+dyJ1ba6O+8tkkQ5ocfdknlLFYbS+S2jzL sshFromCg"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMx4aJOCFybYEqWfLZD8Q2GDa4jvTV+I02Nda4LmqUUn sshFromEthanPhone"
     ];
-    packages = with pkgs; [];
     shell = pkgs.fish;
   };
 

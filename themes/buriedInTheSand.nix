@@ -1,7 +1,4 @@
 {
-  config,
-  lib,
-  stylix,
   pkgs,
   ...
 }: {

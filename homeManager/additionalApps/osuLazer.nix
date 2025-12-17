@@ -5,6 +5,9 @@
   ...
 }: let
   osuOverlay = (
+    # overlay to build the specified version of osu! lazer
+    #  -> when the game updates, you cannot submit scores until you update to the latest version
+    #     this overlay lets you explicilty build the latest version as soon as it releases
     final: prev: let
       ver = "2025.1029.1";
     in {
