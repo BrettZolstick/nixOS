@@ -15,6 +15,7 @@
 
 		copyparty.url = "github:9001/copyparty";
 
+		
 	};
 	
 	outputs = { self, nixpkgs, home-manager, stylix, copyparty, ... }@inputs: {

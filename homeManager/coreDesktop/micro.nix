@@ -12,10 +12,10 @@
 
 
 		# sets micro as the default editor
-		home.sessionVariables = {
-			EDITOR = "micro";
-			VISUAL = "micro";
-		};
+		# home.sessionVariables = {
+		# 	EDITOR = "micro";
+		# 	VISUAL = "micro";
+		# };
 
        	programs.micro.enable = true;
        	programs.micro.settings = {
