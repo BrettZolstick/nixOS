@@ -22,8 +22,8 @@
         isSystemUser = true;
         home = "/srv/copyparty/prep/NewQA/EpcListEnhancer2";
         createHome = false;
-        group = "emailScanner";
-        extraGroups = ["copyparty" "fileSharing"];
+        group = "fileSharing";
+        extraGroups = [ "copyparty" ];
       };
       groups.emailScanner = {};
     };
