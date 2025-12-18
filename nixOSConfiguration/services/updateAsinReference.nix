@@ -6,12 +6,12 @@
 }: {
   # This is wrapped in an option so that it can be easily toggled elsewhere.
   options = {
-    emailScanner.enable = lib.mkOption {
+    updateAsinReference.enable = lib.mkOption {
       default = false;
     };
   };
 
-  config = lib.mkIf config.emailScanner.enable {
+  config = lib.mkIf config.updateAsinReference.enable {
     # Actual content of the module goes here:
 
     environment.systemPackages = [ pkgs.powershell ];
