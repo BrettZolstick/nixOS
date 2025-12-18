@@ -50,7 +50,6 @@
   home-manager.users.ethan = {
     cifs-utils.enable = false;
     grimblast.enable = false;
-    hyprcursor.enable = false;
     hyprland.enable = false;
     pwvucontrol.enable = false;
     qpwgraph.enable = false;
