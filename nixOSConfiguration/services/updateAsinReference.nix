@@ -15,19 +15,28 @@
     # Actual content of the module goes here:
 
     environment.systemPackages = [ pkgs.powershell ];
-    
+
+    users.groups.fileSharing = {};
+    users.users.updateAsinReference = {
+      isSystemUser = true;
+      createHome = false;
+      group = "fileSharing";
+    };
+
     systemd.services.updateAsinReference = {
       description = "Runs a powershell script to update estimated sale prices of laptops based on Amazon's pricing";
       serviceConfig = {
         Type = "oneshot";
         User = "updateAsinReference";
-        Group = "Filesharing";
+        Group = "fileSharing";
         WorkingDirectory = "/srv/copyparty/prep/NewQA/EpcListEnhancer2";
         ExecStart = "${pkgs.powershell}/bin/pwsh -NoProfile -NonInteractive -File /srv/copyparty/prep/NewQA/EpcListEnhancer2/UpdateAsinReference.ps1";
+        StateDirectory = "updateAsinReference";
+        Environment = ["HOME=/var/lib/updateAsinReference"];
       };
     };
 
-    systemd.timers.weekly-updateAsinReference = {
+    systemd.timers.updateAsinReference = {
       wantedBy = [ "timers.target" ];
       timerConfig = {
         OnCalendar = "Mon *-*-* 05:00:00";

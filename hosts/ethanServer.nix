@@ -46,6 +46,7 @@
   minecraftGTNHServer.enable = true;
   emailScanner.enable = true;
   syncthing.enable = true;
+  updateAsinReference.enable = true;
 
   home-manager.users.ethan = {
     cifs-utils.enable = false;
