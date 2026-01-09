@@ -50,7 +50,7 @@
         disable_while_typing = true;
         natural_scroll = true;
         scroll_factor = 1.0;
-        middle_button_emulation = true;
+        #middle_button_emulation = true;
         #tap_button_map = ;
         clickfinger_behavior = false; # this makes 1 finger click on the right side of the trackpad right click (gross)
         tap-to-click = true;

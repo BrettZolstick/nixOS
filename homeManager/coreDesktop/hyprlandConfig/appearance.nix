@@ -16,7 +16,7 @@ in {
     general = {
       # borders
       border_size = 2;
-      no_border_on_floating = false;
+      # no_border_on_floating = false;
 
       # gaps
       gaps_in = 2;

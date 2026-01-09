@@ -19,6 +19,9 @@
         respect_gaps = false; # if true, snapping will respect gaps between windows(set in general:gaps_in)
       };
     };
+    misc = {     
+      initial_workspace_tracking = 1; # if enabled, windows will open on the workspace they were invoked on. 0 - disabled, 1 - single-shot, 2 - persistent (all children too)
+    };
 
     ecosystem.no_update_news = true; # disable hyprland support message
   };

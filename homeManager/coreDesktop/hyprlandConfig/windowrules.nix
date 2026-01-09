@@ -1,49 +1,71 @@
 {
   ...
 }: {
-  wayland.windowManager.hyprland.settings = {
-    windowrule = [
-      # Ignore maximize requests from apps.
-      "suppressevent maximize, class:*"
+  # On hyprland 0.53 and above, see documentation for named rules here:
+  # https://wiki.hypr.land/Configuring/Window-Rules/
 
-      # Fix some dragging issues with XWayland
-      "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
+  wayland.windowManager.hyprland.extraConfig = ''
+    windowrule {
+      name = ignoreAllMaximizeRequests
+      match:class = *
+      suppress_event = maximize
+    }
+    
+    windowrule {
+      name = noFirefoxTransparency
+      match:class = firefox
+      opacity = 1.0 override 1.0 override
+    }
 
-      # force permenant transparency on prism launcher because it looks good
-      "opacity override 0.9 override 0.91, class:org.prismlauncher.PrismLauncher"
+    windowrule {
+      name = forcePrismLauncherTransparency
+      match:class = org.prismlauncher.PrismLauncher
+      opacity = 0.93 override 0.91 override
+    }
 
-      # disable transparency for videos
-      "opacity 1.2, content:video"
+    windowrule {
+      name = disableVideosTransparency
+      match:content = video
+      opacity = 1.0 override 1.0 override
+    }
 
-      # disable transparency for firefox
-      "opacity 1.2, class:firefox"
+    windowrule {
+      name = disableDiscordTransparency
+      match:class = (vesktop|discord)
+      opacity = 1.0 override 1.0 override
+    }
 
-      # disable transparency for discord
-      "opacity 1.2, class:vesktop"
-      "opacity 1.2, class:discord"
+    windowrule {
+      name = enableTearingOsu
+      match:class = osu!
+      immediate = true
+    }    
 
-      # disable hyprland transparency for kitty (so it doesn't stack with kitty's built in transparency)
-      #"opacity 99 1, class:kitty" # leaving this commented out because I kinda like the stacked transparency
+    windowrule {
+      name = enableTearingGlobal
+      match:class = *
+      immediate = true
+    }
 
-      # enable tearing for osu!
-      "immediate, class: osu!"
+    windowrule {
+      name = wofiWindowRules
+      match:class = wofi
+      rounding = 10 override
+      rounding_power = 2 override
+      border_size = 4 override
+    }
 
-      # Wofi
-      "float, class:wofi"
-      "rounding 10, class:wofi"
-      #"roundingpower 1, class:wofi"
-      "bordersize 4, class:wofi"
+    windowrule {
+      name = workspaceTwoApps
+      match:class = (vesktop|discord|Todoist)
+      workspace = 2
+    }
 
-      # Open discord and todoist in workspace 2
-      "workspace 2, class: vesktop"
-      "workspace 2, class: Todoist"
-
-      # Open steam games in fullscreen on DP-1
-      "workspace 1, class: ^(steam_app_.*)$"
-      "fullscreen , class: ^(steam_app_.*)$"
-
-      # disable tiling for keyoverlay
-      #"float, class:KeyOverlay"
-    ];
-  };
+    windowrule {
+      name = openSteamGamesInWorksapceOne
+      match:class = ^(steam_app_[0-9]+)$
+      workspace = 1
+      fullscreen = true
+    }
+  '';
 }
