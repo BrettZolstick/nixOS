@@ -68,5 +68,6 @@
     mcrcon.enable = true;
     office.enable = true;
     deadlockModManager.enable = true;
+    bluetooth.enable = true;
   };
 }
