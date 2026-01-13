@@ -69,5 +69,6 @@
     mcrcon.enable = true;
     office.enable = true;
     deadlockModManager.enable = true;
+    kdeConnect.enable = true;
   };
 }
