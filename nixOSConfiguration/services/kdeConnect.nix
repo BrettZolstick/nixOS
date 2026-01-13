@@ -13,6 +13,9 @@
 
   config = lib.mkIf config.kdeConnect.enable {
     # Actual content of the module goes here:
-    home.packages = with pkgs; [kdePackages.kdeconnect-kde];
+    # home.packages = with pkgs; [kdePackages.kdeconnect-kde];
+
+    programs.kdeconnect.enable = true;
+    
   };
 }
