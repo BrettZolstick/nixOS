@@ -38,6 +38,7 @@
   sshInto.enable = true;
   syncthing.enable = true;
   bluetooth.enable = true;
+  miniupnpd.enable = true;
 
   home-manager.users.ethan = {
     aniCli.enable = true;
