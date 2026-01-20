@@ -69,6 +69,6 @@
     mcrcon.enable = true;
     office.enable = true;
     deadlockModManager.enable = true;
-    hytaleLauncher = true;
+    hytaleLauncher.enable = true;
   };
 }

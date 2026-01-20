@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   lib,
   ...
 }: {
@@ -13,7 +14,7 @@
 
   config = lib.mkIf config.hytaleLauncher.enable {
     # Actual content of the module goes here:
-    home.packages = with pkgs; [
+    home.packages = [
       inputs.hytale-launcher.packages.${pkgs.system}.default
     ];
   };

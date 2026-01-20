@@ -37,6 +37,7 @@
           ./hosts/ethanDesktop.nix
           ./users/ethan.nix
           home-manager.nixosModules.home-manager
+          {home-manager.extraSpecialArgs = {inherit inputs;};}
           inputs.stylix.nixosModules.stylix
           copyparty.nixosModules.default
         ];
@@ -48,6 +49,7 @@
           ./hosts/ethanLaptop.nix
           ./users/ethan.nix
           home-manager.nixosModules.home-manager
+          {home-manager.extraSpecialArgs = {inherit inputs;};}
           inputs.stylix.nixosModules.stylix
           copyparty.nixosModules.default
         ];
@@ -62,6 +64,7 @@
           ./hosts/ethanServer.nix
           ./users/ethan.nix
           home-manager.nixosModules.home-manager
+          {home-manager.extraSpecialArgs = {inherit inputs;};}
           inputs.stylix.nixosModules.stylix
           copyparty.nixosModules.default
         ];
@@ -76,6 +79,7 @@
           ./hosts/cg.nix
           ./users/ethan.nix
           home-manager.nixosModules.home-manager
+          {home-manager.extraSpecialArgs = {inherit inputs;};}
           inputs.stylix.nixosModules.stylix
           copyparty.nixosModules.default
         ];
