@@ -14,6 +14,8 @@
     stylix.url = "github:nix-community/stylix";
 
     copyparty.url = "github:9001/copyparty";
+
+    hytale-launcher.url = "github:JPyke3/hytale-launcher-nix";
   };
 
   outputs = {
@@ -22,6 +24,7 @@
     home-manager,
     stylix,
     copyparty,
+    hytale-launcher,
     ...
   } @ inputs: {
     nixosConfigurations = {
