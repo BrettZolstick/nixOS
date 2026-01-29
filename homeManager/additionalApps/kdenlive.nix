@@ -13,6 +13,6 @@
 
   config = lib.mkIf config.kdenlive.enable {
     # Actual content of the module goes here:
-    home.packages = with pkgs; [kdePackages.kdenlive libsForQt5.libopenshot];
+    home.packages = with pkgs; [kdePackages.kdenlive libsForQt5.libopenshot openshot-qt];
   };
 }
