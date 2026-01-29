@@ -13,6 +13,6 @@
 
   config = lib.mkIf config.kdenlive.enable {
     # Actual content of the module goes here:
-    home.packages = with pkgs; [kdePackages.kdenlive];
+    home.packages = with pkgs; [kdePackages.kdenlive openshot-qt];
   };
 }
