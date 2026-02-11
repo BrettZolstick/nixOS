@@ -35,7 +35,7 @@
         timeout-critical = 0; # The notification timeout for notifications with critical priority. 0 to disable
         notification-2fa-action = true; # If each notification should display a 'COPY "1234"' action
         notification-window-width = 500; # Width of the notification in pixels
-        notification-window-height = -1; # Max height of the notification in pixels. -1 to use the full amount of space given by the compositor.
+        notification-window-height = 1000; # Max height of the notification in pixels. -1 to use the full amount of space given by the compositor.
         notification-window-preferred-output = ""; # The preferred output to open the notification window (popup notifications). Can either be the monitor connector name (ex: "DP-1"), or the full name, manufacturer model serial (ex: "Acer Technologies XV272U V 503023B314202"). If the output is not found, the currently focused one is picked.
         notification-grouping = false; # If notifications should be grouped by app name
         transition-time = 200; # The notification animation duration. 0 to disable
@@ -53,7 +53,7 @@
         text-empty = ""; # Text that appears when there are no notifications to show
         fit-to-screen = false; # Whether the control center should expand vertically to fill the screen
         relative-timestamps = true; # Display notification timestamps relative to now e.g. "26 minutes ago". If false, a local iso8601-formatted absolute timestamp is displayed.
-        control-center-height = -1; # Height of the control center in pixels. A value of -1 means that it will fit to the content. Ignored when 'fit-to-screen' is set to 'true'. Also limited to the height of the monitor, unless 'layer-shell-cover-screen' is set to false.
+        control-center-height = 1000; # Height of the control center in pixels. A value of -1 means that it will fit to the content. Ignored when 'fit-to-screen' is set to 'true'. Also limited to the height of the monitor, unless 'layer-shell-cover-screen' is set to false.
         control-center-width = 500; # The control center width in pixels
         control-center-preferred-output = ""; # The preferred output to open the control center. Can either be the monitor connector name (ex: "DP-1"), or the full name, manufacturer model serial (ex: "Acer Technologies XV272U V 503023B314202"). If the output is not found, the currently focused one is picked.
 
