@@ -121,7 +121,7 @@
           access = {
             A = "@owner";
             "rwmd." = "@admins";
-            rw = "*";
+            rw = "@admins";
           };
           flags = {
             vmaxb = "100g"; # volume cannot exceed <x>GiB
