@@ -31,6 +31,6 @@
       };
       jvmOpts = "-Xms6092M -Xmx6092M";
     };
-        
+    environment.systemPackages = [ pkgs.mcrcon ];    
   };
 }
