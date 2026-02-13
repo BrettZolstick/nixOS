@@ -27,8 +27,8 @@
         motd = "Epic Skyblock";
         white-list = false;
         enable-rcon = true;
-        rcon.password = "block";
-        rcon.port = 24565;
+        "rcon.password" = "block";
+        "rcon.port" = 24565;
       };
       jvmOpts = "-Xms6092M -Xmx6092M";
     };
