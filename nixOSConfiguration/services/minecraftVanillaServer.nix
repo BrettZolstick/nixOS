@@ -18,7 +18,17 @@
       eula = true;
       openFirewall = true;
       declarative = true;
-      package = pkgs.papermcServers.papermc-1_21_11;
+      package = let
+        version = "1.21.11";
+        url = "https://piston-data.mojang.com/v1/objects/64bb6d763bed0a9f1d632ec347938594144943ed/server.jar";
+        sha256 = "f83b8e093865806f931c7e34aae41b177d4c076335263dd124c75d6d65dd1726";
+      in (pkgs.minecraftServers.vanilla-1-20.overrideAttrs (old: rec {
+        name = "minecraftServers.vanilla-${version}";
+        inherit version;
+        src = pkgs.fetchurl {
+          inherit url sha256;
+        };
+      }));
       serverProperties = {
         server-port = 25566;
         difficulty = 3;
