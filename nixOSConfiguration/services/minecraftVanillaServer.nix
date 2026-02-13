@@ -29,7 +29,7 @@
         enable-rcon = true;
         "rcon.password" = "block";
       };
-      jvmOpts = "-Xms6092M -Xmx6092M -XX:+UseG1GC -XX:+CMSIncrementalPacing -XX:+CMSClassUnloadingEnabled -XX:ParallelGCThreads=2 -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10";
+      jvmOpts = "-Xms6092M -Xmx6092M";
     };
         
   };
