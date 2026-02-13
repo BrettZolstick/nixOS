@@ -22,7 +22,7 @@
       #wineWowPackages.staging
 
       # native wayland support (unstable)
-      wineWowPackages.waylandFull
+      wineWow64Packages.waylandFull
 
       # winetricks (all versions)
       winetricks
