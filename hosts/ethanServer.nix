@@ -43,8 +43,8 @@
 
   copyparty.enable = true;
   sshInto.enable = true;
-  # minecraftGTNHServer.enable = true;
-  minecraftVanillaServer.enable = true;
+  minecraftGTNHServer.enable = true;
+  # minecraftVanillaServer.enable = true;
   emailScanner.enable = true;
   syncthing.enable = true;
   updateAsinReference.enable = true;
