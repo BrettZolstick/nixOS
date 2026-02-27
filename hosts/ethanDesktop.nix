@@ -72,6 +72,5 @@
     hytaleLauncher.enable = true;
     java25.enable = true;
     bluebubbles.enable = true;
-    devenv.enable = true;
   };
 }
