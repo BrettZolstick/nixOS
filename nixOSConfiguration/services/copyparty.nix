@@ -122,6 +122,7 @@
             A = "@owner";
             "rwmd." = "@admins";
             rw = "@admins";
+            r = "*";
           };
           flags = {
             vmaxb = "100g"; # volume cannot exceed <x>GiB
