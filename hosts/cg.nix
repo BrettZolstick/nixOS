@@ -37,7 +37,6 @@
   alsaScarlettGui.enable = false;
   steam.enable = false;
 
-  rcloneShares.enable = true;
   samba.enable = true;
   sshInto.enable = true;
   syncthing.enable = true;
