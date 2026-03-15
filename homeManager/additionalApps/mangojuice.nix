@@ -13,6 +13,6 @@
 
   config = lib.mkIf config.mangojuice.enable {
     # Actual content of the module goes here:
-    home.packages = with pkgs; [mangojuice];
+    home.packages = with pkgs; [mangojuice mangohud];
   };
 }

@@ -56,7 +56,6 @@
     wootility.enable = true;
     prismLauncher.enable = true;
     gamescope.enable = true;
-    mangohud.enable = true;
     missionCenter.enable = true;
     audacity.enable = true;
     renoise.enable = true;
@@ -73,5 +72,9 @@
     java25.enable = true;
     bluebubbles.enable = true;
     mangojuice.enable = true;
+
+
+    
+    mangohud.enable = false;
   };
 }

@@ -5,7 +5,7 @@
   #host = config.networking.hostName;
   monitorsByHost = {
     ethanDesktop = [
-      "DP-1,		2560x1440@239.97,	1920x0,	1"
+      "DP-1,		2560x1440@239.97,	1920x0,	1, vrr, 2"
       "DP-2,		1920x1080@60.0,		6400x0,	1"
       "DP-3,		1920x1080@60.0,		0x0,	1"
       "HDMI-A-1,	1920x1080@60.0,		4480x0,	1"
