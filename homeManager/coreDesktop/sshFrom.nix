@@ -35,8 +35,8 @@ in {
           identitiesOnly = true;
         };
         "ethanDesktop" = {
-          # hostname = "ethan.cookiegroup.net";
-          hostname = "192.168.68.53";
+          hostname = "ethan.cookiegroup.net";
+          # hostname = "192.168.68.53";
           port = 22021;
           user = "ethan";
           identityFile = keysWithPasswords;
