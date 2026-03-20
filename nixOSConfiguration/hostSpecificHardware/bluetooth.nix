@@ -14,10 +14,22 @@
   config = lib.mkIf config.bluetooth.enable {
     # Actual content of the module goes here:
 
-    hardware.bluetooth.enable = true;
+    hardware.bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+      settings = {
+        General = {
+          Experimental = true;
+        };
+      };
+    };
     services.blueman.enable = true;
 
-    environment.systemPackages = [ pkgs.kdePackages.bluedevil ];
+    environment.systemPackages = with pkgs ; [
+      bluetuith
+      bluez
+      bluez-tools
+    ];
 
     };
 }
