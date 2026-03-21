@@ -72,6 +72,7 @@
     java25.enable = true;
     bluebubbles.enable = true;
     mangojuice.enable = true;
+    xmage.enable = true;
 
 
     
