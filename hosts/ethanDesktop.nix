@@ -73,7 +73,7 @@
     bluebubbles.enable = true;
     mangojuice.enable = true;
     xmage.enable = true;
-    easyeffects.enable = true;
+    easyEffects.enable = true;
 
 
     
