@@ -15,7 +15,9 @@
 
     services.udev.extraRules = ''
       SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="3710", ATTRS{idProduct}=="5406", TAG+="uaccess"
-      SUBSYSTEM=="hidraw*", ATTRS{idVendor}=="3710", ATTRS{idProduct}=="5406", TAG+="uaccess"    
+      KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3710", ATTRS{idProduct}=="5406", TAG+="uaccess"      
+      SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="3710", ATTRS{idProduct}=="7505", TAG+="uaccess"
+      KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3710", ATTRS{idProduct}=="7505", TAG+="uaccess"
     '';
     
   };

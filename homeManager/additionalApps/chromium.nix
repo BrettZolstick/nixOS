@@ -13,6 +13,6 @@
 
   config = lib.mkIf config.chromium.enable {
     # Actual content of the module goes here:
-    home.packages = with pkgs; [chromium];
+    home.packages = with pkgs; [ungoogled-chromium google-chrome];
   };
 }
