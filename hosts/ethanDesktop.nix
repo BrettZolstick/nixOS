@@ -74,6 +74,7 @@
     mangojuice.enable = true;
     xmage.enable = true;
     easyEffects.enable = true;
+    chromium.enable = true;
 
 
     
