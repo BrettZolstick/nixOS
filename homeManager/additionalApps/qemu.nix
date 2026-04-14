@@ -13,6 +13,6 @@
 
   config = lib.mkIf config.qemu.enable {
     # Actual content of the module goes here:
-    home.packages = with pkgs; [qemu];
+    home.packages = with pkgs; [qemu virtualbox];
   };
 }
