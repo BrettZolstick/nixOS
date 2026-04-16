@@ -4,7 +4,25 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+
+  let
+    todoistToWorkspace1 = pkgs.writeShellScript "moveTodoistToWorkspace1" ''
+      #!${pkgs.bash}/bin/bash
+      
+      clients="$(${pkgs.hyprland}/bin/hyprctl -j clients)"
+
+      for addr in $(echo "$clients" | ${pkgs.jq}/bin/jq -r '.[] | select(.workspace.id == 1) | .address'); do
+        ${pkgs.hyprland}/bin/hyprctl dispatch movetoworkspacesilent 3,address:$addr
+      done
+
+      for addr in $(echo "$clients" | ${pkgs.jq}/bin/jq -r '.[] | select(.class == "Todoist") | .address'); do
+        ${pkgs.hyprland}/bin/hyprctl dispatch movetoworkspacesilent 1,address:$addr
+      done
+    '';
+  in
+  
+{
   # This is wrapped in an option so that it can be easily toggled elsewhere.
   options = {
     hyprland.enable = lib.mkOption {
@@ -15,7 +33,10 @@
   config = lib.mkIf config.hyprland.enable {
     # Actual content of the module goes here:
 
-    home.packages = [pkgs.brightnessctl];
+    home.packages = [
+      pkgs.brightnessctl
+      pkgs.jq
+    ];
 
     wayland.windowManager.hyprland = {
       enable = true;
@@ -52,6 +73,7 @@
           lock_cmd = "hyprlock";
           before_sleep_cmd = "loginctl lock-session";
           after_sleep_cmd = "hyprctl dispatch dpms on";
+          on_unlock_cmd = "${todoistToWorkspace1}";
         };
         listener = [
           {
