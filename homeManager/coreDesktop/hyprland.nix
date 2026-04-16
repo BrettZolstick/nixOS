@@ -37,6 +37,12 @@
 
     programs.hyprlock = {
       enable = true;
+      settings = {
+        general.hide_cursor = true;
+        background = lib.mkForce {
+          color = "rgba(0, 0, 0, 1.0)";
+        };
+      };
     };
 
     services.hypridle = {
