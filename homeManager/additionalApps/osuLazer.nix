@@ -9,14 +9,14 @@
     #  -> when the game updates, you cannot submit scores until you update to the latest version
     #     this overlay lets you explicilty build the latest version as soon as it releases
     final: prev: let
-      ver = "2026.305.0";
+      ver = "2026.418.0";
     in {
       osu-lazer-bin-custom = prev.appimageTools.wrapType2 {
         pname = "osu!";
         version = ver;
         src = prev.fetchurl {
           url = "https://github.com/ppy/osu/releases/download/${ver}-lazer/osu.AppImage";
-          sha256 = "sha256:6b32373d2e4b215ab51f4d8fd59e019f2d9516a54b502ea9c028f5503e4703a8";
+          sha256 = "sha256:e75ce367b3b17ed20a976d5ddb10a352169032dc3240aeaf10644f4d79ea8d75";
           # Find hash here: https://github.com/ppy/osu/releases (go to desired release and copy the hash for osu.AppImage)
           # Alternatively, rebuild with this and copy hash from error log.
           #sha256 = lib.fakeHash;
