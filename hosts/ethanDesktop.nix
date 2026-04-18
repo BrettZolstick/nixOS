@@ -77,6 +77,7 @@
     easyEffects.enable = true;
     chromium.enable = true;
     qemu.enable = true;
+    python.enable = true;
 
 
     
