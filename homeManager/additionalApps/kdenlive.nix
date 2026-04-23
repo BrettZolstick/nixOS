@@ -6,13 +6,13 @@
 }: {
   # This is wrapped in an option so that it can be easily toggled elsewhere.
   options = {
-    chromium.enable = lib.mkOption {
+    kdenlive.enable = lib.mkOption {
       default = false;
     };
   };
 
-  config = lib.mkIf config.chromium.enable {
+  config = lib.mkIf config.kdenlive.enable {
     # Actual content of the module goes here:
-    home.packages = with pkgs; [chromium];
+    home.packages = with pkgs; [kdePackages.kdenlive];
   };
 }

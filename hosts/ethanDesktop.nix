@@ -38,7 +38,7 @@
   sshInto.enable = true;
   syncthing.enable = true;
   bluetooth.enable = true;
-  # webDrivers.enable = true;
+  webDrivers.enable = true;
 
   home-manager.users.ethan = {
     aniCli.enable = true;
@@ -78,6 +78,7 @@
     chromium.enable = true;
     qemu.enable = true;
     python.enable = true;
+    kdenlive.enable = true;
 
 
     
