@@ -54,6 +54,7 @@
     sigil.enable = true;
     todoist.enable = true;
     vesktop.enable = true;
+    discord.enable = true;
     wootility.enable = true;
     prismLauncher.enable = true;
     gamescope.enable = true;

@@ -6,13 +6,13 @@
 }: {
   # This is wrapped in an option so that it can be easily toggled elsewhere.
   options = {
-    kdenlive.enable = lib.mkOption {
+    discord.enable = lib.mkOption {
       default = false;
     };
   };
 
-  config = lib.mkIf config.kdenlive.enable {
+  config = lib.mkIf config.discord.enable {
     # Actual content of the module goes here:
-    home.packages = with pkgs; [ flowblade ];
+    home.packages = with pkgs; [discord];
   };
 }
