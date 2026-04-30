@@ -42,7 +42,7 @@
 
   home-manager.users.ethan = {
     aniCli.enable = true;
-    # blender.enable = true;
+    blender.enable = true;
     # calibre.enable = true;
     firefox.enable = true;
     # freecad.enable = true;
