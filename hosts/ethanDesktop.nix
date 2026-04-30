@@ -80,7 +80,7 @@
     # qemu.enable = true;
     python.enable = true;
     # kdenlive.enable = true;
-
+    nodeJs.enable = true;
 
     
     mangohud.enable = false;
