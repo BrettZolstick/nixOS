@@ -14,7 +14,7 @@
   config = lib.mkIf config.obsStudio.enable {
     # Actual content of the module goes here:
     programs.obs-studio.enable = true;
-
-    home.packages = with pkgs; [obs-studio-plugins.input-overlay];
+    programs.obs-studio.plugins = [ pkgs.obs-studio-plugins.input-overlay];
+    
   };
 }
