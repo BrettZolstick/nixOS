@@ -81,6 +81,7 @@
     python.enable = true;
     # kdenlive.enable = true;
     nodeJs.enable = true;
+    ardour.enable = true;
 
     
     mangohud.enable = false;
