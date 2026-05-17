@@ -6,12 +6,12 @@
 }: {
   # This is wrapped in an option so that it can be easily toggled elsewhere.
   options = {
-    pipewire.enable = lib.mkOption {
+    pipewireCustom.enable = lib.mkOption {
       default = true;
     };
   };
 
-  config = lib.mkIf config.pipewire.enable {
+  config = lib.mkIf config.pipewireCustom.enable {
     # Actual content of the module goes here:
 
     security.rtkit.enable = true;

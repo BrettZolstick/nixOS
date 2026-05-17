@@ -40,6 +40,7 @@
   samba.enable = true;
   sshInto.enable = true;
   syncthing.enable = true;
+  pipewire.enable = true;
 
   home-manager.users.ethan = {
     firefox.enable = true;

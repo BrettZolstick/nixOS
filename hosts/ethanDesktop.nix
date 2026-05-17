@@ -39,6 +39,7 @@
   syncthing.enable = true;
   bluetooth.enable = true;
   webDrivers.enable = true;
+  pipewire.enable = true;
 
   home-manager.users.ethan = {
     aniCli.enable = true;
