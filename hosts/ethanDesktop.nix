@@ -34,7 +34,7 @@
   AMDGraphics.enable = true;
   openTabletDriver.enable = true;
   alsaScarlettGui.enable = true;
-  # rcloneShares.enable = true;
+  rcloneShares.enable = true;
   sshInto.enable = true;
   syncthing.enable = true;
   bluetooth.enable = true;
@@ -82,6 +82,7 @@
     # kdenlive.enable = true;
     nodeJs.enable = true;
     ardour.enable = true;
+    gnomeDiskUtility.enable = true;
 
     
     mangohud.enable = false;
