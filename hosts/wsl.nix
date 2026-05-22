@@ -11,6 +11,9 @@
 
   # Host specific options ################################################
 
+  wsl.enable = true;
+  wsl.defaultUser = "ethan";
+
   security.sudo = {
     enable = true;
     wheelNeedsPassword = false;
