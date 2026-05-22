@@ -3,7 +3,7 @@
     [
       # Imports hardware-configuration.nix from the default location
       # this allows for the configuration to be built straight from github on any NixOS with flakes enabled.
-      /etc/nixos/hardware-configuration.nix # needs the --impure switch when running nixos-rebuild
+      # /etc/nixos/hardware-configuration.nix # needs the --impure switch when running nixos-rebuild
 
       # include a list of all .nix files recursively under this directory					  v---------------------v
     ]
