@@ -22,6 +22,27 @@
   # Optional Modules #####################################################
 
   home-manager.users.ethan = {
-  
+
+
+
+
+    grimblast.enable = false;
+    hyprland.enable = false; 
+    kitty.enable = false;
+    pwvucontrol.enable = false;
+    qpwgraph.enable = false;
+    sshFrom.enable = false;
+    swaync.enable = false;
+    waybar.enable = false;
+    wine.enable = false;
+    wofi.enable = false;
+
   };
+
+  hyprlandSystem.enable = false;
+  ly.enable = false;
+  mullvad.enable = false;
+  steam.enable = false;
+  systemdBoot.enable = false;
+
 }
