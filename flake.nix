@@ -27,6 +27,7 @@
     stylix,
     copyparty,
     hytale-launcher,
+    nixos-wsl,
     ...
   } @ inputs: {
     nixosConfigurations = {
