@@ -16,6 +16,8 @@
     copyparty.url = "github:9001/copyparty";
 
     hytale-launcher.url = "github:JPyke3/hytale-launcher-nix";
+
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
   outputs = {
@@ -82,6 +84,18 @@
           {home-manager.extraSpecialArgs = {inherit inputs;};}
           inputs.stylix.nixosModules.stylix
           copyparty.nixosModules.default
+        ];
+      };
+      wsl = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/wsl.nix
+          ./users/ethan.nix
+          home-manager.nixosModules.home-manager
+          {home-manager.extraSpecialArgs = {inherit inputs;};}
+          inputs.stylix.nixosModules.stylix
+          copyparty.nixosModules.default
+          nixos-wsl.nixosModules.default
         ];
       };
       # Additional hosts go here
