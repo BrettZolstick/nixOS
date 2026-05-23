@@ -18,11 +18,12 @@
     enable = true;
     wheelNeedsPassword = false;
   };
+  networking.hostName = "wsl";
 
   # Optional Modules #####################################################
 
   home-manager.users.ethan = {
-
+    imageMagick.enable = true;
 
 
 
