@@ -75,7 +75,6 @@ in {
         range = 6; #	Shadow range (“size”) in layout px
         render_power = 2; #	in what power to render the falloff (more power, the faster the falloff) [1 - 4]
         sharp = false; #	if enabled, will make the shadows sharp, akin to an infinite render power
-        ignore_window = true; #	if true, the shadow will not be rendered behind the window itself, only around it.
         #color	 		=	"0xee1a1a1a";		#	shadow’s color. Alpha dictates shadow’s opacity.
         #color_inactive	=	unset;				#	inactive shadow color. (if not set, will fall back to color)
         offset = "1 1"; #	shadow’s rendering offset.
