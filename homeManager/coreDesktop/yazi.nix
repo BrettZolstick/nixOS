@@ -199,12 +199,12 @@ in {
         filetype = {
           rules = [
             {
-              name = "*/";
+              mime = "inode/directory";
               fg = colors.base0A;
               dim = false;
             }
             {
-              name = "*";
+              mime = "*";
               fg = colors.base04;
             }
           ];
