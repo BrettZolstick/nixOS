@@ -24,6 +24,12 @@
     }
 
     windowrule {
+      name = forceFurnaceTransparency
+      match:class = org.tildearrow.furnace
+      opacity = 0.93 override 0.91 override
+    }
+    
+    windowrule {
       name = disableVideosTransparency
       match:content = video
       opacity = 1.0 override 1.0 override
