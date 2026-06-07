@@ -18,6 +18,7 @@
 
     programs.firefox = {
       enable = true;
+      configPath = ".mozilla/firefox";
       profiles.ethanPersonal = {
         settings = {
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;

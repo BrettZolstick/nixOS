@@ -17,6 +17,7 @@ in {
 
     programs.yazi = {
       enable = true;
+      shellWrapperName = "y";
       enableFishIntegration = true;
       settings = {
         # view options here: https://yazi-rs.github.io/docs/configuration/yazi

@@ -24,37 +24,37 @@ in {
       enable = true;
       enableDefaultConfig = false;
 
-      matchBlocks = {
+      settings = {
         "ethanServer" = {
-          hostname = "ethan.cookiegroup.net";
-          port = 22022;
-          # hostname = "192.168.68.67";
-          # port = 22;
-          user = "ethan";
-          identityFile = keysWithPasswords;
-          identitiesOnly = true;
+          HostName = "ethan.cookiegroup.net";
+          Port = 22022;
+          # HostName = "192.168.68.67";
+          # Port = 22;
+          User = "ethan";
+          IdentityFile = keysWithPasswords;
+          IdentitiesOnly = true;
         };
         "ethanDesktop" = {
-          hostname = "ethan.cookiegroup.net";
-          # hostname = "192.168.68.53";
-          port = 22021;
-          user = "ethan";
-          identityFile = keysWithPasswords;
-          identitiesOnly = true;
+          HostName = "ethan.cookiegroup.net";
+          # HostName = "192.168.68.53";
+          Port = 22021;
+          User = "ethan";
+          IdentityFile = keysWithPasswords;
+          IdentitiesOnly = true;
         };
         "ethanLaptop" = {
           # LAN only
-          hostname = "192.168.68.69";
-          user = "ethan";
-          identityFile = keysWithPasswords;
-          identitiesOnly = true;
+          HostName = "192.168.68.69";
+          User = "ethan";
+          IdentityFile = keysWithPasswords;
+          IdentitiesOnly = true;
         };
         "cg" = {
-          hostname = "office.cookiegroup.net";
-          port = 22022;
-          user = "ethan";
-          identityFile = keysWithPasswords;
-          identitiesOnly = true;
+          HostName = "office.cookiegroup.net";
+          Port = 22022;
+          User = "ethan";
+          IdentityFile = keysWithPasswords;
+          IdentitiesOnly = true;
         };
       };
     };

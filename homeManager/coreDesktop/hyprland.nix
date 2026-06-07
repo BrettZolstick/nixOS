@@ -41,6 +41,7 @@
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = true;
+      configType = "hyprlang";
     };
 
     services.hyprpaper.enable = true;
