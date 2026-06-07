@@ -7,7 +7,7 @@
   # This is wrapped in an option so that it can be easily toggled elsewhere.
   options = {
     pv.enable = lib.mkOption {
-      default = truee;
+      default = true;
     };
   };
 
