@@ -84,7 +84,7 @@
     nodeJs.enable = true;
     ardour.enable = true;
     gnomeDiskUtility.enable = true;
-
+    qdirstat.enable = true;
     
     mangohud.enable = false;
   };
