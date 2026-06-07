@@ -28,6 +28,7 @@
   rcloneShares.enable = true;
   sshInto.enable = true;
   pipewire.enable = true;
+  bluetooth.enable = true;
 
   home-manager.users.ethan = {
     aniCli.enable = true;
