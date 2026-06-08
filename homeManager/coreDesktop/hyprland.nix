@@ -80,7 +80,7 @@
           {
             timeout = 300;
             on-timeout =
-              if osConfig.networking.hostName == "ethanDesktop"
+              if lib.elem osConfig.networking.hostName == ["ethanDesktop" "cg"]
               then "hyprlock"
               else "hyprctl dispatch dpms off && hyprlock";
             on-resume = "hyprctl dispatch dpms on";
