@@ -40,6 +40,7 @@
   bluetooth.enable = true;
   webDrivers.enable = true;
   pipewire.enable = true;
+  jellyfin.enable = true;
 
   home-manager.users.ethan = {
     aniCli.enable = true;
