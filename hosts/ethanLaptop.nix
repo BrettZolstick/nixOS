@@ -35,7 +35,6 @@
     firefox.enable = true;
     furnace.enable = true;
     gamescope.enable = true;
-    mangohud.enable = true;
     musescore.enable = true;
     osuLazer.enable = true;
     prismLauncher.enable = true;
