@@ -18,6 +18,9 @@
     hytale-launcher.url = "github:JPyke3/hytale-launcher-nix";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    
   };
 
   outputs = {

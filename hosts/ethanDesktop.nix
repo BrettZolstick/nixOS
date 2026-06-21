@@ -52,6 +52,8 @@
     lingot.enable = true;
     orcaSlicer.enable = true;
     osuLazer.enable = true;
+    osuStable.enable = true;
+    osuNeomod.enable = true;
     # sigil.enable = true;
     todoist.enable = true;
     vesktop.enable = true;
