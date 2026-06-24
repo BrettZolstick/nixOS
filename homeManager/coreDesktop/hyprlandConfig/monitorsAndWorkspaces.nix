@@ -22,6 +22,10 @@
     cg = [
       "HDMI-A-1,	1920x1080@75.0,		0x0,	1"
     ];
+
+		plexus = [
+      "HDMI-A-1,	1920x1080@75.0,		0x0,	1"
+    ];
   };
 
   workspacesByHost = {
@@ -43,8 +47,9 @@
     cg = [
       "1, monitor:HDMI-A-1, 	defualt:true"
     ];
+
 		plexus = [
-      "HDMI-A-1,	1920x1080@75.0,		0x0,	1"
+       "1, monitor:HDMI-A-1, 	defualt:true"
     ];
   };
 in {
