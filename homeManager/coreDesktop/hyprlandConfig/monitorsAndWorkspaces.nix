@@ -43,6 +43,9 @@
     cg = [
       "1, monitor:HDMI-A-1, 	defualt:true"
     ];
+		plexus = [
+      "HDMI-A-1,	1920x1080@75.0,		0x0,	1"
+    ];
   };
 in {
   wayland.windowManager.hyprland.settings = {
