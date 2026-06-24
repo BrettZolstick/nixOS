@@ -106,7 +106,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/plexus.nix
-          ./users/ethan.nix
+          ./users/ethanPlexus.nix
           home-manager.nixosModules.home-manager
           {home-manager.extraSpecialArgs = {inherit inputs;};}
           inputs.stylix.nixosModules.stylix

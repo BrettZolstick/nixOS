@@ -39,7 +39,7 @@
 
   pipewire.enable = true;
 
-  home-manager.users.ethan = {
+  home-manager.users.ethanPlexus = {
     firefox.enable = true;
     office.enable = true;
   };

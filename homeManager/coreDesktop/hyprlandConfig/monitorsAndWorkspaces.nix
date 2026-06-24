@@ -23,8 +23,11 @@
       "HDMI-A-1,	1920x1080@75.0,		0x0,	1"
     ];
 
-		plexus = [
-      "HDMI-A-1,	1920x1080@75.0,		0x0,	1"
+  	plexus = [
+      "eDP-1,    1920x1080@60, 0x0, 1"
+      "DP-3,     1920x1080@60, 1920x0, 1"
+      "HDMI-A-1, 1920x1080@60, 3840x0, 1"
+      "DP-2,     1920x1080@60, 5760x0, 1"
     ];
   };
 
@@ -49,7 +52,10 @@
     ];
 
 		plexus = [
-       "1, monitor:HDMI-A-1, 	defualt:true"
+      "1,	monitor:eDP-1,	default:true"
+      "2,	monitor:HDMI-A-1,		default:true"
+      "3,	monitor:DP-2,	default:true"
+      "4,	monitor:DP-3,		default:true"
     ];
   };
 in {
