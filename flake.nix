@@ -102,6 +102,18 @@
           nixos-wsl.nixosModules.default
         ];
       };
+      plexus = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/plexus.nix
+          ./users/ethan.nix
+          home-manager.nixosModules.home-manager
+          {home-manager.extraSpecialArgs = {inherit inputs;};}
+          inputs.stylix.nixosModules.stylix
+          copyparty.nixosModules.default
+          nixos-wsl.nixosModules.default
+        ];
+      };
       # Additional hosts go here
     };
   };
