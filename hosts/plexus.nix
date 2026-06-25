@@ -42,5 +42,7 @@
   home-manager.users.ethanPlexus = {
     firefox.enable = true;
     office.enable = true;
+    zenBrowser.enable = true;
+    dolphin.enable = true;
   };
 }

@@ -5,11 +5,8 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     #nixpkgs.url = "github:NixOS/nixpkgs/master";
 
-    # manages dotfiles
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-manager.url = "github:nix-community/home-manager/master";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     stylix.url = "github:nix-community/stylix";
 
@@ -20,7 +17,9 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
-    
+
+    zen-browser.url = "github:youwen5/zen-browser-flake";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";    
   };
 
   outputs = {
