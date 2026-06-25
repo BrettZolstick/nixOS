@@ -2,7 +2,11 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+  let
+    currentUserName = "ethanPlexus";
+  in
+{
   imports = [
     ../themes/nightMountain.nix
 
@@ -11,10 +15,10 @@
     #../themes/buriedInTheSand.nix
   ];
 
-  users.users.ethanPlexus = {
+  users.users.${currentUserName} = {
     isNormalUser = true;
-    description = "Ethan's work account";
-    extraGroups = ["networkmanager" "wheel" "inputs" "audio" "minecraftGTNH" "fileSharing"];
+    description = "Plexus account";
+    extraGroups = ["networkmanager" "wheel" "inputs" "audio" "minecraftGTNH" "fileSharingi" "docker"];
     openssh.authorizedKeys.keys = [];
     shell = pkgs.fish;
   };
@@ -23,11 +27,11 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    users.ethanPlexus = {...}: {
+    users.${currentUserName} = {...}: {
       # import a list of all .nix files recursively under this directory		   		  	v-------------V
       imports = lib.filter (n: lib.strings.hasSuffix ".nix" n) (lib.filesystem.listFilesRecursive ../homeManager);
-      home.username = "ethanPlexus";
-      home.homeDirectory = "/home/ethanPlexus";
+      home.username = currentUserName;
+      home.homeDirectory = "/home/${currentUserName}";
       home.stateVersion = "25.05";
       home.pointerCursor = {
         name = "Nordzy-cursors";
