@@ -74,7 +74,7 @@
           lock_cmd = "hyprlock";
           before_sleep_cmd = "loginctl lock-session";
           after_sleep_cmd = "hyprctl dispatch dpms on";
-          on_unlock_cmd = "${todoistToWorkspace1}";
+          # on_unlock_cmd = "${todoistToWorkspace1}";
         };
         listener = [
           {
