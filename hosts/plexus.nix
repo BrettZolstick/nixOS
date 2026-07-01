@@ -44,5 +44,6 @@
     firefox.enable = true;
     office.enable = true;
     dolphin.enable = true;
+    freerdp.enable = true;
   };
 }
