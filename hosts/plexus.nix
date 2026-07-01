@@ -38,12 +38,11 @@
   steam.enable = false;
 
   pipewire.enable = true;
-  virtManager.enable = true;
+  # virtManager.enable = true;
 
   home-manager.users.ethanPlexus = {
     firefox.enable = true;
     office.enable = true;
-    zenBrowser.enable = true;
     dolphin.enable = true;
   };
 }
