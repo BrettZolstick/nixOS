@@ -37,6 +37,8 @@
     gamescope.enable = true;
     musescore.enable = true;
     osuLazer.enable = true;
+    osuNeomod.enable = true;
+    osuStable.enable = true;
     prismLauncher.enable = true;
     renoise.enable = true;
     todoist.enable = true;
