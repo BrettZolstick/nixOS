@@ -14,7 +14,7 @@
     # Actual content of the module goes here:
 
     # GTK
-    gtk.gtk4.theme = config.gtk.theme;
+    gtk.gtk4.theme = lib.mkForce config.gtk.theme;
 
 
   };
