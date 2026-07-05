@@ -16,7 +16,6 @@
 
   networking.hostName = "cg";
   networking.networkmanager.enable = true;
-  time.timeZone = "America/New_York";
   security.sudo = {
     enable = true;
     wheelNeedsPassword = false;
