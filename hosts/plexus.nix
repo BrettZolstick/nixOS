@@ -35,6 +35,7 @@
   openTabletDriver.enable = false;
   alsaScarlettGui.enable = false;
   steam.enable = false;
+  plexusCifsShares.enable = true;
 
   pipewire.enable = true;
   # virtManager.enable = true;

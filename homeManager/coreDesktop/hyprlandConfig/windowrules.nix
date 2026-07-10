@@ -73,5 +73,11 @@
       workspace = 1
       fullscreen = true
     }
+
+    windowrule {
+      name = noFullscreenForRailWindows
+      match:class = ^(RAIL:.*)$
+      suppress_event = "fullscreen" "maximize" "fullscreenoutput"
+    }
   '';
 }
