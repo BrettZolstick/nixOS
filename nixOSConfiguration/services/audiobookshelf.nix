@@ -20,7 +20,7 @@
       enable = true;
       host = "0.0.0.0";
       port = "13378";
-      openfirewall = true;
+      openFirewall = true;
     };
     
     
