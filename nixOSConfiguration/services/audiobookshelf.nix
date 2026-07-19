@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }: {
@@ -19,7 +18,7 @@
     services.audiobookshelf = {
       enable = true;
       host = "0.0.0.0";
-      port = "13378";
+      port = 13378;      
       openFirewall = true;
     };
     
