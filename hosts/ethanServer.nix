@@ -47,6 +47,8 @@
   emailScanner.enable = true;
   syncthing.enable = true;
   updateAsinReference.enable = true;
+  audiobookshelf.enable = true;
+  
 
   home-manager.users.ethan = {
     cifs-utils.enable = false;
