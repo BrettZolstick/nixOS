@@ -86,6 +86,7 @@
     ardour.enable = true;
     gnomeDiskUtility.enable = true;
     qdirstat.enable = true;
+    dolphin.enable = true;
     
     mangohud.enable = false;
   };
