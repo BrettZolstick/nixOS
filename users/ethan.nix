@@ -18,7 +18,7 @@
   users.users.${currentUserName} = {
     isNormalUser = true;
     description = "Ethan";
-    extraGroups = ["networkmanager" "wheel" "inputs" "audio" "minecraftGTNH" "fileSharing" "docker"];
+    extraGroups = ["networkmanager" "wheel" "inputs" "audio" "minecraftGTNH" "fileSharing" "docker" "video" "render"];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH1qbgzI1O9moyGu9oI82tIrRjW1oRyN4tmtN2fMTw2K sshFromEthanDesktop"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEbZKk4p+nxPj9GIkQ/2iFAnOPBx3Pa56hF4nrn2NLYR sshFromEthanLaptop"
