@@ -72,6 +72,10 @@
         "xff-src" = "127.0.0.1";
         rproxy = 1;
 
+        # enable shares
+        shr = "/share";
+        shr-adm = "ethan";
+
         # global flags
         e2dsa = true; # enable indexing of all files (enables cool things like de-duplication, file lifetime, etc...)
         e2ts = true; # enables media tags (change to e2tsr to reindex everything if you want that for some reason)
