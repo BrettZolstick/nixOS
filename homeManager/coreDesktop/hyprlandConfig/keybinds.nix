@@ -57,6 +57,9 @@
       "$mainMod SHIFT,	8,	movetoworkspace,	8"
       "$mainMod SHIFT,	9,	movetoworkspace,	9"
       "$mainMod SHIFT,	0,	movetoworkspace,	10"
+
+      # PlexusBinds
+      "$mainMod, KP_End, exec, xdg-open https://plextechhelp.freshdesk.com/a/tickets/$(wl-paste)"
     ];
 
     # repeating binds
