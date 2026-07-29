@@ -60,6 +60,7 @@
 
       # PlexusBinds
       "$mainMod, KP_End, exec, xdg-open https://plextechhelp.freshdesk.com/a/tickets/$(wl-paste)"
+      "$mainMod, KP_Down, exec, xdg-open https://www.ups.com/track?track=yes&trackNums=$(wl-paste)&loc=en_US&requester=ST/trackdetails"
     ];
 
     # repeating binds
