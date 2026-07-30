@@ -52,9 +52,9 @@
     ];
 
 		plexus = [
-      "1,	monitor:eDP-1,	default:true"
+      "3,	monitor:eDP-1,	default:true"
       "2,	monitor:DP-3,		default:true"
-      "3,	monitor:HDMI-A-1,		default:true"
+      "1,	monitor:HDMI-A-1,		default:true"
       "4,	monitor:DP-2,	default:true"
     ];
   };
