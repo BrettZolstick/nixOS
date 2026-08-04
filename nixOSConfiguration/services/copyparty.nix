@@ -90,6 +90,7 @@
         ethan.passwordFile = "/etc/secrets/ethanCopyparty.pass";
         syncthing.passwordFile = "/etc/secrets/syncthingCopyparty.pass";
         james.passwordFile = "/etc/secrets/jamesCopyparty.pass";
+        chris.passwordFile = "/etc/secrets/chrisCopyparty.pass";
       };
 
       groups = {
@@ -108,6 +109,7 @@
 
         GTNHAdmins = [
           "ethan"
+          "chris"
         ];
       };
 
@@ -150,6 +152,14 @@
 
         "/minecraftGTNHServer" = {
           path = "/srv/minecraftGTNHServer";
+          access = {
+            A = "@owner";
+            "rwmd." = "@GTNHAdmins";
+          };
+        };
+
+        "/GTNH2026" = {
+          path = "/srv/copyparty/GTNH2026";
           access = {
             A = "@owner";
             "rwmd." = "@GTNHAdmins";
