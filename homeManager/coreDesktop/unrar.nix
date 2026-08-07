@@ -6,12 +6,12 @@
 }: {
   # This is wrapped in an option so that it can be easily toggled elsewhere.
   options = {
-    pv.enable = lib.mkOption {
+    unrar.enable = lib.mkOption {
       default = true;
     };
   };
 
-  config = lib.mkIf config.pv.enable {
+  config = lib.mkIf config.unrar.enable {
     # Actual content of the module goes here:
     home.packages = with pkgs; [unrar];
   };
