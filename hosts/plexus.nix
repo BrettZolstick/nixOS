@@ -34,7 +34,6 @@
 
   openTabletDriver.enable = false;
   alsaScarlettGui.enable = false;
-  steam.enable = false;
   plexusCifsShares.enable = true;
 
   pipewire.enable = true;
@@ -46,5 +45,6 @@
     dolphin.enable = true;
     freerdp.enable = true;
     lutris.enable = true;
+    
   };
 }
