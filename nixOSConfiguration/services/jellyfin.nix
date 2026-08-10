@@ -18,6 +18,7 @@
       enable = true;
       user = "jellyfin";
       group = "fileSharing";
+      openFirewall = true;
     };
     
   };
