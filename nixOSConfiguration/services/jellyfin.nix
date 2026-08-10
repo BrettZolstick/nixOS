@@ -17,7 +17,7 @@
     services.jellyfin = {
       enable = true;
       user = "jellyfin";
-      group = "filesharing";
+      group = "fileSharing";
     };
     
   };
