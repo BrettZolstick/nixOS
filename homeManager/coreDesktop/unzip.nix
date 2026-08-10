@@ -13,6 +13,9 @@
 
   config = lib.mkIf config.unzip.enable {
     # Actual content of the module goes here:
-    home.packages = with pkgs; [unzip];
+    home.packages = with pkgs; [
+      unzip
+      p7zip
+    ];
   };
 }
