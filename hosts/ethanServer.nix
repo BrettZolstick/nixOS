@@ -48,6 +48,7 @@
   syncthing.enable = true;
   updateAsinReference.enable = true;
   audiobookshelf.enable = true;
+  jellyfin.enable = true;
   
 
   home-manager.users.ethan = {
