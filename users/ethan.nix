@@ -8,7 +8,7 @@
   in
 {
   imports = [
-    ../themes/nightMountain.nix
+    ../themes/artemisII.nix
 
     #../themes/niceMountain.nix
     #../themes/theLight.nix
