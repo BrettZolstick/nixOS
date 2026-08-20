@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   # This is wrapped in an option so that it can be easily toggled elsewhere.
@@ -16,9 +17,14 @@
       "ethanPersonal"
     ];
 
+    home.packages = with pkgs; [
+      firefoxpwa
+    ];
+    
     programs.firefox = {
       enable = true;
       configPath = ".mozilla/firefox";
+      nativeMessagingHosts = [pkgs.firefoxpwa];
       profiles.ethanPersonal = {
         settings = {
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
