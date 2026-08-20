@@ -45,7 +45,6 @@
     dolphin.enable = true;
     freerdp.enable = true;
     lutris.enable = true;
-    teams.enable = true;
     chromium.enable = true;
     
   };
