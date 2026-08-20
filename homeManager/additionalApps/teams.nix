@@ -13,6 +13,6 @@
 
   config = lib.mkIf config.teams.enable {
     # Actual content of the module goes here:
-    home.packages = with pkgs; [teams];
+    home.packages = with pkgs; [teams-teams-for-linux];
   };
 }
