@@ -32,6 +32,9 @@ in {
       enable = true;
       enableFishIntegration = true;
       settings = {
+
+        scan_timeout = 1;
+        
         format = "[](${logoBg})[  ](bg:${logoBg} fg:${logoFg})$hostname[](fg:${logoBg} bg:${directoryBg})$directory[](fg:${directoryBg} bg:${gitBg})$git_branch$git_status[](fg:${gitBg} bg:${devLangBg})$nodejs$rust$golang$php[](fg:${devLangBg} bg:${timeBg})$time[](fg:${timeBg})$cmd_duration\n$character";
 
         hostname = {
