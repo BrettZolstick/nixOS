@@ -16,7 +16,7 @@
         version = ver;
         src = prev.fetchurl {
           url = "https://github.com/ppy/osu/releases/download/${ver}-lazer/osu.AppImage";
-          sha256 = "";
+          sha256 = "sha256:d0afddcaf230ae507371ec580c20a294d92725d1198dad4e4df028b4fe8cbe36";
           # Find hash here: https://github.com/ppy/osu/releases (go to desired release and copy the hash for osu.AppImage)
           # Alternatively, rebuild with this and copy hash from error log.
           #sha256 = lib.fakeHash;
