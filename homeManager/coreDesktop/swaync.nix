@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   # This is wrapped in an option so that it can be easily toggled elsewhere.
@@ -14,6 +15,10 @@
     # Actual content of the module goes here:
 
     #services.playerctld.enable = true; # install playerctl so that swaync can see what music is playing
+
+    home.packages = with pkgs; [
+      libnotify
+    ];
 
     services.swaync = {
       enable = true;
