@@ -3,7 +3,9 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  colors = config.lib.stylix.colors.withHashtag;
+in{
   # This is wrapped in an option so that it can be easily toggled elsewhere.
   options = {
     swaync.enable = lib.mkOption {
@@ -21,6 +23,10 @@
       playerctl
     ];
 
+    #temp debuggin
+    systemd.user.services.swaync.Service.Environment = [
+      "GTK_DEBUG=interactive" # Launch SwayNC with the GTK inspector enabled.
+    ];
     services.swaync = {
       enable = true;
       settings = {
@@ -32,7 +38,7 @@
         positionY = "top";
         layer = "overlay"; #Layer of notification window relative to normal windows. background is below all windows, overlay is above all windows.
         layer-shell = true; # Whether or not the windows should be opened as layer-shell surfaces. Note: Requires swaync restart to apply
-        cssPriority = "application"; # Which GTK priority to use when loading the default and user CSS files. Pick "user" to override XDG_CONFIG_HOME/gtk-3.0/gtk.css
+        cssPriority = "user"; # Which GTK priority to use when loading the default and user CSS files. Pick "user" to override XDG_CONFIG_HOME/gtk-3.0/gtk.css
         image-visibility = "always"; # values: always, when-available, never
 
         # Notifications
@@ -109,11 +115,45 @@
           };
         };
       };
-      style = ''
+      style = lib.mkForce ''
+        /* ---------- Global ---------- */
 
-        .notification{
-          border-radius: 5px;
-        }    
+        * {
+          font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
+          font-size: 14px; 
+          color: alpha(${colors.base06}, 0.95);
+        }
+
+        .control-center{
+          border: 2px solid alpha(${colors.base02}, 0.5);
+          background: alpha(${colors.base03},0.1);
+        }
+
+        trough {
+          border: none;
+        }
+
+        .widget-dnd > switch {
+          border: 2px solid alpha(${colors.base05}, 0.4);
+        }
+
+        .widget-title > button {
+          border: 2px solid alpha(${colors.base05}, 0.4);
+        }
+
+        .widget-mpris-player {
+          border: 2px solid alpha(${colors.base05}, 0.4);
+        }
+
+        .notification-content{
+          border: none;
+        }
+
+        .notification {
+          border: none;
+        }
+
+         
       '';
     };
   };
