@@ -77,6 +77,13 @@
       "$mainMod ALT CTRL, 7, exec, pwsh -File $HOME/nixOS/homeManager/coreDesktop/hyprlandConfig/jellyfinScripts/jellyfinQuickAdd.ps1 -RemoveFromPlaylist 'Chiptune'"
       "$mainMod ALT CTRL, 6, exec, pwsh -File $HOME/nixOS/homeManager/coreDesktop/hyprlandConfig/jellyfinScripts/jellyfinQuickAdd.ps1 -RemoveFromPlaylist 'Metal'"
       "$mainMod ALT CTRL, backspace, exec, pwsh -File $HOME/nixOS/homeManager/coreDesktop/hyprlandConfig/jellyfinScripts/jellyfinQuickAdd.ps1 -RemoveFromPlaylist 'Delete'"
+
+      "$mainMod ALT, Shift_R, exec, playerctl play-pause"
+      "$mainMod ALT, LEFT, exec, playerctl previous"
+      "$mainMod ALT, RIGHT, exec, playerctl next"
+      "$mainMod ALT, UP, exec, playerctl volume 0.1+"
+      "$mainMod ALT, DOWN, exec, playerctl volume 0.1-"
+      
     ];
 
     # repeating binds
