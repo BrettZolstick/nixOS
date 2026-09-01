@@ -109,6 +109,12 @@
           };
         };
       };
+      style = ''
+
+        .notification{
+          border-radius: 5px;
+        }    
+      '';
     };
   };
 }
