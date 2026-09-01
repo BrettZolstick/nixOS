@@ -25,8 +25,10 @@ in{
 
     #temp debuggin
     systemd.user.services.swaync.Service.Environment = [
-      "GTK_DEBUG=interactive" # Launch SwayNC with the GTK inspector enabled.
+    #   "GTK_DEBUG=interactive" 
     ];
+
+    
     services.swaync = {
       enable = true;
       settings = {
@@ -126,7 +128,7 @@ in{
 
         .control-center{
           border: 2px solid alpha(${colors.base02}, 0.5);
-          background: alpha(${colors.base03},0.1);
+          background: alpha(${colors.base01},0.9);
         }
 
         trough {
