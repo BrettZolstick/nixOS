@@ -61,6 +61,22 @@
       # PlexusBinds
       "$mainMod, KP_End, exec, xdg-open https://plextechhelp.freshdesk.com/a/tickets/$(wl-paste)"
       "$mainMod, KP_Down, exec, xdg-open https://www.ups.com/track?trackNums=$(wl-paste)"
+
+      # Jellyfin binds
+      "$mainMod ALT, return, exec, pwsh -File $HOME/nixOS/homeManager/coreDesktop/hyprlandConfig/jellyfinScripts/jellyfinQuickAdd.ps1 -AddToFavorites -AddToPlaylist 'Favorites'"
+      "$mainMod ALT, 0, exec, pwsh -File $HOME/nixOS/homeManager/coreDesktop/hyprlandConfig/jellyfinScripts/jellyfinQuickAdd.ps1 -AddToPlaylist 'Work'"
+      "$mainMod ALT, 9, exec, pwsh -File $HOME/nixOS/homeManager/coreDesktop/hyprlandConfig/jellyfinScripts/jellyfinQuickAdd.ps1 -AddToPlaylist 'Vocaloid'"
+      "$mainMod ALT, 8, exec, pwsh -File $HOME/nixOS/homeManager/coreDesktop/hyprlandConfig/jellyfinScripts/jellyfinQuickAdd.ps1 -AddToPlaylist 'Electronic'"
+      "$mainMod ALT, 7, exec, pwsh -File $HOME/nixOS/homeManager/coreDesktop/hyprlandConfig/jellyfinScripts/jellyfinQuickAdd.ps1 -AddToPlaylist 'Chiptune'"
+      "$mainMod ALT, 6, exec, pwsh -File $HOME/nixOS/homeManager/coreDesktop/hyprlandConfig/jellyfinScripts/jellyfinQuickAdd.ps1 -AddToPlaylist 'Metal'"
+      "$mainMod ALT, backspace, exec, pwsh -File $HOME/nixOS/homeManager/coreDesktop/hyprlandConfig/jellyfinScripts/jellyfinQuickAdd.ps1 -AddToPlaylist 'Delete'"
+
+      "$mainMod ALT CTRL, 0, exec, pwsh -File $HOME/nixOS/homeManager/coreDesktop/hyprlandConfig/jellyfinScripts/jellyfinQuickAdd.ps1 -RemoveFromPlaylist 'Work'"
+      "$mainMod ALT CTRL, 9, exec, pwsh -File $HOME/nixOS/homeManager/coreDesktop/hyprlandConfig/jellyfinScripts/jellyfinQuickAdd.ps1 -RemoveFromPlaylist 'Vocaloid'"
+      "$mainMod ALT CTRL, 8, exec, pwsh -File $HOME/nixOS/homeManager/coreDesktop/hyprlandConfig/jellyfinScripts/jellyfinQuickAdd.ps1 -RemoveFromPlaylist 'Electronic'"
+      "$mainMod ALT CTRL, 7, exec, pwsh -File $HOME/nixOS/homeManager/coreDesktop/hyprlandConfig/jellyfinScripts/jellyfinQuickAdd.ps1 -RemoveFromPlaylist 'Chiptune'"
+      "$mainMod ALT CTRL, 6, exec, pwsh -File $HOME/nixOS/homeManager/coreDesktop/hyprlandConfig/jellyfinScripts/jellyfinQuickAdd.ps1 -RemoveFromPlaylist 'Metal'"
+      "$mainMod ALT CTRL, backspace, exec, pwsh -File $HOME/nixOS/homeManager/coreDesktop/hyprlandConfig/jellyfinScripts/jellyfinQuickAdd.ps1 -RemoveFromPlaylist 'Delete'"
     ];
 
     # repeating binds

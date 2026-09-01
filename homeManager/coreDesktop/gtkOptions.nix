@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   # This is wrapped in an option so that it can be easily toggled elsewhere.
@@ -15,6 +16,11 @@
 
     # GTK
     gtk.gtk4.theme = lib.mkForce config.gtk.theme;
+
+    gtk.iconTheme = {
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
+    };
 
 
   };

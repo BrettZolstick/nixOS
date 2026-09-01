@@ -300,6 +300,7 @@ in {
 
         #custom-notification{
         	margin-right: 2px;
+        	padding-right: 10px;
         }
 
         /* ------------ Network Disconnected ------------ */
