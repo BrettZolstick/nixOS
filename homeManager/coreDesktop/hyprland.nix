@@ -16,8 +16,13 @@
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = true;
-      configtype = "lua";
-      
+      configType = "lua";
+     };
+
+    xdg.configFile."hypr/hyprland.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/nixOS/homeManager/coreDesktop/hyprland/hyprland.lua";
     };
+    
   };
 }
