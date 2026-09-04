@@ -17,5 +17,9 @@
         completion-timeout = 5;
       };
     };
+    home.sessionVariables = {
+      EDITOR = "hx";
+      VISUAL = "hx";
+    };
   };    
 }

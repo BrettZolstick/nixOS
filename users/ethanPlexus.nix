@@ -20,7 +20,7 @@
     description = "Plexus account";
     extraGroups = ["networkmanager" "wheel" "inputs" "audio" "minecraftGTNH" "fileSharingi" "docker" "libvirtd"];
     openssh.authorizedKeys.keys = [];
-    shell = pkgs.fish;
+    shell = pkgs.powershell;
   };
 
   home-manager = {

@@ -25,7 +25,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMx4aJOCFybYEqWfLZD8Q2GDa4jvTV+I02Nda4LmqUUn sshFromEthanPhone"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAsbnitZOZtdvjo4+qWzPqn7Cs1zAhKS5wnasrJk8A9o sshFromCg"
     ];
-    shell = pkgs.fish;
+    shell = pkgs.powershell; # cry about it
   };
 
   home-manager = {
