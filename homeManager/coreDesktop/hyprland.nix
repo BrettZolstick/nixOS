@@ -50,9 +50,7 @@
     '';
 
       xdg.configFile."hypr/host.lua".text = ''
-        return{
-          "${osConfig.networking.hostName}"
-        }
+        return "${osConfig.networking.hostName}"
       '';
 
     services.hyprpaper.enable = true;
