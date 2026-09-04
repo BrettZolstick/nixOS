@@ -23,6 +23,10 @@
       initial_workspace_tracking = 1; # if enabled, windows will open on the workspace they were invoked on. 0 - disabled, 1 - single-shot, 2 - persistent (all children too)
       disable_splash_rendering = true; # disables the Hyprland splash rendering. (requires a monitor reload to take effect)
     };
+    env = [
+      "EDITOR,hx"
+      "VISUAL,hx"
+    ];
 
     ecosystem.no_update_news = true; # disable hyprland support message
   };

@@ -28,7 +28,7 @@
         background_opacity = lib.mkForce 0.75;
         background_blur = 32;
 
-        shell = "pwsh --NoLogo";
+        # shell = "pwsh --NoLogo";
 
         scrollback_lines = 10000;
         enable_audio_bell = false;
