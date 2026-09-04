@@ -10,7 +10,7 @@ hl.config({
     extend_border_grab_area = 15, -- the area around the border that triggers click and drag resize (only if resize_on_Border is true)
     hover_icon_on_border = true, -- show a special cursor icon when hovering on a border
     allow_tearing = false, -- master switch to allow screen tearing for lower latency in games (window rules must be used to specify a target like so "windowrule = immediate, class:^(cs2)$")
-    resize_corner = "0", -- force floating windows to use a specific corner when being resized (1-4 going clockwise from top left, 0 to disable)
+    resize_corner = 0, -- force floating windows to use a specific corner when being resized (1-4 going clockwise from top left, 0 to disable)
 
     snap = {
       enabled = false, -- enable snapping for floating windows

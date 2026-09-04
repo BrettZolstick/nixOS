@@ -53,12 +53,12 @@ hl.config({
       --middle_button_emulation = true,
       --tap_button_map = ,
       clickfinger_behavior = false, -- this makes 1 finger click on the right side of the trackpad right click (gross)
-      ["tap-to-click"] = true,
+      tap_to_click = true,
       drag_lock = 0,
-      ["tap-and-drag"] = true,
+      tap_and_drag = true,
       flip_x = false,
       flip_y = false,
-      drag_3fg = "disable",
+      drag_3fg = 0,
     },
   },
 })
