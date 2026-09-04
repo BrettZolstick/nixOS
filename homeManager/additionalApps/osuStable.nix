@@ -15,7 +15,7 @@
   config = lib.mkIf config.osuStable.enable {
     # Actual content of the module goes here:
     home.packages = [
-      inputs.nix-gaming.packages.${pkgs.system}.osu-stable
+      inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
     ];
   };
 }

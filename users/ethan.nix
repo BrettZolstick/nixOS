@@ -39,6 +39,7 @@
       home.homeDirectory = "/home/${currentUserName}";
       home.stateVersion = "25.05";
       home.pointerCursor = {
+        enable = true;
         name = "Nordzy-cursors";
         package = pkgs.nordzy-cursor-theme;
         size = 22;
