@@ -26,12 +26,12 @@ hl.config({
     scroll_button_lock = false,
     scroll_factor = 1,
     natural_scroll = false,
-    emulate_discrete_scroll = "disable",
+    emulate_discrete_scroll = 0,
 
     -- window interactions
-    follow_mouse = "follow", -- (see comment below)
+    follow_mouse = 1, -- (see comment below)
     follow_mouse_threshold = 0,
-    focus_on_close = "cursor",
+    focus_on_close = 1,
     mouse_refocus = true,
     float_switch_override_focus = 1,
     special_fallthrough = false,
