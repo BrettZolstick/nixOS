@@ -75,9 +75,4 @@ hl.config({
       scale = 1, -- shadow’s scale. [0.0 - 1.0]
     },
   },
-
-  misc = {
-    disable_splash_rendering = true,
-    disable_hyprland_logo = true,
-  },
 })
