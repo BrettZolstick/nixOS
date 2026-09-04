@@ -5,6 +5,9 @@
   # Colors
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/icy.yaml";
 
+  # Dark/Light mode
+  stylix.polarity = "dark";
+
   # Wallpaper
   stylix.image = ./wallpapers/raja-theLight.jpg;
 
