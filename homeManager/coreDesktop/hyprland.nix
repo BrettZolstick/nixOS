@@ -51,9 +51,56 @@
 
       xdg.configFile."hypr/host.lua".text = ''
         return{
-          currentHost = "${osConfig.networking.hostName}"
+          "${osConfig.networking.hostName}"
         }
       '';
-      
+
+    services.hyprpaper.enable = true;
+
+    # this is to fix the hyprpaper service not starting because it tries to start before wayland
+    systemd.user.services.hyprpaper = {
+      Unit = {
+        After = ["hyprland-session.target"];
+        PartOf = ["hyprland-session.target"];
+      };
+      Install = {
+        WantedBy = ["hyprland-session.target"];
+      };
+    };
+
+    programs.hyprlock = {
+      enable = true;
+      settings = {
+        general.hide_cursor = true;
+        background = lib.mkForce {
+          color = "rgba(0, 0, 0, 1.0)";
+        };
+      };
+    };
+
+    services.hypridle = {
+      enable = true;
+      settings = {
+        general = {
+          lock_cmd = "hyprlock";
+          before_sleep_cmd = "loginctl lock-session";
+          after_sleep_cmd = "hyprctl dispatch dpms on";
+          # on_unlock_cmd = "${todoistToWorkspace1}";
+        };
+        listener = [
+          {
+            timeout = 300;
+            on-timeout =
+              if lib.elem osConfig.networking.hostName == ["ethanDesktop" "cg"]
+              then "hyprlock"
+              else "hyprctl dispatch dpms off && hyprlock";
+            on-resume = "hyprctl dispatch dpms on";
+          }
+        ];
+      };
+    };
+
+    stylix.targets.hyprland.enable = false;
+    
   };
 }
