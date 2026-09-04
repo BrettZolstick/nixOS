@@ -116,7 +116,7 @@ local hosts = {
         monitor = "HDMI-A-1",
         default = true,
       },
-    };
+    },
   },
 
   
