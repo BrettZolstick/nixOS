@@ -1,7 +1,7 @@
 
 hl.config({
   dwindle = {
-    force_split = "follow_mouse",
+    force_split = 0,
     preserve_split = false,
     smart_split = false,
     smart_resizing = true,
@@ -9,7 +9,7 @@ hl.config({
     split_width_multiplier = 1,
     use_active_for_splits = true,
     default_split_ratio = 1,
-    split_bias = "directional",
+    split_bias = 0,
   },
 })
 

@@ -35,7 +35,7 @@ hl.config({
     mouse_refocus = true,
     float_switch_override_focus = 1,
     special_fallthrough = false,
-    off_window_axis_events = "send",
+    off_window_axis_events = 1,
 
     -- Follow Mouse Options --
     --
