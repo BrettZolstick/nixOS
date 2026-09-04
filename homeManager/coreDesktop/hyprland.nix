@@ -16,13 +16,14 @@
 
     wayland.windowManager.hyprland = {
       enable = true;
-      systemd.enable = false;
+      systemd.enable = true;
       configType = "lua";
+      extraConfig = "require('hyprland.hyprland')";
      };
 
-    xdg.configFile."hypr/hyprland.lua".source = 
-      config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/nixOS/homeManager/coreDesktop/hyprland/hyprland.lua";
+    # xdg.configFile."hypr/hyprland.lua".source = 
+    #   config.lib.file.mkOutOfStoreSymlink
+    #     "${config.home.homeDirectory}/nixOS/homeManager/coreDesktop/hyprland/hyprland.lua";
 
     xdg.configFile."hypr/hyprland".source =
       config.lib.file.mkOutOfStoreSymlink
@@ -58,11 +59,11 @@
     # this is to fix the hyprpaper service not starting because it tries to start before wayland
     systemd.user.services.hyprpaper = {
       Unit = {
-        After = ["hyprland-session.target"];
-        PartOf = ["hyprland-session.target"];
+        After = ["graphical-session.target"];
+        PartOf = ["graphical-session.target"];
       };
       Install = {
-        WantedBy = ["hyprland-session.target"];
+        WantedBy = ["graphical-session.target"];
       };
     };
 

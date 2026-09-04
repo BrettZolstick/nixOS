@@ -108,7 +108,7 @@ in {
     programs.waybar = {
       enable = true;
       systemd.enable = true;
-      systemd.targets = ["hyprland-session.target"];
+      systemd.targets = ["graphical-session.target"];
 
       settings = [
         {
