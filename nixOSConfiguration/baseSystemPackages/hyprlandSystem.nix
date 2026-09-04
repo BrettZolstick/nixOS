@@ -13,6 +13,7 @@
   config = lib.mkIf config.hyprlandSystem.enable {
     # Actual content of the module goes here:
 
-    programs.hyprland.enable = true;
+    # enabled at system level so that ly can see it
+    programs.hyprland.enable = true; 
   };
 }
