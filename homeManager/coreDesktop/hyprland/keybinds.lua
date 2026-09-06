@@ -10,7 +10,8 @@ local notificationCenter = "swaync-client -t -sw"
 local lock = "hyprlock"
 local screenshot = "grimblast --freeze copy area"
 local jellyfinQuickAdd = "pwsh -File $HOME/.config/hypr/hyprland/jellyfinScripts/jellyfinQuickAdd.ps1"
-
+local deadlockAudioCalloutsOn = "pwsh -File $HOME/projects/deadlockAudioScript/deadlockAudioCallouts.ps1"
+local deadlockAudioCalloutsOff = "pkill --full 'deadlockAudioCallouts.ps1'"
 
 
 -- Launch Apps
@@ -83,6 +84,10 @@ hl.bind(mainMod .. " + ALT + LEFT", hl.dsp.exec_cmd("playerctl previous"))
 hl.bind(mainMod .. " + ALT + RIGHT", hl.dsp.exec_cmd("playerctl next"))
 hl.bind(mainMod .. " + ALT + UP", hl.dsp.exec_cmd("playerctl volume 0.1+"))
 hl.bind(mainMod .. " + ALT + DOWN", hl.dsp.exec_cmd("playerctl volume 0.1-"))
+
+-- Deadlock audio callouts script
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(deadlockAudioCalloutsOn))
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(deadlockAudioCalloutsOff))
 
 -- laptop functions
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true})
