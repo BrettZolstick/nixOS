@@ -47,7 +47,7 @@
     firefox.enable = true;
     # freecad.enable = true;
     # freerdp.enable = true;
-    # kicad.enable = true;
+    kicad.enable = true;
     lingot.enable = true;
     orcaSlicer.enable = true;
     osuLazer.enable = true;
