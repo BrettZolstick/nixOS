@@ -87,6 +87,7 @@
     gnomeDiskUtility.enable = true;
     qdirstat.enable = true;
     dolphin.enable = true;
+    arduino.enable = true;
     
     mangohud.enable = false;
   };
