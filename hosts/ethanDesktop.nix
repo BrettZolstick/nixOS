@@ -78,7 +78,7 @@
     mangojuice.enable = true;
     # xmage.enable = true;
     easyEffects.enable = true;
-    chromium.enable = true;
+    # chromium.enable = true;
     # qemu.enable = true;
     python.enable = true;
     # kdenlive.enable = true;
