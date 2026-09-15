@@ -71,7 +71,7 @@
     # woeusb.enable = true;
     mcrcon.enable = true;
     office.enable = true;
-    # deadlockModManager.enable = true;
+    deadlockModManager.enable = true;
     # hytaleLauncher.enable = true;
     java25.enable = true;
     bluebubbles.enable = true;
