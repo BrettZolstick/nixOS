@@ -45,6 +45,7 @@
     dolphin.enable = true;
     freerdp.enable = true;
     lutris.enable = true;
+    easyEffects.enable = true;
     
   };
 }
