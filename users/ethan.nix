@@ -24,6 +24,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEbZKk4p+nxPj9GIkQ/2iFAnOPBx3Pa56hF4nrn2NLYR sshFromEthanLaptop"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMx4aJOCFybYEqWfLZD8Q2GDa4jvTV+I02Nda4LmqUUn sshFromEthanPhone"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAsbnitZOZtdvjo4+qWzPqn7Cs1zAhKS5wnasrJk8A9o sshFromCg"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII9TzVdZKqv3RAhZaSnUd6ksQn6OseJr8RAY56gUwwQi fromPlexusWorkLaptop"
     ];
     shell = pkgs.fish; # cry about it
   };
