@@ -13,10 +13,21 @@
 
   config = lib.mkIf config.virtManager.enable {
     # Actual content of the module goes here:
-    # home.packages = with pkgs; [kdePackages.kdeconnect-kde];
 
-    virtualisation.libvirtd.enable = true;
     programs.virt-manager.enable = true;
+
+    environment.systemPackages = with pkgs; [dnsmasq];
+
+    # To enable the default network automatically at boot, run:
+    # virsh net-autostart default
+
+    networking.firewall.trustedInterfaces = [ "virbr0" ];
+
+    virtualisation.libvirtd = {
+      enable = true;
+      qemu.vhostUserPackages = [ pkgs.virtiofsd ];
+    };
+    
 
     
   };
