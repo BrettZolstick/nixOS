@@ -4,7 +4,7 @@ param (
     [String]$RemoveFromPlaylist
 )
 
-$Global:JellyfinUrl = "http://192.168.68.67:8096"
+$Global:JellyfinUrl = "http://35.140.104.84:8096"
 $Global:JellyfinUserID = "3bf0992a73f24b619637b4ba62503439" # can be found in the url if you go to jellyfin > settings > profile
 $Global:JellyfinToken = Get-Content -LiteralPath "${HOME}/.config/jellyfin/api-key"
 $Global:CurrentDeviceIP = (ip -json route get 1.1.1.1 | ConvertFrom-Json).prefsrc
@@ -32,12 +32,12 @@ function GetNowPlayingItem {
     $AllSessions = Invoke-RestMethod `
         -Method Get `
         -Uri "${Global:JellyfinUrl}/Sessions?activeWithinSeconds=30" `
-        -Headers $Headers
+        -Headers $Global:Headers
 
     $CurrentSession = $AllSessions | Where-Object {
         $_.UserId -eq $Global:JellyfinUserID -and
         $_.NowPlayingItem.MediaType -eq 'Audio' -and
-        $_.RemoteEndPoint -eq $Global:CurrentDeviceIP -and
+        # $_.RemoteEndPoint -eq $Global:CurrentDeviceIP -and # disabled ip check when I switched to WAN
         -not $_.PlayState.IsPaused
     } | Select-Object -First 1
 
