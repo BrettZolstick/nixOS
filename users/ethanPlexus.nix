@@ -18,7 +18,7 @@
   users.users.${currentUserName} = {
     isNormalUser = true;
     description = "Plexus account";
-    extraGroups = ["networkmanager" "wheel" "inputs" "audio" "minecraftGTNH" "fileSharingi" "docker" "libvirtd"];
+    extraGroups = ["networkmanager" "wheel" "inputs" "audio" "minecraftGTNH" "fileSharing" "docker" "libvirtd" "users"];
     openssh.authorizedKeys.keys = [];
     shell = pkgs.fish;
   };

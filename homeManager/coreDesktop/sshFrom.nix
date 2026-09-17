@@ -8,6 +8,7 @@
     "~/.ssh/sshFromEthanLaptop-id_ed25519"
     "~/.ssh/sshFromEthanServer-id_ed25519"
     "~/.ssh/sshFromCg-id_ed25519"
+    "~/.ssh/sshFromPlexusWorkLaptop-id_ed25519"
   ];
 in {
   # This is wrapped in an option so that it can be easily toggled elsewhere.
