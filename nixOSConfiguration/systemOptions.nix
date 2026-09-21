@@ -35,7 +35,13 @@
   nix.settings.experimental-features = ["flakes" "nix-command"];
 
   # Enable stylix
-  stylix.enable = true; # this must always be enabled, as its colors are refrenced throughout the entire config.
+  stylix = {
+    enable = true;
+    targets = {
+      gtk.enable = false;
+      qt.enable = false;
+    };
+  };
 
   # Enable wooting
   hardware.wooting.enable = true;
