@@ -46,6 +46,8 @@
     freerdp.enable = true;
     lutris.enable = true;
     easyEffects.enable = true;
+    gnome-disk-utility.enable = true;
+    chromium.enable = true;
     
   };
 }

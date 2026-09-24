@@ -67,6 +67,7 @@ hl.bind(mainMod .. " + ALT + 9", hl.dsp.exec_cmd(jellyfinQuickAdd .. " -AddToPla
 hl.bind(mainMod .. " + ALT + 8", hl.dsp.exec_cmd(jellyfinQuickAdd .. " -AddToPlaylist 'Electronic'"))
 hl.bind(mainMod .. " + ALT + 7", hl.dsp.exec_cmd(jellyfinQuickAdd .. " -AddToPlaylist 'Chiptune'"))
 hl.bind(mainMod .. " + ALT + 6", hl.dsp.exec_cmd(jellyfinQuickAdd .. " -AddToPlaylist 'Metal'"))
+hl.bind(mainMod .. " + ALT + 5", hl.dsp.exec_cmd(jellyfinQuickAdd .. " -AddToPlaylist 'Jazz'"))
 hl.bind(mainMod .. " + ALT + BACKSPACE", hl.dsp.exec_cmd(jellyfinQuickAdd .. " -AddToPlaylist 'Delete'"))
 
 --jellyfin remove current track from playlist 
@@ -76,6 +77,7 @@ hl.bind(mainMod .. " + CTRL + ALT + 9", hl.dsp.exec_cmd(jellyfinQuickAdd .. " -R
 hl.bind(mainMod .. " + CTRL + ALT + 8", hl.dsp.exec_cmd(jellyfinQuickAdd .. " -RemoveFromPlaylist 'Electronic'"))
 hl.bind(mainMod .. " + CTRL + ALT + 7", hl.dsp.exec_cmd(jellyfinQuickAdd .. " -RemoveFromPlaylist 'Chiptune'"))
 hl.bind(mainMod .. " + CTRL + ALT + 6", hl.dsp.exec_cmd(jellyfinQuickAdd .. " -RemoveFromPlaylist 'Metal'"))
+hl.bind(mainMod .. " + CTRL + ALT + 5", hl.dsp.exec_cmd(jellyfinQuickAdd .. " -RemoveFromPlaylist 'Jazz'"))
 hl.bind(mainMod .. " + CTRL + ALT + BACKSPACE", hl.dsp.exec_cmd(jellyfinQuickAdd .. " -RemoveFromPlaylist 'Delete'"))
 
 -- media control
