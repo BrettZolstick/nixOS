@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   ...
 }: {
   imports =
@@ -28,6 +29,10 @@
     grub.enable = true;
     grub.device = "/dev/nvme0n1";
   };
+
+  environment.systemPackages = with pkgs; [
+    kitty # install kitty system wide to fix a weird bug I was having when sshing into my server
+  ];
 
   hardware.cpu.amd.updateMicrocode = true;
 
