@@ -88,6 +88,7 @@
     qdirstat.enable = true;
     dolphin.enable = true;
     arduino.enable = true;
+    vlc.enable = true;
     
     mangohud.enable = false;
   };
