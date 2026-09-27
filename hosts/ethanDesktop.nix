@@ -89,6 +89,7 @@
     dolphin.enable = true;
     arduino.enable = true;
     vlc.enable = true;
+    ytdlp.enable = true;
     
     mangohud.enable = false;
   };
