@@ -79,17 +79,23 @@
         general = {
           lock_cmd = "hyprlock";
           before_sleep_cmd = "loginctl lock-session";
-          after_sleep_cmd = "hyprctl dispatch dpms on";
+          after_sleep_cmd = ''
+            hyprctl dispatch 'hl.dsp.dpms({ action = "enable" })'    
+          '';
           # on_unlock_cmd = "${todoistToWorkspace1}";
         };
         listener = [
           {
-            timeout = 300;
+            timeout = 120;
             on-timeout =
               if lib.elem osConfig.networking.hostName == ["ethanDesktop" "cg"]
               then "hyprlock"
-              else "hyprctl dispatch dpms off && hyprlock";
-            on-resume = "hyprctl dispatch dpms on";
+              else ''
+                hyprctl dispatch 'hl.dsp.dpms({ action = "disable" })' && hyprlock   
+              '';
+            on-resume = ''
+              hyprctl dispatch 'hl.dsp.dpms({ action = "enable" })'    
+            '';
           }
         ];
       };
