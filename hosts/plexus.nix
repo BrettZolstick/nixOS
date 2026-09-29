@@ -38,6 +38,7 @@
 
   pipewire.enable = true;
   virtManager.enable = true;
+  printing.enable = true;
 
   home-manager.users.ethanPlexus = {
     firefox.enable = true;
