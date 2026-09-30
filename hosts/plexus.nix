@@ -49,6 +49,7 @@
     easyEffects.enable = true;
     gnome-disk-utility.enable = true;
     chromium.enable = true;
+    nwipe.enable = true;
     
   };
 }
