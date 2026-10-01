@@ -8,7 +8,7 @@ $Global:JellyfinUrl = "http://35.140.104.84:8096"
 $Global:JellyfinUserID = "3bf0992a73f24b619637b4ba62503439" # can be found in the url if you go to jellyfin > settings > profile
 $Global:JellyfinToken = Get-Content -LiteralPath "${HOME}/.config/jellyfin/api-key"
 $Global:CurrentDeviceIP = (ip -json route get 1.1.1.1 | ConvertFrom-Json).prefsrc
-$Global:Headers = @{'X-MediaBrowser-Token' = $JellyfinToken}
+$Global:Headers = @{Authorization = 'MediaBrowser Token="' + $Global:JellyfinToken + '"'}
 
 function GetAlbumArtURL {
     $ArtURL = & playerctl metadata mpris:artUrl
