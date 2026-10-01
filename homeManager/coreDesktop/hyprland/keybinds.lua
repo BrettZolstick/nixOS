@@ -9,6 +9,7 @@ local rebuild = terminal .. " /run/current-system/sw/bin/bash -lc 'sudo nixos-re
 local notificationCenter = "swaync-client -t -sw"
 local lock = "hyprlock"
 local screenshot = "grimblast --freeze copy area"
+local screenshotOCR = "grimblast --freeze save area - | tesseract stdin stdout | wl-copy"
 local jellyfinQuickAdd = "pwsh -File $HOME/.config/hypr/hyprland/jellyfinScripts/jellyfinQuickAdd.ps1"
 local deadlockAudioCalloutsOn = "pwsh -File $HOME/projects/deadlockAudioScript/deadlockAudioCallouts.ps1"
 local deadlockAudioCalloutsOff = "pkill --full 'deadlockAudioCallouts.ps1'"
@@ -24,6 +25,7 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(rebuild))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(notificationCenter))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(lock))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(screenshot))
+hl.bind(mainMod .. " + CTRL + SHIFT + S", hl.dsp.exec_cmd(screenshotOCR))
 
 -- window actions
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
