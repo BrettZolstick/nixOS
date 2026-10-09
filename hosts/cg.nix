@@ -34,7 +34,7 @@
 
   openTabletDriver.enable = false;
   alsaScarlettGui.enable = false;
-  steam.enable = false;
+  steam.enable = true;
 
   samba.enable = true;
   sshInto.enable = true;
