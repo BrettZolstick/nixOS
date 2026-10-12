@@ -13,9 +13,8 @@
 
   config = lib.mkIf config.ventoy.enable {
     # Actual content of the module goes here:
-    
-    home.packages = with pkgs; [
-      ventoy-full-qt
-    ];
+    environment.systemPackages = with pkgs; [ventoy-full-qt];
+
+    nixpkgs.config.permittedInsecurePackages = ["ventoy-qt5-1.1.17"];
   };
 }

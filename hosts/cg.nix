@@ -40,12 +40,12 @@
   sshInto.enable = true;
   syncthing.enable = true;
   pipewire.enable = true;
+  ventoy.enable = true;
 
   home-manager.users.ethan = {
     firefox.enable = true;
     vesktop.enable = true;
     office.enable = true;
     figma.enable = true;
-    ventoy.enable = true;
   };
 }
