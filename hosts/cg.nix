@@ -46,5 +46,6 @@
     vesktop.enable = true;
     office.enable = true;
     figma.enable = true;
+    ventoy.enable = true;
   };
 }
