@@ -15,7 +15,7 @@
     # Actual content of the module goes here:
     
     home.packages = with pkgs; [
-      ventoy
+      ventoy-full-qt
     ];
   };
 }
