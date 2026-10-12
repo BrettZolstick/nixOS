@@ -108,12 +108,23 @@ local hosts = {
         position = "0x0",
         scale = "1", 
       },
+      {
+        output = "HDMI-A-3",
+        mode = "1920x1080@75.0",
+        position = "1920x0",
+        scale = "1", 
+      },
     },
     
     workspaces = {
       {
         workspace = "1",
         monitor = "HDMI-A-1",
+        default = true,
+      },
+      {
+        workspace = "2",
+        monitor = "HDMI-A-3",
         default = true,
       },
     },
