@@ -2,6 +2,7 @@
   config,
   lib,
   osConfig,
+  pkgs,
   ...
 }: {
   # This is wrapped in an option so that it can be easily toggled elsewhere.
@@ -102,6 +103,24 @@
     };
 
     stylix.targets.hyprland.enable = false;
-    
+
+
+    systemd.user.services.polkit-kde-agent = {
+      Unit = {
+        Description = "KDE Polkit Authentication Agent"; # Human-readable service name
+        After = [ "graphical-session.target" ]; # Order startup after the graphical session
+        PartOf = [ "graphical-session.target" ]; # Stop when the graphical session stops
+      };
+
+      Service = {
+        Type = "simple"; # Agent runs continuously in the foreground
+        ExecStart = "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1"; # Use the executable's Nix store path
+        Restart = "on-failure"; # Restart if the process crashes
+      };
+
+      Install = {
+        WantedBy = [ "graphical-session.target" ]; # Start automatically with the graphical session
+      };
+    };
   };
 }
