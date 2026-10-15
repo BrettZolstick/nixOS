@@ -20,6 +20,7 @@
     enable = true;
     wheelNeedsPassword = false;
   };
+  services.udisks2.enable = true;
 
   # give 777 perms to mounted copyparty directory
   # filesystems."/mnt/copyparty".options = lib.mkafter [
