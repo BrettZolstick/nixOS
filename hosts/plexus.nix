@@ -20,6 +20,7 @@
     enable = true;
     wheelNeedsPassword = false;
   };
+  # services.udisks2.enable = true;
 
   # give 777 perms to mounted copyparty directory
   # filesystems."/mnt/copyparty".options = lib.mkafter [
@@ -39,6 +40,7 @@
   pipewire.enable = true;
   virtManager.enable = true;
   printing.enable = true;
+  gnomeDiskUtility.enable = true;  
 
   home-manager.users.ethanPlexus = {
     firefox.enable = true;
@@ -47,7 +49,6 @@
     freerdp.enable = true;
     lutris.enable = true;
     easyEffects.enable = true;
-    gnome-disk-utility.enable = true;
     chromium.enable = true;
     nwipe.enable = true;
     

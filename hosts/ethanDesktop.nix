@@ -84,7 +84,6 @@
     # kdenlive.enable = true;
     nodeJs.enable = true;
     ardour.enable = true;
-    gnomeDiskUtility.enable = true;
     qdirstat.enable = true;
     dolphin.enable = true;
     arduino.enable = true;

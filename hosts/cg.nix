@@ -20,7 +20,6 @@
     enable = true;
     wheelNeedsPassword = false;
   };
-  services.udisks2.enable = true;
 
   # give 777 perms to mounted copyparty directory
   # filesystems."/mnt/copyparty".options = lib.mkafter [
@@ -42,6 +41,7 @@
   syncthing.enable = true;
   pipewire.enable = true;
   ventoy.enable = true;
+  gnomeDiskUtility.enable = true;
 
   home-manager.users.ethan = {
     firefox.enable = true;

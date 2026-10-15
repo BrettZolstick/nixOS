@@ -13,6 +13,9 @@
 
   config = lib.mkIf config.gnomeDiskUtility.enable {
     # Actual content of the module goes here:
-    home.packages = with pkgs; [gnome-disk-utility];
+    environment.systemPackages = with pkgs; [gnome-disk-utility];
+
+    services.udisks2.enable = true;
+
   };
 }
