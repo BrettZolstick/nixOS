@@ -40,7 +40,8 @@
   pipewire.enable = true;
   virtManager.enable = true;
   printing.enable = true;
-  gnomeDiskUtility.enable = true;  
+  gnomeDiskUtility.enable = true;
+  KDEPartitionManager.enable = true;
 
   home-manager.users.ethanPlexus = {
     firefox.enable = true;
