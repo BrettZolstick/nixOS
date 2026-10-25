@@ -8,26 +8,20 @@ local hosts = {
       {
         output = "DP-1",
         mode = "2560x1440@239.97",
-        position = "1920x0",
+        position = "2560x0",
         scale = "1",
         vrr = 2,
       },
       {
-        output = "DP-2",
-        mode = "1920x1080@60.0",
-        position = "6400x0",
-        scale = "1",
-      },
-      {
         output = "DP-3",
-        mode = "1920x1080@60.0",
+        mode = "2560x1440@240.00",
         position = "0x0",
         scale = "1",
       },
       {
         output = "HDMI-A-1",
-        mode = "1920x1080@60.0",
-        position = "4480x0",
+        mode = "2560x1440x240.00",
+        position = "5120x0",
         scale = "1",
       },
     },
@@ -46,11 +40,6 @@ local hosts = {
       {
         workspace = "3",
         monitor = "HDMI-A-1",
-        default = true,
-      },
-      {
-        workspace = "4",
-        monitor = "DP-2",
         default = true,
       },
     },
