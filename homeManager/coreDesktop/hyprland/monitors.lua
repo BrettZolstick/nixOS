@@ -19,8 +19,8 @@ local hosts = {
         scale = "1",
       },
       {
-        output = "HDMI-A-1",
-        mode = "2560x1440x240.00",
+        output = "DP-2",
+        mode = "2560x1440@240.00",
         position = "5120x0",
         scale = "1",
       },
@@ -39,7 +39,7 @@ local hosts = {
       },
       {
         workspace = "3",
-        monitor = "HDMI-A-1",
+        monitor = "DP-2",
         default = true,
       },
     },
