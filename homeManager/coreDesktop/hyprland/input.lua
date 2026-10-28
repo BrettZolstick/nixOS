@@ -60,5 +60,11 @@ hl.config({
       flip_y = false,
       drag_3fg = 0,
     },
+
+    hl.device({
+      name ="opentabletdriver-virtual-artist-tablet",
+      output = "DP-1",
+    })
+    
   },
 })
