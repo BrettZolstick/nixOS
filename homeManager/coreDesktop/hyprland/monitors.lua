@@ -24,6 +24,12 @@ local hosts = {
         position = "5120x0",
         scale = "1",
       },
+      {
+        output = "HDMI-A-1",
+        mode = "1920x1080@60.00",
+        position = "7680x0",
+        scale = "1",
+      },
     },
 
     workspaces = {
