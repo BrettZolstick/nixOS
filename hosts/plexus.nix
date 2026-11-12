@@ -42,6 +42,7 @@
   printing.enable = true;
   gnomeDiskUtility.enable = true;
   KDEPartitionManager.enable = true;
+  ventoy.enable = true;
 
   home-manager.users.ethanPlexus = {
     firefox.enable = true;
