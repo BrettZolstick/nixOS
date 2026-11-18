@@ -15,7 +15,6 @@
     # Actual content of the module goes here:
 
     home.packages = with pkgs; [
-      teams
       teams-for-linux
     ];
   };
