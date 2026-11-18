@@ -55,6 +55,7 @@
     nwipe.enable = true;
     splashtopForRMM.enable = true;
     okular.enable = true;
+    teams.enable = true;
     
   };
 }
