@@ -21,7 +21,12 @@ in {
       shellWrapperName = "y";
       enableFishIntegration = true;
       plugins = {
-        rsync = pkgs.yaziPlugins.rsync;
+        rsync = pkgs.fetchFromGitHub {
+          owner = "WayneKent";
+          repo = "rsync-paste.yazi";
+          rev = "d9750b2e826de8aed5844ee62bb228677d61bf7a";
+          hash = lib.fakeHash;
+        };
       };
       extraPackages = [
         pkgs.rsync
@@ -29,9 +34,9 @@ in {
       keymap = {
         mgr.prepend_keymap = [
           {
-            on = ["R"];
-            run = "plugin rsync";
-            desc = "Copy files using rsync";
+            on = ["P"];
+            run = "plugin rsync-paste";
+            desc = "Paste files using rsync";
           }
         ];
       };
