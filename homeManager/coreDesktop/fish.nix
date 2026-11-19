@@ -33,6 +33,7 @@
         syncthingJournal = "sudo journalctl -u syncthing.service --since=@$(stat -c %Y /run/current-system) -f";
         emailScannerJournal = "sudo journalctl -u emailScanner.service --since=@$(stat -c %Y /run/current-system) -f";
         rbs = "sudo nixos-rebuild switch --flake ~/nixOS#$hostname --impure --show-trace";
+        rcopy = "rsync --times --human-readable --info=progress2 --partial --no-inc-recursive --stats";
       };
     };
   };
