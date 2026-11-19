@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: let
   colors = config.lib.stylix.colors.withHashtag;
@@ -20,26 +19,6 @@ in {
       enable = true;
       shellWrapperName = "y";
       enableFishIntegration = true;
-      plugins = {
-        rsync = pkgs.fetchFromGitHub {
-          owner = "WayneKent";
-          repo = "rsync-paste.yazi";
-          rev = "d9750b2e826de8aed5844ee62bb228677d61bf7a";
-          hash = "sha256-zjM8vho7xEaVERYOUCBAdJoxi91jv+tgxpqMZccMGf8=";
-        };
-      };
-      extraPackages = [
-        pkgs.rsync
-      ];
-      keymap = {
-        mgr.prepend_keymap = [
-          {
-            on = ["P"];
-            run = "plugin rsync-paste";
-            desc = "Paste files using rsync";
-          }
-        ];
-      };
       settings = {
         # view options here: https://yazi-rs.github.io/docs/configuration/yazi
         mgr = {
