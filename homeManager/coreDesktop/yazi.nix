@@ -25,7 +25,7 @@ in {
           owner = "WayneKent";
           repo = "rsync-paste.yazi";
           rev = "d9750b2e826de8aed5844ee62bb228677d61bf7a";
-          hash = lib.fakeHash;
+          hash = "sha256-zjM8vho7xEaVERYOUCBAdJoxi91jv+tgxpqMZccMGf8=";
         };
       };
       extraPackages = [
