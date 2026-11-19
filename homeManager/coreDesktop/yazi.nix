@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   colors = config.lib.stylix.colors.withHashtag;
@@ -19,6 +20,21 @@ in {
       enable = true;
       shellWrapperName = "y";
       enableFishIntegration = true;
+      plugins = {
+        rsync = pkgs.yaziPlugins.rsync;
+      };
+      extraPackages = [
+        pkgs.rsync
+      ];
+      keymap = {
+        mgr.prepend_keymap = [
+          {
+            on = ["R"];
+            run = "plugin rsync";
+            desc = "Copy files using rsync";
+          }
+        ];
+      };
       settings = {
         # view options here: https://yazi-rs.github.io/docs/configuration/yazi
         mgr = {

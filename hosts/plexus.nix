@@ -51,7 +51,7 @@
     freerdp.enable = true;
     lutris.enable = true;
     easyEffects.enable = true;
-    chromium.enable = true;
+    # chromium.enable = true;
     nwipe.enable = true;
     splashtopForRMM.enable = true;
     okular.enable = true;
