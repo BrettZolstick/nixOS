@@ -87,7 +87,8 @@
         };
         listener = [
           {
-            timeout = 120;
+            # timeout = 120;
+            timeout = 600;
             on-timeout =
               if lib.elem osConfig.networking.hostName == ["ethanDesktop" "cg"]
               then "hyprlock"
